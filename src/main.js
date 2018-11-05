@@ -26,6 +26,11 @@ import './assets/css/ui.jqgrid.css'
 import './assets/css/prettify.css'
 import './assets/css/select2.css'
 
+import './assets/fonts/fontawesome-webfont.eot'
+import './assets/fonts/fontawesome-webfont.svg'
+import './assets/fonts/fontawesome-webfont.ttf'
+import './assets/fonts/fontawesome-webfont.woff'
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
