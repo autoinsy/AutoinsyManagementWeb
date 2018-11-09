@@ -26,7 +26,7 @@ import './assets/css/jquery.gritter.css'
 import './assets/css/ui.jqgrid.css'
 import './assets/css/prettify.css'
 
-import ace from './assets/js/ace.min'
+import ace from './assets/js/ace.min.js'
 
 import './assets/fonts/fontawesome-webfont.eot'
 import './assets/fonts/fontawesome-webfont.svg'
@@ -34,7 +34,7 @@ import './assets/fonts/fontawesome-webfont.ttf'
 import './assets/fonts/fontawesome-webfont.woff'
 
 Vue.config.productionTip = false;
-Vue.property.ace = ace;
+Vue.prototype.ace = ace;
 
 /* eslint-disable no-new */
 new Vue({
