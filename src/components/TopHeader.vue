@@ -1,10 +1,6 @@
 <template>
   <div class="">
     <div class="navbar navbar-default" id="navbar">
-      <script type="text/javascript"> try {
-        ace.settings.check('navbar', 'fixed')
-      } catch (e) {
-      } </script>
       <div class="navbar-container" id="navbar-container">
         <div class="navbar-header pull-left">
           <a href="#" class="navbar-brand">
@@ -238,9 +234,15 @@
 </template>
 
 <script>
-    export default {
-        name: "TopHeader"
+  export default {
+    name: "TopHeader",
+    mounted: function () {
+      try {
+        ace.settings.check('navbar', 'fixed')
+      } catch (e) {
+      }
     }
+  }
 </script>
 
 <style scoped>

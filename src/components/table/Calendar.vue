@@ -26,7 +26,7 @@
   export default {
     name: "Calendar",
     mounted: function () {
-      this.ace.settings.check('breadcrumbs', 'fixed')
+      ace.settings.check('breadcrumbs', 'fixed')
     }
   }
 </script>

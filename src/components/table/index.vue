@@ -30,7 +30,7 @@
   export default {
     name: "index",
     created: function () {
-      this.ace.settings.check('breadcrumbs', 'fixed')
+      ace.settings.check('breadcrumbs', 'fixed')
     }
   }
 </script>

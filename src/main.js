@@ -26,7 +26,10 @@ import './assets/css/jquery.gritter.css'
 import './assets/css/ui.jqgrid.css'
 import './assets/css/prettify.css'
 
+import 'bootstrap/dist/js/bootstrap.js'
+
 import ace from './assets/js/ace.min.js'
+import './assets/js/ace-extra.min.js'
 
 import './assets/fonts/fontawesome-webfont.eot'
 import './assets/fonts/fontawesome-webfont.svg'

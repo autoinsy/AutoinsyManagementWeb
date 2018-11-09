@@ -3,12 +3,13 @@
     <top-nav></top-nav>
     <div id=''>
       <left-nav></left-nav>
+      <index></index>
       <router-view></router-view>
     </div>
   </div>
 </template>
 <script>
-  // import TopNav from '@/components/TopNav'
+  import TopNav from '@/components/TopHeader'
   import LeftNav from '@/components/LeftNav'
   import index from '@/components/table/index.vue'
     export default {
@@ -16,7 +17,7 @@
       //等这个好了  就差不多了， 还有别的问题么？
       components: {
         LeftNav: LeftNav,
-        // TopNav: TopNav,
+        TopNav: TopNav,
         index: index,
       },
     }
