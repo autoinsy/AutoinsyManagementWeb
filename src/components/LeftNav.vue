@@ -23,7 +23,7 @@
           <span class="btn btn-danger"></span>
         </div>
       </div>
-      <ul class="nav nav-list">
+      <ul class="nav nav-list" style="width: 182px;">
         <li class="active">
           <a href="">
             <i class="icon-dashboard"></i>
@@ -152,7 +152,8 @@
           <i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
              data-icon2="icon-double-angle-right"></i>
         </div>
-      </a></div>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -166,5 +167,10 @@
 </script>
 
 <style scoped>
-
+  .nav-list li{
+    width: 182px;
+  }
+  .sidebar-shortcuts-large button{
+    height: 30px;
+  }
 </style>

@@ -337,7 +337,7 @@
                   </div>
                   <div class="itemdiv memberdiv">
                     <div class="user">
-                      <img alt="Alexa Doe's avatar" src="picture/avatar1.png">
+                      <img alt="Alexa Doe's avatar" src="../../assets/picture/avatar1.png">
                     </div>
                     <div class="body">
                       <div class="name">
@@ -422,7 +422,7 @@
                     </div>
                     <div class="itemdiv commentdiv">
                       <div class="user">
-                        <img alt="Jennifer's Avatar" src="picture/avatar1.png">
+                        <img alt="Jennifer's Avatar" src="../../assets/picture/avatar1.png">
                       </div>
                       <div class="body">
                         <div class="name">
@@ -544,7 +544,7 @@
               <div class="dialogs" style="overflow: hidden; width: auto; height: 300px;">
                 <div class="itemdiv dialogdiv">
                   <div class="user">
-                    <img alt="Alexa's Avatar" src="picture/avatar1.png">
+                    <img alt="Alexa's Avatar" src="../../assets/picture/avatar1.png">
                   </div>
                   <div class="body">
                     <div class="time">
@@ -625,7 +625,7 @@
                 </div>
                 <div class="itemdiv dialogdiv">
                   <div class="user">
-                    <img alt="Alexa's Avatar" src="picture/avatar1.png">
+                    <img alt="Alexa's Avatar" src="../../assets/picture/avatar1.png">
                   </div>
                   <div class="body">
                     <div class="time">
