@@ -2,7 +2,7 @@
   <div class="">
     <div class="navbar navbar-default" id="navbar">
       <div class="navbar-container" id="navbar-container">
-        <div class="navbar-header pull-left">
+        <div class="navbar-header pull-left" style="float: left !important;">
           <a href="#" class="navbar-brand">
             <small>
               <i class="icon-leaf"></i>
@@ -10,7 +10,7 @@
             </small>
           </a>
         </div>
-        <div class="navbar-header pull-right" role="navigation">
+        <div class="navbar-header pull-right" role="navigation" style="float: right !important;">
           <ul class="nav ace-nav">
             <li class="grey">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -230,6 +230,7 @@
         </div>
       </div>
     </div>
+    <div style="clear:both;"></div>
   </div>
 </template>
 

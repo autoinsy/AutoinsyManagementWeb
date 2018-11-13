@@ -1,8 +1,8 @@
 <template>
-  <div class="">
+  <div class=""  style="background-color: #fff;">
     <div class="main-content"><a href="#" class="dropdown-toggle">
     </a>
-      <div class="breadcrumbs" id="breadcrumbs">
+      <div class="breadcrumbs" id="breadcrumbs" style="text-align: left;">
         <a href="#" class="dropdown-toggle"></a>
         <ul class="breadcrumb">
           <a href="#" class="dropdown-toggle"></a>
@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="page-content">
-        <div class="page-header">
+        <div class="page-header" style="text-align: left;">
           <h1>
             控制台
             <small>
@@ -34,7 +34,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="alert alert-block alert-success">
+            <div class="alert alert-block alert-success" style=" text-align: left;">
               <button type="button" class="close" data-dismiss="alert">
                 <i class="icon-remove"></i>
               </button>
@@ -66,7 +66,7 @@
   import infor from './infor'
   import numberBox from './NumberBox'
   import middle from'./middle'
-  import lastIndex from'./lastindex'
+  // import lastIndex from'./lastindex'
 
   export default {
     name: "index",
@@ -74,7 +74,7 @@
       infor: infor,
       numberBox: numberBox,
       middle: middle,
-      lastIndex: lastIndex
+      // lastIndex: lastIndex
     },
     created: function () {
       ace.settings.check('breadcrumbs', 'fixed')
@@ -83,5 +83,8 @@
 </script>
 
 <style scoped>
-
+.breadcrumb li{
+  list-style-type: none;
+  float: left;
+}
 </style>
