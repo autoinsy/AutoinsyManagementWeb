@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import $ from 'jquery/dist/jquery'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-editable/css/bootstrap-editable.css'
 import 'bootstrap-timepicker/css/bootstrap-timepicker.css'
@@ -38,6 +39,7 @@ import './assets/fonts/fontawesome-webfont.woff'
 
 Vue.config.productionTip = false;
 Vue.prototype.ace = ace;
+Vue.prototype.$ = $;
 
 /* eslint-disable no-new */
 new Vue({
