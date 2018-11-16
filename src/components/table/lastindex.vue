@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="widget-box transparent" id="recent-box">
-        <div class="widget-header">
+        <div class="widget-header" style="text-align: left">
           <h4 class="lighter smaller">
-            <i class="icon-rss orange"></i>
+            <i class="fa fa-rss orange"></i>
             最近
           </h4>
           <div class="widget-toolbar no-border">
@@ -22,15 +22,15 @@
           </div>
         </div>
         <div class="widget-body">
-          <div class="widget-main padding-4">
+          <div class="widget-main padding-4" style="text-align: left;">
             <div class="tab-content padding-8 overflow-visible">
               <div id="task-tab" class="tab-pane active">
                 <h4 class="smaller lighter green">
-                  <i class="icon-list"></i>
+                  <i class="fa fa-list"></i>
                   可拖拽排序列表
                 </h4>
-                <ul id="tasks" class="item-list ui-sortable">
-                  <li class="item-orange clearfix">
+                <ul id="tasks" class="item-list ui-sortable" style="text-align: left;">
+                  <li class="item-orange clearfix" style="text-align: left;">
                     <label class="inline">
                       <input type="checkbox" class="ace">
                       <span class="lbl"> 问答</span>
@@ -41,33 +41,33 @@
                       <canvas width="30" height="30"></canvas>
                     </div>
                   </li>
-                  <li class="item-red clearfix">
+                  <li class="item-red clearfix" style="text-align: left;">
                     <label class="inline">
                       <input type="checkbox" class="ace">
                       <span class="lbl"> BUG修复</span>
                     </label>
                     <div class="pull-right action-buttons">
                       <a href="#" class="blue">
-                        <i class="icon-pencil bigger-130"></i>
+                        <i class="fa fa-pencil bigger-130"></i>
                       </a>
                       <span class="vbar"></span>
                       <a href="#" class="red">
-                        <i class="icon-trash bigger-130"></i>
+                        <i class="fa fa-trash bigger-130"></i>
                       </a>
                       <span class="vbar"></span>
                       <a href="#" class="green">
-                        <i class="icon-flag bigger-130"></i>
+                        <i class="fa fa-flag bigger-130"></i>
                       </a>
                     </div>
                   </li>
-                  <li class="item-default clearfix">
+                  <li class="item-default clearfix" style="text-align: left;">
                     <label class="inline">
                       <input type="checkbox" class="ace">
                       <span class="lbl">添加新的特征</span>
                     </label>
                     <div class="inline pull-right position-relative dropdown-hover">
                       <button class="btn btn-minier bigger btn-primary">
-                        <i class="icon-cog icon-only bigger-120"></i>
+                        <i class="fa fa-cog fa fa-only bigger-120"></i>
                       </button>
                       <ul
                         class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-caret dropdown-close pull-right">
@@ -75,39 +75,39 @@
                           <a href="#" class="tooltip-success" data-rel="tooltip" title=""
                              data-original-title="Mark&nbsp;as&nbsp;done">
                             <span class="green">
-                              <i class="icon-ok bigger-110"></i>
+                              <i class="fa fa-ok bigger-110"></i>
                             </span>
                           </a>
                         </li>
                         <li>
                           <a href="#" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
                             <span class="red">
-                              <i class="icon-trash bigger-110"></i>
+                              <i class="fa fa-trash bigger-110"></i>
                             </span>
                           </a>
                         </li>
                       </ul>
                     </div>
                   </li>
-                  <li class="item-blue clearfix">
+                  <li class="item-blue clearfix" style="text-align: left;">
                     <label class="inline">
                       <input type="checkbox" class="ace">
                       <span class="lbl"> 更新模版脚本</span>
                     </label>
                   </li>
-                  <li class="item-grey clearfix">
+                  <li class="item-grey clearfix" style="text-align: left;">
                     <label class="inline">
                       <input type="checkbox" class="ace">
                       <span class="lbl"> 添加新皮肤</span>
                     </label>
                   </li>
-                  <li class="item-green clearfix">
+                  <li class="item-green clearfix" style="text-align: left;">
                     <label class="inline">
                       <input type="checkbox" class="ace">
                       <span class="lbl"> 升级服务端</span>
                     </label>
                   </li>
-                  <li class="item-pink clearfix">
+                  <li class="item-pink clearfix" style="text-align: left;">
                     <label class="inline">
                       <input type="checkbox" class="ace">
                       <span class="lbl"> 清理垃圾</span>
@@ -115,18 +115,18 @@
                   </li>
                 </ul>
               </div>
-              <div id="member-tab" class="tab-pane">
+              <div id="member-tab" class="tab-pane" style="text-align: left;">
                 <div class="clearfix">
                   <div class="itemdiv memberdiv">
                     <div class="user">
-                      <img alt="Bob Doe's avatar" src="picture/user.jpg">
+                      <img alt="Bob Doe's avatar" src="../../assets/picture/user.jpg">
                     </div>
-                    <div class="body">
+                    <div class="body" style="text-align: left;">
                       <div class="name">
                         <a href="#">Bob Doe</a>
                       </div>
                       <div class="time">
-                        <i class="icon-time"></i>
+                        <i class="fa fa-time"></i>
                         <span class="green">20 min</span>
                       </div>
                       <div>
@@ -134,7 +134,7 @@
                         <div class="inline position-relative">
                           <button class="btn btn-minier bigger btn-yellow btn-no-border dropdown-toggle"
                                   data-toggle="dropdown">
-                            <i class="icon-angle-down icon-only bigger-120"></i>
+                            <i class="fa fa-angle-down fa fa-only bigger-120"></i>
                           </button>
                           <ul
                             class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
@@ -142,7 +142,7 @@
                               <a href="#" class="tooltip-success" data-rel="tooltip" title=""
                                  data-original-title="Approve">
                               <span class="green">
-                                <i class="icon-ok bigger-110"></i>
+                                <i class="fa fa-ok bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -150,7 +150,7 @@
                               <a href="#" class="tooltip-warning" data-rel="tooltip" title=""
                                  data-original-title="Reject">
                               <span class="orange">
-                                <i class="icon-remove bigger-110"></i>
+                                <i class="fa fa-remove bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -158,7 +158,7 @@
                               <a href="#" class="tooltip-error" data-rel="tooltip" title=""
                                  data-original-title="Delete">
                               <span class="red">
-                                <i class="icon-trash bigger-110"></i>
+                                <i class="fa fa-trash bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -169,14 +169,14 @@
                   </div>
                   <div class="itemdiv memberdiv">
                     <div class="user">
-                      <img alt="Joe Doe's avatar" src="picture/avatar2.png">
+                      <img alt="Joe Doe's avatar" src="../../assets/picture/avatar2.png">
                     </div>
-                    <div class="body">
+                    <div class="body" style="text-align: left;">
                       <div class="name">
                         <a href="#">Joe Doe</a>
                       </div>
                       <div class="time">
-                        <i class="icon-time"></i>
+                        <i class="fa fa-time"></i>
                         <span class="green">1 hour</span>
                       </div>
                       <div>
@@ -184,7 +184,7 @@
                         <div class="inline position-relative">
                           <button class="btn btn-minier bigger btn-yellow btn-no-border dropdown-toggle"
                                   data-toggle="dropdown">
-                            <i class="icon-angle-down icon-only bigger-120"></i>
+                            <i class="fa fa-angle-down fa fa-only bigger-120"></i>
                           </button>
                           <ul
                             class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
@@ -192,7 +192,7 @@
                               <a href="#" class="tooltip-success" data-rel="tooltip" title=""
                                  data-original-title="Approve">
                               <span class="green">
-                                <i class="icon-ok bigger-110"></i>
+                                <i class="fa fa-ok bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -200,7 +200,7 @@
                               <a href="#" class="tooltip-warning" data-rel="tooltip" title=""
                                  data-original-title="Reject">
                               <span class="orange">
-                                <i class="icon-remove bigger-110"></i>
+                                <i class="fa fa-remove bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -208,7 +208,7 @@
                               <a href="#" class="tooltip-error" data-rel="tooltip" title=""
                                  data-original-title="Delete">
                               <span class="red">
-                                <i class="icon-trash bigger-110"></i>
+                                <i class="fa fa-trash bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -219,14 +219,14 @@
                   </div>
                   <div class="itemdiv memberdiv">
                     <div class="user">
-                      <img alt="Jim Doe's avatar" src="picture/avatar.png">
+                      <img alt="Jim Doe's avatar" src="../../assets/picture/avatar.png">
                     </div>
-                    <div class="body">
+                    <div class="body" style="text-align: left;">
                       <div class="name">
                         <a href="#">Jim Doe</a>
                       </div>
                       <div class="time">
-                        <i class="icon-time"></i>
+                        <i class="fa fa-time"></i>
                         <span class="green">2 hour</span>
                       </div>
                       <div>
@@ -234,7 +234,7 @@
                         <div class="inline position-relative">
                           <button class="btn btn-minier bigger btn-yellow btn-no-border dropdown-toggle"
                                   data-toggle="dropdown">
-                            <i class="icon-angle-down icon-only bigger-120"></i>
+                            <i class="fa fa-angle-down fa fa-only bigger-120"></i>
                           </button>
                           <ul
                             class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
@@ -242,7 +242,7 @@
                               <a href="#" class="tooltip-success" data-rel="tooltip" title=""
                                  data-original-title="Approve">
                               <span class="green">
-                                <i class="icon-ok bigger-110"></i>
+                                <i class="fa fa-ok bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -250,7 +250,7 @@
                               <a href="#" class="tooltip-warning" data-rel="tooltip" title=""
                                  data-original-title="Reject">
                               <span class="orange">
-                                <i class="icon-remove bigger-110"></i>
+                                <i class="fa fa-remove bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -258,7 +258,7 @@
                               <a href="#" class="tooltip-error" data-rel="tooltip" title=""
                                  data-original-title="Delete">
                               <span class="red">
-                                <i class="icon-trash bigger-110"></i>
+                                <i class="fa fa-trash bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -269,14 +269,14 @@
                   </div>
                   <div class="itemdiv memberdiv">
                     <div class="user">
-                      <img alt="Alex Doe's avatar" src="picture/avatar5.png">
+                      <img alt="Alex Doe's avatar" src="../../assets/picture/avatar5.png">
                     </div>
-                    <div class="body">
+                    <div class="body" style="text-align: left;">
                       <div class="name">
                         <a href="#">Alex Doe</a>
                       </div>
                       <div class="time">
-                        <i class="icon-time"></i>
+                        <i class="fa fa-time"></i>
                         <span class="green">3 hour</span>
                       </div>
                       <div>
@@ -286,14 +286,14 @@
                   </div>
                   <div class="itemdiv memberdiv">
                     <div class="user">
-                      <img alt="Bob Doe's avatar" src="picture/avatar2.png">
+                      <img alt="Bob Doe's avatar" src="../../assets/picture/avatar2.png">
                     </div>
-                    <div class="body">
+                    <div class="body" style="text-align: left;">
                       <div class="name">
                         <a href="#">Bob Doe</a>
                       </div>
                       <div class="time">
-                        <i class="icon-time"></i>
+                        <i class="fa fa-time"></i>
                         <span class="green">6 hour</span>
                       </div>
                       <div>
@@ -303,14 +303,14 @@
                   </div>
                   <div class="itemdiv memberdiv">
                     <div class="user">
-                      <img alt="Susan's avatar" src="picture/avatar3.png">
+                      <img alt="Susan's avatar" src="../../assets/picture/avatar3.png">
                     </div>
-                    <div class="body">
+                    <div class="body" style="text-align: left;">
                       <div class="name">
                         <a href="#">Susan</a>
                       </div>
                       <div class="time">
-                        <i class="icon-time"></i>
+                        <i class="fa fa-time"></i>
                         <span class="green">yesterday</span>
                       </div>
                       <div>
@@ -320,14 +320,14 @@
                   </div>
                   <div class="itemdiv memberdiv">
                     <div class="user">
-                      <img alt="Phil Doe's avatar" src="picture/avatar4.png">
+                      <img alt="Phil Doe's avatar" src="../../assets/picture/avatar4.png">
                     </div>
-                    <div class="body">
+                    <div class="body" style="text-align: left;">
                       <div class="name">
                         <a href="#">Phil Doe</a>
                       </div>
                       <div class="time">
-                        <i class="icon-time"></i>
+                        <i class="fa fa-time"></i>
                         <span class="green">2 days ago</span>
                       </div>
                       <div>
@@ -339,12 +339,12 @@
                     <div class="user">
                       <img alt="Alexa Doe's avatar" src="../../assets/picture/avatar1.png">
                     </div>
-                    <div class="body">
+                    <div class="body" style="text-align: left;">
                       <div class="name">
                         <a href="#">Alexa Doe</a>
                       </div>
                       <div class="time">
-                        <i class="icon-time"></i>
+                        <i class="fa fa-time"></i>
                         <span class="green">3天以前</span>
                       </div>
                       <div>
@@ -354,11 +354,11 @@
                   </div>
                 </div>
                 <div class="center">
-                  <i class="icon-group icon-2x green"></i>
+                  <i class="fa fa-group fa fa-2x green"></i>
                   &nbsp;
                   <a href="#">
                     查看所有会员 &nbsp;
-                    <i class="icon-arrow-right"></i>
+                    <i class="fa fa-arrow-right"></i>
                   </a>
                 </div>
                 <div class="hr hr-double hr8"></div>
@@ -368,18 +368,18 @@
                   <div class="comments" style="overflow: hidden; width: auto; height: 300px;">
                     <div class="itemdiv commentdiv">
                       <div class="user">
-                        <img alt="Bob Doe's Avatar" src="picture/avatar.png">
+                        <img alt="Bob Doe's Avatar" src="../../assets/picture/avatar.png">
                       </div>
-                      <div class="body">
+                      <div class="body" style="text-align: left;">
                         <div class="name">
                           <a href="#">Bob Doe</a>
                         </div>
                         <div class="time">
-                          <i class="icon-time"></i>
+                          <i class="fa fa-time"></i>
                           <span class="green">6 min</span>
                         </div>
                         <div class="text">
-                          <i class="icon-quote-left"></i>
+                          <i class="fa fa-quote-left"></i>
                           洛瑞姆伊普杜尔或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多。Quisque
                           com莫多马加的一项服务 …
                         </div>
@@ -387,7 +387,7 @@
                       <div class="tools">
                         <div class="inline position-relative">
                           <button class="btn btn-minier bigger btn-yellow dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-angle-down icon-only bigger-120"></i>
+                            <i class="fa fa-angle-down fa fa-only bigger-120"></i>
                           </button>
                           <ul
                             class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
@@ -395,7 +395,7 @@
                               <a href="#" class="tooltip-success" data-rel="tooltip" title=""
                                  data-original-title="Approve">
                               <span class="green">
-                                <i class="icon-ok bigger-110"></i>
+                                <i class="fa fa-ok bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -404,7 +404,7 @@
                               <a href="#" class="tooltip-warning" data-rel="tooltip" title=""
                                  data-original-title="Reject">
                               <span class="orange">
-                                <i class="icon-remove bigger-110"></i>
+                                <i class="fa fa-remove bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -412,7 +412,7 @@
                               <a href="#" class="tooltip-error" data-rel="tooltip" title=""
                                  data-original-title="Delete">
                               <span class="red">
-                                <i class="icon-trash bigger-110"></i>
+                                <i class="fa fa-trash bigger-110"></i>
                               </span>
                               </a>
                             </li>
@@ -424,16 +424,16 @@
                       <div class="user">
                         <img alt="Jennifer's Avatar" src="../../assets/picture/avatar1.png">
                       </div>
-                      <div class="body">
+                      <div class="body" style="text-align: left;">
                         <div class="name">
                           <a href="#">Jennifer</a>
                         </div>
                         <div class="time">
-                          <i class="icon-time"></i>
+                          <i class="fa fa-time"></i>
                           <span class="blue">15 min</span>
                         </div>
                         <div class="text">
-                          <i class="icon-quote-left"></i>
+                          <i class="fa fa-quote-left"></i>
                           洛瑞姆伊普杜尔或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多。Quisque
                           com莫多马加的一项服务…
                         </div>
@@ -441,28 +441,28 @@
                       <div class="tools">
                         <div class="action-buttons bigger-125">
                           <a href="#">
-                            <i class="icon-pencil blue"></i>
+                            <i class="fa fa-pencil blue"></i>
                           </a>
                           <a href="#">
-                            <i class="icon-trash red"></i>
+                            <i class="fa fa-trash red"></i>
                           </a>
                         </div>
                       </div>
                     </div>
                     <div class="itemdiv commentdiv">
                       <div class="user">
-                        <img alt="Joe's Avatar" src="picture/avatar2.png">
+                        <img alt="Joe's Avatar" src="../../assets/picture/avatar2.png">
                       </div>
-                      <div class="body">
+                      <div class="body" style="text-align: left;">
                         <div class="name">
                           <a href="#">Joe</a>
                         </div>
                         <div class="time">
-                          <i class="icon-time"></i>
+                          <i class="fa fa-time"></i>
                           <span class="orange">22 min</span>
                         </div>
                         <div class="text">
-                          <i class="icon-quote-left"></i>
+                          <i class="fa fa-quote-left"></i>
                           洛瑞姆伊普杜尔或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多。Quisque
                           com莫多马加的一项服务 …
                         </div>
@@ -470,28 +470,28 @@
                       <div class="tools">
                         <div class="action-buttons bigger-125">
                           <a href="#">
-                            <i class="icon-pencil blue"></i>
+                            <i class="fa fa-pencil blue"></i>
                           </a>
                           <a href="#">
-                            <i class="icon-trash red"></i>
+                            <i class="fa fa-trash red"></i>
                           </a>
                         </div>
                       </div>
                     </div>
                     <div class="itemdiv commentdiv">
                       <div class="user">
-                        <img alt="Rita's Avatar" src="picture/avatar3.png">
+                        <img alt="Rita's Avatar" src="../../assets/picture/avatar3.png">
                       </div>
-                      <div class="body">
+                      <div class="body" style="text-align: left;">
                         <div class="name">
                           <a href="#">Rita</a>
                         </div>
                         <div class="time">
-                          <i class="icon-time"></i>
+                          <i class="fa fa-time"></i>
                           <span class="red">50 min</span>
                         </div>
                         <div class="text">
-                          <i class="icon-quote-left"></i>
+                          <i class="fa fa-quote-left"></i>
                           洛瑞姆伊普杜尔或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多或多。Quisque
                           com莫多马加的一项服务 …
                         </div>
@@ -500,10 +500,10 @@
                       <div class="tools">
                         <div class="action-buttons bigger-125">
                           <a href="#">
-                            <i class="icon-pencil blue"></i>
+                            <i class="fa fa-pencil blue"></i>
                           </a>
                           <a href="#">
-                            <i class="icon-trash red"></i>
+                            <i class="fa fa-trash red"></i>
                           </a>
                         </div>
                       </div>
@@ -516,11 +516,11 @@
                 </div>
                 <div class="hr hr8"></div>
                 <div class="center">
-                  <i class="icon-comments-alt icon-2x green"></i>
+                  <i class="fa fa-comments-alt fa fa-2x green"></i>
                   &nbsp;
                   <a href="#">
                     See all comments &nbsp;
-                    <i class="icon-arrow-right"></i>
+                    <i class="fa fa-arrow-right"></i>
                   </a>
                 </div>
                 <div class="hr hr-double hr8"></div>
@@ -532,9 +532,9 @@
     </div>
     <div class="col-sm-6">
       <div class="widget-box ">
-        <div class="widget-header">
+        <div class="widget-header" style="text-align: left;">
           <h4 class="lighter smaller">
-            <i class="icon-comment blue"></i>
+            <i class="fa fa-comment blue"></i>
             会话
           </h4>
         </div>
@@ -548,77 +548,77 @@
                   </div>
                   <div class="body">
                     <div class="time">
-                      <i class="icon-time"></i>
+                      <i class="fa fa-time"></i>
                       <span class="green">4秒钟前</span>
                     </div>
-                    <div class="name">
+                    <div class="name" style="text-align: left;">
                       <a href="#">Alexa</a>
                     </div>
-                    <div class="text">大家好啊</div>
+                    <div class="text" style="text-align: left;">大家好啊</div>
                     <div class="tools">
                       <a href="#" class="btn btn-minier btn-info">
-                        <i class="icon-only icon-share-alt"></i>
+                        <i class="fa fa-only fa fa-share-alt"></i>
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="itemdiv dialogdiv">
                   <div class="user">
-                    <img alt="John's Avatar" src="picture/avatar.png">
+                    <img alt="John's Avatar" src="../../assets/picture/avatar.png">
                   </div>
                   <div class="body">
                     <div class="time">
-                      <i class="icon-time"></i>
+                      <i class="fa fa-time"></i>
                       <span class="blue">38秒以前</span>
                     </div>
-                    <div class="name">
+                    <div class="name" style="text-align: left;">
                       <a href="#">John</a>
                     </div>
-                    <div class="text">框架很好用嘛</div>
+                    <div class="text" style="text-align: left;">框架很好用嘛</div>
                     <div class="tools">
                       <a href="#" class="btn btn-minier btn-info">
-                        <i class="icon-only icon-share-alt"></i>
+                        <i class="fa fa-only fa fa-share-alt"></i>
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="itemdiv dialogdiv">
                   <div class="user">
-                    <img alt="Bob's Avatar" src="picture/user.jpg">
+                    <img alt="Bob's Avatar" src="../../assets/picture/user.jpg">
                   </div>
                   <div class="body">
                     <div class="time">
-                      <i class="icon-time"></i>
+                      <i class="fa fa-time"></i>
                       <span class="orange">2分钟以前</span>
                     </div>
-                    <div class="name">
+                    <div class="name" style="text-align: left;">
                       <a href="#">Bob</a>
                       <span class="label label-info arrowed arrowed-in-right">admin</span>
                     </div>
-                    <div class="text">欢迎大家使用英沈汽配商城后台管理系统.</div>
+                    <div class="text" style="text-align: left;">欢迎大家使用英沈汽配商城后台管理系统.</div>
                     <div class="tools">
                       <a href="#" class="btn btn-minier btn-info">
-                        <i class="icon-only icon-share-alt"></i>
+                        <i class="fa fa-only fa fa-share-alt"></i>
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="itemdiv dialogdiv">
                   <div class="user">
-                    <img alt="Jim's Avatar" src="picture/avatar4.png">
+                    <img alt="Jim's Avatar" src="../../assets/picture/avatar4.png">
                   </div>
                   <div class="body">
                     <div class="time">
-                      <i class="icon-time"></i>
+                      <i class="fa fa-time"></i>
                       <span class="grey">3分钟以前</span>
                     </div>
-                    <div class="name">
+                    <div class="name" style="text-align: left;">
                       <a href="#">Jim</a>
                     </div>
-                    <div class="text">大家多提提BUG</div>
+                    <div class="text" style="text-align: left;">大家多提提BUG</div>
                     <div class="tools">
                       <a href="#" class="btn btn-minier btn-info">
-                        <i class="icon-only icon-share-alt"></i>
+                        <i class="fa fa-only fa fa-share-alt"></i>
                       </a>
                     </div>
                   </div>
@@ -629,16 +629,16 @@
                   </div>
                   <div class="body">
                     <div class="time">
-                      <i class="icon-time"></i>
+                      <i class="fa fa-time"></i>
                       <span class="green">4分钟以前</span>
                     </div>
-                    <div class="name">
+                    <div class="name" style="text-align: left;">
                       <a href="#">Alexa</a>
                     </div>
-                    <div class="text">继续支持ACE后台系统</div>
+                    <div class="text" style="text-align: left;">继续支持ACE后台系统</div>
                     <div class="tools">
                       <a href="#" class="btn btn-minier btn-info">
-                        <i class="icon-only icon-share-alt"></i>
+                        <i class="fa fa-only fa fa-share-alt"></i>
                       </a>
                     </div>
                   </div>
@@ -655,7 +655,7 @@
                   <input placeholder="输入信息 ..." type="text" class="form-control" name="message">
                   <span class="input-group-btn">
                     <button class="btn btn-sm btn-info no-radius" type="button">
-                    <i class="icon-share-alt"></i>
+                    <i class="fa fa-share-alt"></i>
                     发送
                     </button>
                   </span>

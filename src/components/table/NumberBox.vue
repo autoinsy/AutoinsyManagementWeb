@@ -2,7 +2,7 @@
   <div class="col-sm-7 infobox-container">
     <div class="infobox infobox-green  ">
       <div class="infobox-icon">
-        <i class="icon-comments"></i>
+        <i class="fa fa-comments"></i>
       </div>
       <div class="infobox-data">
         <span class="infobox-data-number">32</span>
@@ -12,7 +12,7 @@
     </div>
     <div class="infobox infobox-blue  ">
       <div class="infobox-icon">
-        <i class="icon-twitter"></i>
+        <i class="fa fa-twitter"></i>
       </div>
       <div class="infobox-data">
         <span class="infobox-data-number">11</span>
@@ -20,12 +20,12 @@
       </div>
       <div class="badge badge-success">
         +32%
-        <i class="icon-arrow-up"></i>
+        <i class="fa fa-arrow-up"></i>
       </div>
     </div>
     <div class="infobox infobox-pink  ">
       <div class="infobox-icon">
-        <i class="icon-shopping-cart"></i>
+        <i class="fa fa-shopping-cart"></i>
       </div>
       <div class="infobox-data">
         <span class="infobox-data-number">8</span>
@@ -35,7 +35,7 @@
     </div>
     <div class="infobox infobox-red  ">
       <div class="infobox-icon">
-        <i class="icon-beaker"></i>
+        <i class="fa fa-beaker"></i>
       </div>
       <div class="infobox-data">
         <span class="infobox-data-number">7</span>
@@ -54,7 +54,7 @@
       </div>
       <div class="badge badge-success">
         7.2%
-        <i class="icon-arrow-up"></i>
+        <i class="fa fa-arrow-up"></i>
       </div>
     </div>
     <div class="infobox infobox-blue2  ">
@@ -99,7 +99,7 @@
     </div>
     <div class="infobox infobox-grey infobox-small infobox-dark">
       <div class="infobox-icon">
-        <i class="icon-download-alt"></i>
+        <i class="fa fa-download-alt"></i>
       </div>
       <div class="infobox-data">
         <div class="infobox-content">下载次数</div>

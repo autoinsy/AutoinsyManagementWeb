@@ -5,21 +5,21 @@
         <div class="navbar-header pull-left" style="float: left !important;">
           <a href="#" class="navbar-brand">
             <small>
-              <i class="icon-leaf"></i>
+              <i class="fa fa-leaf"></i>
               英沈汽配商城后台管理系统
             </small>
           </a>
         </div>
-        <div class="navbar-header pull-right" role="navigation" style="float: right !important;">
-          <ul class="nav ace-nav">
+        <div class="navbar-header pull-right" role="navigation" style="text-align: right; float: right !important;">
+          <ul class="nav ace-nav" style="text-align: right;float: right !important;">
             <li class="grey">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="icon-tasks"></i>
+                <i class="fa fa-tasks"></i>
                 <span class="badge badge-grey">4</span>
               </a>
               <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
                 <li class="dropdown-header">
-                  <i class="icon-ok"></i>
+                  <i class="fa fa-ok"></i>
                   还有4个任务完成
                 </li>
                 <li>
@@ -70,26 +70,26 @@
                   <a href="#">
                     查看任务详情
 
-                    <i class="icon-arrow-right"></i>
+                    <i class="fa fa-arrow-right"></i>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="purple">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="icon-bell-alt icon-animated-bell"></i>
+                <i class="fa fa-bell-alt fa fa-animated-bell"></i>
                 <span class="badge badge-important">8</span>
               </a>
               <ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
                 <li class="dropdown-header">
-                  <i class="icon-warning-sign"></i>
+                  <i class="fa fa-warning-sign"></i>
                   8条通知
                 </li>
                 <li>
                   <a href="#">
                     <div class="clearfix">
 										<span class="pull-left">
-											<i class="btn btn-xs no-hover btn-pink icon-comment"></i>
+											<i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
 											新闻评论
 										</span>
                       <span class="pull-right badge badge-info">+12</span>
@@ -98,7 +98,7 @@
                 </li>
                 <li>
                   <a href="#">
-                    <i class="btn btn-xs btn-primary icon-user"></i>
+                    <i class="btn btn-xs btn-primary fa fa-user"></i>
                     切换为编辑登录..
                   </a>
                 </li>
@@ -106,7 +106,7 @@
                   <a href="#">
                     <div class="clearfix">
 <span class="pull-left">
-<i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>
+<i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
 新订单
 </span>
                       <span class="pull-right badge badge-success">+8</span>
@@ -117,7 +117,7 @@
                   <a href="#">
                     <div class="clearfix">
 <span class="pull-left">
-<i class="btn btn-xs no-hover btn-info icon-twitter"></i>
+<i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
 粉丝
 </span>
                       <span class="pull-right badge badge-info">+11</span>
@@ -127,19 +127,19 @@
                 <li>
                   <a href="#">
                     查看所有通知
-                    <i class="icon-arrow-right"></i>
+                    <i class="fa fa-arrow-right"></i>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="green">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="icon-envelope icon-animated-vertical"></i>
+                <i class="fa fa-envelope fa fa-animated-vertical"></i>
                 <span class="badge badge-success">5</span>
               </a>
               <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
                 <li class="dropdown-header">
-                  <i class="icon-envelope-alt"></i>
+                  <i class="fa fa-envelope-alt"></i>
                   5条消息
                 </li>
                 <li>
@@ -151,7 +151,7 @@
 邮件信息1...
 </span>
 <span class="msg-time">
-<i class="icon-time"></i>
+<i class="fa fa-time"></i>
 <span>1分钟以前</span>
 </span>
 </span>
@@ -166,7 +166,7 @@
 邮件信息2...
 </span>
 <span class="msg-time">
-<i class="icon-time"></i>
+<i class="fa fa-time"></i>
 <span>20分钟前</span>
 </span>
 </span>
@@ -181,7 +181,7 @@
 邮件信息3...
 </span>
 <span class="msg-time">
-<i class="icon-time"></i>
+<i class="fa fa-time"></i>
 <span>3:15 pm</span>
 </span>
 </span>
@@ -190,7 +190,7 @@
                 <li>
                   <a href="">
                     查看所有消息
-                    <i class="icon-arrow-right"></i>
+                    <i class="fa fa-arrow-right"></i>
                   </a>
                 </li>
               </ul>
@@ -202,25 +202,25 @@
 							<small>欢迎,</small>
 								Jason
 							</span>
-                <i class="icon-caret-down"></i>
+                <i class="fa fa-caret-down"></i>
               </a>
               <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                 <li>
                   <a href="#">
-                    <i class="icon-cog"></i>
+                    <i class="fa fa-cog"></i>
                     设置
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i class="icon-user"></i>
+                    <i class="fa fa-user"></i>
                     个人资料
                   </a>
                 </li>
                 <li class="divider"></li>
                 <li>
                   <a href="#">
-                    <i class="icon-off"></i>
+                    <i class="fa fa-off"></i>
                     退出
                   </a>
                 </li>
