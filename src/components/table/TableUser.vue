@@ -2,7 +2,7 @@
   <div class="">
     <div class="row">
       <div class="col-xs-12">
-        <h3 class="header smaller lighter blue" style="text-align: left">表格</h3>
+        <h3 class="header smaller lighter blue" style="text-align: left">用户管理列表</h3>
         <div class="table-header" style="text-align: left">
           “最新注册用户”的结果
         </div>
@@ -10,20 +10,31 @@
           <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
             <div class="row">
               <div class="col-sm-6">
-                <div id="sample-table-2_length" class="dataTables_length" style="text-align: left">
-                  <label>Display
-                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2">
-                      <option value="10" selected="selected">10</option>
-                      <option value="25">25</option>
-                      <option value="50">50</option>
-                      <option value="100">100</option>
-                    </select> records
-                  </label>
+                <div class="dataTables_filter" id="sample-table-2_filter" style="text-align: left;">
+                  <label style="float: left">查询: <input type="text" aria-controls="sample-table-2"></label>
+                  <div class="sidebar-shortcuts-large" style="float: left">
+                    <button class="btn btn-primary ">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-6">
-                <div class="dataTables_filter" id="sample-table-2_filter">
-                  <label>Search: <input type="text" aria-controls="sample-table-2"></label>
+                <div style="text-align: right;">
+                  <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                    <button class="btn btn-success">
+                      新建
+                    </button>
+                    <button class="btn btn-info">
+                      修改
+                    </button>
+                    <button class="btn btn-warning">
+                      删除
+                    </button>
+                    <button class="btn btn-danger">
+                      返回
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

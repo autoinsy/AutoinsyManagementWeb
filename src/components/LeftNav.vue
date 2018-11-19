@@ -37,41 +37,27 @@
           </router-link>
         </li>
         <li class="nav nav-item">
-          <a href="">
+          <router-link to='/CommodityManagement'>
             <i class="fa fa-desktop"></i>
             <span class="menu-text"> 商品管理 </span>
-            <b class="arrow fa fa-angle-down"></b>
-          </a>
+            <!--<b class="arrow fa fa-angle-down"></b>-->
+          </router-link>
         </li>
         <li class="nav nav-item">
-          <a href="#">
+          <router-link to='/Notification'>
             <i class="fa fa-bell"></i>
             <span class="menu-text"> 发布通知 </span>
-            <b class="arrow fa fa-angle-down"></b>
-          </a>
-          <ul class="submenu">
-            <li>
-              <a href="#">
-                <i class="fa fa-double-angle-right"></i>
-                新闻管理
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-double-angle-right"></i>
-                通知管理
-              </a>
-            </li>
-          </ul>
+            <!--<b class="arrow fa fa-angle-down"></b>-->
+          </router-link>
         </li>
         <li class="nav nav-item">
-          <a href="#">
+          <router-link to='/Recruit'>
             <i class="fa fa-id-card"></i>
             <span class="menu-text">
 								招聘管理
 						</span>
             <b class="arrow fa fa-angle-down"></b>
-          </a>
+          </router-link>
           <ul class="submenu">
             <li>
               <a href="#">
@@ -79,54 +65,27 @@
                 发布招聘
               </a>
             </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-double-angle-right"></i>
-                管理招聘
-              </a>
-            </li>
           </ul>
         </li>
         <li class="nav nav-item">
-          <a href="#">
+          <router-link to='/Rent'>
             <i class="fa fa-tag"></i>
-            <span class="menu-text"> 租售商铺 </span>
-            <b class="arrow fa fa-angle-down"></b>
-          </a>
-          <ul class="submenu">
-            <li>
-              <a href="#">
-                <i class="fa fa-double-angle-right"></i>
-                发布信息
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-double-angle-right"></i>
-                管理信息
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav nav-item">
-          <a href="#">
-            <i class="fa fa-list"></i>
             <span class="menu-text"> 发布租赁 </span>
-            <b class="arrow fa fa-angle-down"></b>
-          </a>
+            <!--<b class="arrow fa fa-angle-down"></b>-->
+          </router-link>
         </li>
         <li class="nav nav-item">
-          <a href="#">
+          <router-link to='/ShopAdministration'>
             <i class="fa fa-edit"></i>
             <span class="menu-text"> 店铺管理 </span>
-            <b class="arrow fa fa-angle-down"></b>
-          </a>
+            <!--<b class="arrow fa fa-angle-down"></b>-->
+          </router-link>
         </li>
         <li class="nav nav-item">
-          <a href="">
+          <router-link to='/InstantMessaging'>
             <i class="fa fa-mobile"></i>
             <span class="menu-text"> 即时通讯管理 </span>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>

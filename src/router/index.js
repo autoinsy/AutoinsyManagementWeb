@@ -8,7 +8,12 @@ import infor from '../components/table/infor'
 import numberBox from '../components/table/NumberBox'
 import middle from '../components/table/middle'
 import lastIndex from '../components/table/lastindex'
-
+import CommodityManagement from '../components/table/CommodityManagement'
+import InstantMessaging from '../components/table/InstantMessaging'
+import Notification from '../components/table/Notification'
+import Recruit from '../components/table/Recruit'
+import Rent from '../components/table/Rent'
+import ShopAdministration from '../components/table/ShopAdministration'
 
 Vue.use(Router)
 
@@ -53,7 +58,37 @@ export default new Router({
           name: 'lastIndex',
           path: '/lastIndex',
           component: lastIndex
-        }
+        },
+        {
+          name: 'CommodityManagement',
+          path: '/CommodityManagement',
+          component: CommodityManagement
+        },
+        {
+          name: 'InstantMessaging',
+          path: '/InstantMessaging',
+          component: InstantMessaging
+        },
+        {
+          name: 'Notification',
+          path: '/Notification',
+          component: Notification
+        },
+        {
+          name: 'Recruit',
+          path: '/Recruit',
+          component: Recruit
+        },
+        {
+          name: 'Rent',
+          path: '/Rent',
+          component: Rent
+        },
+        {
+          name: 'ShopAdministration',
+          path: '/ShopAdministration',
+          component: ShopAdministration
+        },
       ]
     }
   ]
