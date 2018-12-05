@@ -15,7 +15,7 @@ import Recruit from '../components/table/Recruit'
 import Rent from '../components/table/Rent'
 import ShopAdministration from '../components/table/ShopAdministration'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
