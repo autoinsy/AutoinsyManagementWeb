@@ -4,7 +4,7 @@
     <div class="col-sm-7 infobox-container">
       <div class="infobox infobox-green  ">
         <div class="infobox-icon">
-          <i class="fa fa-comments"></i>
+          <i class="icon-comments-o fa fa-comments-o"></i>
         </div>
         <div class="infobox-data">
           <span class="infobox-data-number">32</span>
@@ -14,7 +14,7 @@
       </div>
       <div class="infobox infobox-blue  ">
         <div class="infobox-icon">
-          <i class="fa fa-twitter"></i>
+          <i class="icon-twitter fa fa-twitter"></i>
         </div>
         <div class="infobox-data">
           <span class="infobox-data-number">11</span>
@@ -27,7 +27,7 @@
       </div>
       <div class="infobox infobox-pink  ">
         <div class="infobox-icon">
-          <i class="fa fa-shopping-cart"></i>
+          <i class="icon-shopping-cart fa fa-shopping-cart"></i>
         </div>
         <div class="infobox-data">
           <span class="infobox-data-number">8</span>
@@ -37,7 +37,7 @@
       </div>
       <div class="infobox infobox-red  ">
         <div class="infobox-icon">
-          <i class="fa fa-beaker"></i>
+          <i class="icon-flask fa fa-flask"></i>
         </div>
         <div class="infobox-data">
           <span class="infobox-data-number">7</span>
@@ -45,8 +45,8 @@
         </div>
       </div>
       <div class="infobox infobox-orange2  ">
-        <div class="infobox-chart">
-          <span class="sparkline" data-values="196,128,202,177,154,94,100,170,224"><canvas width="44" height="31" style="display: inline-block; width: 44px; height: 31px; vertical-align: top;"></canvas></span>
+        <div class="infobox-icon">
+          <i class="icon-line-chart fa fa-line-chart"></i>
         </div>
         <div class="infobox-data">
           <span class="infobox-data-number">6,251</span>
@@ -54,14 +54,12 @@
         </div>
         <div class="badge badge-success">
           7.2%
-          <i class="fa fa-arrow-up"></i>
+          <i class="icon-bar-chart-o fa fa-bar-chart-o"></i>
         </div>
       </div>
       <div class="infobox infobox-blue2  ">
-        <div class="infobox-progress">
-          <div class="easy-pie-chart percentage easyPieChart" data-percent="42" data-size="46" style="width: 46px; height: 46px; line-height: 46px;">
-            <span class="percent">42</span>%
-            <canvas width="46" height="46"></canvas></div>
+        <div class="infobox-icon">
+          <i class="icon-bar-chart fa fa-bar-chart"></i>
         </div>
         <div class="infobox-data">
           <span class="infobox-text">交易使用</span>
@@ -73,10 +71,8 @@
       </div>
       <div class="space-6"></div>
       <div class="infobox infobox-green infobox-small infobox-dark">
-        <div class="infobox-progress">
-          <div class="easy-pie-chart percentage easyPieChart" data-percent="61" data-size="39" style="width: 39px; height: 39px; line-height: 39px;">
-            <span class="percent">61</span>%
-            <canvas width="39" height="39"></canvas></div>
+        <div class="infobox-icon">
+          <i class="icon-pie-chart fa fa-pie-chart"></i>
         </div>
         <div class="infobox-data">
           <div class="infobox-content">任务</div>
@@ -84,8 +80,8 @@
         </div>
       </div>
       <div class="infobox infobox-blue infobox-small infobox-dark">
-        <div class="infobox-chart">
-          <span class="sparkline" data-values="3,4,2,3,4,4,2,2"><canvas width="39" height="19" style="display: inline-block; width: 39px; height: 19px; vertical-align: top;"></canvas></span>
+        <div class="infobox-icon">
+          <i class="icon-area-chart fa fa-area-chart"></i>
         </div>
         <div class="infobox-data">
           <div class="infobox-content">获得</div>
@@ -94,7 +90,7 @@
       </div>
       <div class="infobox infobox-grey infobox-small infobox-dark">
         <div class="infobox-icon">
-          <i class="fa fa-download-alt"></i>
+          <i class="icon-download fa fa-download"></i>
         </div>
         <div class="infobox-data">
           <div class="infobox-content">下载次数</div>
@@ -105,7 +101,7 @@
     <div class="vspace-sm"></div>
     <div class="col-sm-5">
       <div class="widget-box">
-        <div class="widget-header widget-header-flat widget-header-small">
+        <div class="widget-header widget-header-flat widget-header-small" style="text-align: left;">
           <h5>
             <i class="fa fa-signal"></i>
             访问来源
@@ -123,19 +119,19 @@
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="javascript:">
                   <i class="fa fa-caret-right bigger-110 invisible">&nbsp;</i>
                   上周
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="javascript:">
                   <i class="fa fa-caret-right bigger-110 invisible">&nbsp;</i>
                   本月
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="javascript:">
                   <i class="fa fa-caret-right bigger-110 invisible">&nbsp;</i>
                   上月
                 </a>
@@ -183,6 +179,6 @@
   }
 </script>
 
-<style scoped>
+<style>
 
 </style>

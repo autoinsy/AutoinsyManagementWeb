@@ -35,7 +35,7 @@
       <div class="hr hr32 hr-dotted"></div>
       <middle></middle>
       <div class="hr hr32 hr-dotted"></div>
-      <last-index></last-index>
+      <!--<last-index></last-index>-->
       <router-view></router-view>
     </div>
   </div>
@@ -45,7 +45,7 @@
   import infor from './infor'
   import numberBox from './NumberBox'
   import middle from './middle'
-  import lastIndex from './lastindex'
+  // import lastIndex from './lastindex'
 
   export default {
     name: "index",
@@ -53,7 +53,7 @@
       infor: infor,
       numberBox: numberBox,
       middle: middle,
-      lastIndex: lastIndex
+      // lastIndex: lastIndex
     },
     data() {
       return {

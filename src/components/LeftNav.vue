@@ -2,20 +2,20 @@
   <div class="">
     <div class="sidebar" id="sidebar" style="margin-right: 20px;">
       <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-        <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-          <button class="btn btn-success">
-            <i class="fa fa-download"></i>
-          </button>
-          <button class="btn btn-info">
-            <i class="fa fa-pencil"></i>
-          </button>
-          <button class="btn btn-warning">
-            <i class="fa fa-group"></i>
-          </button>
-          <button class="btn btn-danger">
-            <i class="fa fa-cogs"></i>
-          </button>
-        </div>
+        <!--<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">-->
+          <!--<button class="btn btn-success">-->
+            <!--<i class="fa fa-download"></i>-->
+          <!--</button>-->
+          <!--<button class="btn btn-info">-->
+            <!--<i class="fa fa-pencil"></i>-->
+          <!--</button>-->
+          <!--<button class="btn btn-warning">-->
+            <!--<i class="fa fa-group"></i>-->
+          <!--</button>-->
+          <!--<button class="btn btn-danger">-->
+            <!--<i class="fa fa-cogs"></i>-->
+          <!--</button>-->
+        <!--</div>-->
         <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
           <span class="btn btn-success"></span>
           <span class="btn btn-info"></span>
@@ -60,7 +60,7 @@
           </router-link>
           <ul class="submenu">
             <li>
-              <a href="#">
+              <a href="javascript:">
                 <i class="fa fa-double-angle-right"></i>
                 发布招聘
               </a>
@@ -81,12 +81,12 @@
             <!--<b class="arrow fa fa-angle-down"></b>-->
           </router-link>
         </li>
-        <li class="nav nav-item">
-          <router-link to='/InstantMessaging'>
-            <i class="fa fa-mobile"></i>
-            <span class="menu-text"> 即时通讯管理 </span>
-          </router-link>
-        </li>
+        <!--<li class="nav nav-item">-->
+          <!--<router-link to='/InstantMessaging'>-->
+            <!--<i class="fa fa-mobile"></i>-->
+            <!--<span class="menu-text"> 即时通讯管理 </span>-->
+          <!--</router-link>-->
+        <!--</li>-->
       </ul>
     </div>
   </div>

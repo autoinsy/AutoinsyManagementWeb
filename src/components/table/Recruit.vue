@@ -84,7 +84,7 @@
                   </label>
                 </td>
                 <td class=" ">
-                  <a href="#">app.com</a>
+                  <a href="javascript:">app.com</a>
                 </td>
                 <td class=" ">$45</td>
                 <td class="hidden-480 ">3,330</td>
@@ -114,7 +114,7 @@
                   </label>
                 </td>
                 <td class=" ">
-                  <a href="#">base.com</a>
+                  <a href="javascript:">base.com</a>
                 </td>
                 <td class=" ">$35</td>
                 <td class="hidden-480 ">2,595</td>
@@ -144,7 +144,7 @@
                   </label>
                 </td>
                 <td class=" ">
-                  <a href="#">max.com</a>
+                  <a href="javascript:">max.com</a>
                 </td>
                 <td class=" ">$60</td>
                 <td class="hidden-480 ">4,400</td>
@@ -175,11 +175,11 @@
               <div class="col-sm-6">
                 <div class="dataTables_paginate paging_bootstrap" >
                   <ul class="pagination" style="float: right;">
-                    <li class="prev disabled"><a href="#"><i class="fa fa-double-angle-left"></i></a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li class="next"><a href="#"><i class="fa fa-double-angle-right"></i></a></li>
+                    <li class="prev disabled"><a href="javascript:"><i class="fa fa-double-angle-left"></i></a></li>
+                    <li class="active"><a href="javascript:">1</a></li>
+                    <li><a href="javascript:">2</a></li>
+                    <li><a href="javascript:">3</a></li>
+                    <li class="next"><a href="javascript:"><i class="fa fa-double-angle-right"></i></a></li>
                   </ul>
                 </div>
               </div>

@@ -123,7 +123,7 @@
                     </div>
                     <div class="body" style="text-align: left;">
                       <div class="name">
-                        <a href="#">Bob Doe</a>
+                        <a href="javascript:">Bob Doe</a>
                       </div>
                       <div class="time">
                         <i class="fa fa-time"></i>
@@ -173,7 +173,7 @@
                     </div>
                     <div class="body" style="text-align: left;">
                       <div class="name">
-                        <a href="#">Joe Doe</a>
+                        <a href="javascript:">Joe Doe</a>
                       </div>
                       <div class="time">
                         <i class="fa fa-time"></i>
@@ -223,7 +223,7 @@
                     </div>
                     <div class="body" style="text-align: left;">
                       <div class="name">
-                        <a href="#">Jim Doe</a>
+                        <a href="javascript:">Jim Doe</a>
                       </div>
                       <div class="time">
                         <i class="fa fa-time"></i>
@@ -273,7 +273,7 @@
                     </div>
                     <div class="body" style="text-align: left;">
                       <div class="name">
-                        <a href="#">Alex Doe</a>
+                        <a href="javascript:">Alex Doe</a>
                       </div>
                       <div class="time">
                         <i class="fa fa-time"></i>
@@ -290,7 +290,7 @@
                     </div>
                     <div class="body" style="text-align: left;">
                       <div class="name">
-                        <a href="#">Bob Doe</a>
+                        <a href="javascript:">Bob Doe</a>
                       </div>
                       <div class="time">
                         <i class="fa fa-time"></i>
@@ -307,7 +307,7 @@
                     </div>
                     <div class="body" style="text-align: left;">
                       <div class="name">
-                        <a href="#">Susan</a>
+                        <a href="javascript:">Susan</a>
                       </div>
                       <div class="time">
                         <i class="fa fa-time"></i>
@@ -324,7 +324,7 @@
                     </div>
                     <div class="body" style="text-align: left;">
                       <div class="name">
-                        <a href="#">Phil Doe</a>
+                        <a href="javascript:">Phil Doe</a>
                       </div>
                       <div class="time">
                         <i class="fa fa-time"></i>
@@ -341,7 +341,7 @@
                     </div>
                     <div class="body" style="text-align: left;">
                       <div class="name">
-                        <a href="#">Alexa Doe</a>
+                        <a href="javascript:">Alexa Doe</a>
                       </div>
                       <div class="time">
                         <i class="fa fa-time"></i>
@@ -356,7 +356,7 @@
                 <div class="center">
                   <i class="fa fa-group fa fa-2x green"></i>
                   &nbsp;
-                  <a href="#">
+                  <a href="javascript:">
                     查看所有会员 &nbsp;
                     <i class="fa fa-arrow-right"></i>
                   </a>
@@ -372,7 +372,7 @@
                       </div>
                       <div class="body" style="text-align: left;">
                         <div class="name">
-                          <a href="#">Bob Doe</a>
+                          <a href="javascript:">Bob Doe</a>
                         </div>
                         <div class="time">
                           <i class="fa fa-time"></i>
@@ -426,7 +426,7 @@
                       </div>
                       <div class="body" style="text-align: left;">
                         <div class="name">
-                          <a href="#">Jennifer</a>
+                          <a href="javascript:">Jennifer</a>
                         </div>
                         <div class="time">
                           <i class="fa fa-time"></i>
@@ -440,10 +440,10 @@
                       </div>
                       <div class="tools">
                         <div class="action-buttons bigger-125">
-                          <a href="#">
+                          <a href="javascript:">
                             <i class="fa fa-pencil blue"></i>
                           </a>
-                          <a href="#">
+                          <a href="javascript:">
                             <i class="fa fa-trash red"></i>
                           </a>
                         </div>
@@ -455,7 +455,7 @@
                       </div>
                       <div class="body" style="text-align: left;">
                         <div class="name">
-                          <a href="#">Joe</a>
+                          <a href="javascript:">Joe</a>
                         </div>
                         <div class="time">
                           <i class="fa fa-time"></i>
@@ -469,10 +469,10 @@
                       </div>
                       <div class="tools">
                         <div class="action-buttons bigger-125">
-                          <a href="#">
+                          <a href="javascript:">
                             <i class="fa fa-pencil blue"></i>
                           </a>
-                          <a href="#">
+                          <a href="javascript:">
                             <i class="fa fa-trash red"></i>
                           </a>
                         </div>
@@ -484,7 +484,7 @@
                       </div>
                       <div class="body" style="text-align: left;">
                         <div class="name">
-                          <a href="#">Rita</a>
+                          <a href="javascript:">Rita</a>
                         </div>
                         <div class="time">
                           <i class="fa fa-time"></i>
@@ -499,10 +499,10 @@
 
                       <div class="tools">
                         <div class="action-buttons bigger-125">
-                          <a href="#">
+                          <a href="javascript:">
                             <i class="fa fa-pencil blue"></i>
                           </a>
-                          <a href="#">
+                          <a href="javascript:">
                             <i class="fa fa-trash red"></i>
                           </a>
                         </div>
@@ -518,7 +518,7 @@
                 <div class="center">
                   <i class="fa fa-comments-alt fa fa-2x green"></i>
                   &nbsp;
-                  <a href="#">
+                  <a href="javascript:">
                     See all comments &nbsp;
                     <i class="fa fa-arrow-right"></i>
                   </a>
@@ -552,7 +552,7 @@
                       <span class="green">4秒钟前</span>
                     </div>
                     <div class="name" style="text-align: left;">
-                      <a href="#">Alexa</a>
+                      <a href="javascript:">Alexa</a>
                     </div>
                     <div class="text" style="text-align: left;">大家好啊</div>
                     <div class="tools">
@@ -572,7 +572,7 @@
                       <span class="blue">38秒以前</span>
                     </div>
                     <div class="name" style="text-align: left;">
-                      <a href="#">John</a>
+                      <a href="javascript:">John</a>
                     </div>
                     <div class="text" style="text-align: left;">框架很好用嘛</div>
                     <div class="tools">
@@ -592,7 +592,7 @@
                       <span class="orange">2分钟以前</span>
                     </div>
                     <div class="name" style="text-align: left;">
-                      <a href="#">Bob</a>
+                      <a href="javascript:">Bob</a>
                       <span class="label label-info arrowed arrowed-in-right">admin</span>
                     </div>
                     <div class="text" style="text-align: left;">欢迎大家使用英沈汽配商城后台管理系统.</div>
@@ -613,7 +613,7 @@
                       <span class="grey">3分钟以前</span>
                     </div>
                     <div class="name" style="text-align: left;">
-                      <a href="#">Jim</a>
+                      <a href="javascript:">Jim</a>
                     </div>
                     <div class="text" style="text-align: left;">大家多提提BUG</div>
                     <div class="tools">
@@ -633,7 +633,7 @@
                       <span class="green">4分钟以前</span>
                     </div>
                     <div class="name" style="text-align: left;">
-                      <a href="#">Alexa</a>
+                      <a href="javascript:">Alexa</a>
                     </div>
                     <div class="text" style="text-align: left;">继续支持ACE后台系统</div>
                     <div class="tools">

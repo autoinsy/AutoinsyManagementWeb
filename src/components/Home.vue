@@ -9,13 +9,13 @@
             <a href="#" class="dropdown-toggle">
               <i class="fa fa-home home-icon"></i>
             </a>
-            <a href="#">首页</a>
+            <a href="javascript:">首页</a>
           </li>
           <li class="active">控制台</li>
         </ul>
         <div class="nav-search" id="nav-search">
           <form class="form-search">
-            <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input"
+            <input type="text" placeholder="搜索 ..." class="nav-search-input" id="nav-search-input"
                    autocomplete="off">
             <i class="fa fa-search nav-search-icon"></i>
           </form>
@@ -39,3 +39,8 @@
     },
   }
 </script>
+<style>
+  .breadcrumb li{
+    float: left;
+  }
+</style>

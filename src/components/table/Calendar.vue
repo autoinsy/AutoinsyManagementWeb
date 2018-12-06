@@ -5,7 +5,7 @@
         <ul class="breadcrumb">
           <li>
             <i class="icon-home home-icon"></i>
-            <a href="#">主页</a>
+            <a href="javascript:">主页</a>
           </li>
           <li class="active">日历</li>
         </ul>
