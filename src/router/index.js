@@ -14,8 +14,11 @@ import Notification from '../components/table/Notification'
 import Recruit from '../components/table/Recruit'
 import Rent from '../components/table/Rent'
 import ShopAdministration from '../components/table/ShopAdministration'
+import TableUserJS from '../components/table/TableUserJS'
+import TableUserSJ from '../components/table/TableUserSJ'
+import Banner from '../components/table/Banner'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -88,6 +91,21 @@ export default new Router({
           name: 'ShopAdministration',
           path: '/ShopAdministration',
           component: ShopAdministration
+        },
+        {
+          name: 'TableUserJS',
+          path: '/TableUserJS',
+          component: TableUserJS
+        },
+        {
+          name: 'TableUserSJ',
+          path: '/TableUserSJ',
+          component: TableUserSJ
+        },
+        {
+          name: 'Banner',
+          path: '/Banner',
+          component: Banner
         },
       ]
     }

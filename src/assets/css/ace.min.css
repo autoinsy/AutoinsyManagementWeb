@@ -8433,7 +8433,7 @@ th .lbl:only-child, td .lbl:only-child {
     right: 0;
     top: 0;
     bottom: 0;
-    background: radial-gradient(9px 9px 0deg, circle cover, #0ff 0, rgba(0, 0, 255, 0) 100%, #00f 95%)
+    background: radial-gradient(9px 9px 0deg, circle farthest-corner, #0ff 0, rgba(0, 0, 255, 0) 100%, #00f 95%)
 }
 
 .infobox-container {

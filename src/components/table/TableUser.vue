@@ -1,12 +1,12 @@
 <template>
-  <div class="">
-    <div class="row">
+  <div class="" >
+    <div class="row" >
       <div class="col-xs-12">
         <h3 class="header smaller lighter blue" style="text-align: left">用户管理列表</h3>
         <div class="table-header" style="text-align: left">
           “最新注册用户”的结果
         </div>
-        <div class="table-responsive">
+        <div class="table-responsive" >
           <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
             <div class="row">
               <div class="col-sm-6">
@@ -50,28 +50,26 @@
                   </label>
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" aria-label="域名: activate to sort column ascending" style="width: 273px;">域名
+                    colspan="1" style="width:168px;">Id
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" aria-label="价格: activate to sort column ascending" style="width: 168px;">价格
+                    colspan="1"style="width: 200px;">用户编号
                 </th>
                 <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1" aria-label="点击数: activate to sort column ascending" style="width: 213px;">
-                  点击数
+                    rowspan="1" colspan="1"style="width: 200px;">用户名
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" aria-label="
-
-                                                更新
-                                            : activate to sort column ascending" style="width: 230px;">
-                  <i class="fa fa-time bigger-110 hidden-480"></i>
-                  更新
+                    colspan="1"style="width: 200px;">
+                  <i class="fa fa-time bigger-110 hidden-480"></i>密码
                 </th>
                 <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1" aria-label="状况: activate to sort column ascending" style="width: 284px;">状况
+                    rowspan="1" colspan="1"style="width: 284px;">手机号
+                </th>
+                <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 264px;">用户种类
                 </th>
                 <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label=""
-                    style="width: 278px;"></th>
+                    style="width: 278px;">操作</th>
               </tr>
               </thead>
 
@@ -83,14 +81,15 @@
                     <span class="lbl"></span>
                   </label>
                 </td>
-                <td class=" ">
-                  <a href="javascript:">app.com</a>
-                </td>
-                <td class=" ">$45</td>
-                <td class="hidden-480 ">3,330</td>
-                <td class=" ">Feb 12</td>
+                <td class=" "></td>
+                <td class=" "></td>
+                <td class="hidden-480 "></td>
+                <td class=" "></td>
                 <td class="hidden-480 ">
-                  <span class="label label-sm label-warning" style="color: #fff;">到期</span>
+                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
+                </td>
+                <td class=" ">
+                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
                 </td>
                 <td class=" ">
                   <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -113,14 +112,15 @@
                     <span class="lbl"></span>
                   </label>
                 </td>
-                <td class=" ">
-                  <a href="javascript:">base.com</a>
-                </td>
-                <td class=" ">$35</td>
-                <td class="hidden-480 ">2,595</td>
-                <td class=" ">Feb 18</td>
+                <td class=" "></td>
+                <td class=" "></td>
+                <td class="hidden-480 "></td>
+                <td class=" "></td>
                 <td class="hidden-480 ">
-                  <span class="label label-sm label-success" style="color: #fff;">已注册的</span>
+                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
+                </td>
+                <td class=" ">
+                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
                 </td>
                 <td class=" ">
                   <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -143,14 +143,15 @@
                     <span class="lbl"></span>
                   </label>
                 </td>
-                <td class=" ">
-                  <a href="javascript:">max.com</a>
-                </td>
-                <td class=" ">$60</td>
-                <td class="hidden-480 ">4,400</td>
-                <td class=" ">Mar 11</td>
+                <td class=" "></td>
+                <td class=" "></td>
+                <td class="hidden-480 "></td>
+                <td class=" "></td>
                 <td class="hidden-480 ">
-                  <span class="label label-sm label-warning" style="color: #fff;">到期</span>
+                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
+                </td>
+                <td class=" ">
+                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
                 </td>
                 <td class=" ">
                   <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">

@@ -30,10 +30,49 @@
             <span class="menu-text"> 控制台 </span>
           </router-link>
         </li>
+        <!--<li class="nav nav-item">-->
+          <!--<router-link to='/TableUser'>-->
+            <!--<i class="fa fa-user"></i>-->
+            <!--<span class="menu-text">用户管理</span>-->
+          <!--</router-link>-->
+        <!--</li>-->
         <li class="nav nav-item">
           <router-link to='/TableUser'>
             <i class="fa fa-user"></i>
             <span class="menu-text">用户管理</span>
+            <b class="arrow fa fa-angle-down"></b>
+          </router-link>
+          <ul class="submenu">
+            <li>
+              <router-link to='/TableUserJS'>
+                <i class="fa fa-double-angle-right"></i>
+                角色管理
+              </router-link>
+            </li>
+            <li>
+              <router-link to='/TableUserSJ'>
+                <i class="fa fa-double-angle-right"></i>
+                商家管理
+              </router-link>
+            </li>
+          </ul>
+        </li>
+        <li class="nav nav-item">
+          <router-link to='/Banner'>
+            <i class="fa fa-user"></i>
+            <span class="menu-text">广告管理</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to='/BannerLB'>
+            <i class="fa fa-user"></i>
+            <span class="menu-text">轮播广告管理</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to='/BannerLB'>
+            <i class="fa fa-user"></i>
+            <span class="menu-text">汽配城管理</span>
           </router-link>
         </li>
         <li class="nav nav-item">
@@ -44,9 +83,30 @@
           </router-link>
         </li>
         <li class="nav nav-item">
+          <router-link to='/Law'>
+            <i class="fa fa-desktop"></i>
+            <span class="menu-text"> 法律条文 </span>
+            <!--<b class="arrow fa fa-angle-down"></b>-->
+          </router-link>
+        </li>
+        <li class="nav nav-item">
+          <router-link to='/Rent'>
+            <i class="fa fa-tag"></i>
+            <span class="menu-text"> 租赁 </span>
+            <!--<b class="arrow fa fa-angle-down"></b>-->
+          </router-link>
+        </li>
+        <li class="nav nav-item">
+          <router-link to='/News'>
+            <i class="fa fa-bell"></i>
+            <span class="menu-text"> 新闻 </span>
+            <!--<b class="arrow fa fa-angle-down"></b>-->
+          </router-link>
+        </li>
+        <li class="nav nav-item">
           <router-link to='/Notification'>
             <i class="fa fa-bell"></i>
-            <span class="menu-text"> 发布通知 </span>
+            <span class="menu-text"> 通知 </span>
             <!--<b class="arrow fa fa-angle-down"></b>-->
           </router-link>
         </li>
@@ -54,39 +114,10 @@
           <router-link to='/Recruit'>
             <i class="fa fa-id-card"></i>
             <span class="menu-text">
-								招聘管理
+								简历管理
 						</span>
-            <b class="arrow fa fa-angle-down"></b>
-          </router-link>
-          <ul class="submenu">
-            <li>
-              <a href="javascript:">
-                <i class="fa fa-double-angle-right"></i>
-                发布招聘
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav nav-item">
-          <router-link to='/Rent'>
-            <i class="fa fa-tag"></i>
-            <span class="menu-text"> 发布租赁 </span>
-            <!--<b class="arrow fa fa-angle-down"></b>-->
           </router-link>
         </li>
-        <li class="nav nav-item">
-          <router-link to='/ShopAdministration'>
-            <i class="fa fa-edit"></i>
-            <span class="menu-text"> 店铺管理 </span>
-            <!--<b class="arrow fa fa-angle-down"></b>-->
-          </router-link>
-        </li>
-        <!--<li class="nav nav-item">-->
-          <!--<router-link to='/InstantMessaging'>-->
-            <!--<i class="fa fa-mobile"></i>-->
-            <!--<span class="menu-text"> 即时通讯管理 </span>-->
-          <!--</router-link>-->
-        <!--</li>-->
       </ul>
     </div>
   </div>
