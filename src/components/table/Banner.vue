@@ -1,12 +1,12 @@
 <template>
-  <div class="" >
-    <div class="row" >
+  <div class="">
+    <div class="row">
       <div class="col-xs-12">
         <h3 class="header smaller lighter blue" style="text-align: left">广告管理列表</h3>
         <div class="table-header" style="text-align: left">
           “最新注册用户”的结果
         </div>
-        <div class="table-responsive" >
+        <div class="table-responsive">
           <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
             <div class="row">
               <div class="col-sm-6">
@@ -53,20 +53,21 @@
                     colspan="1" style="width:168px;">Id
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1"style="width: 200px;">广告名称
+                    colspan="1" style="width: 200px;">广告名称
                 </th>
                 <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1"style="width: 200px;">发布时间
+                    rowspan="1" colspan="1" style="width: 200px;">发布时间
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1"style="width: 200px;">
+                    colspan="1" style="width: 200px;">
                   <i class="fa fa-time bigger-110 hidden-480"></i>子广告名称
                 </th>
                 <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1"style="width: 284px;">详情
+                    rowspan="1" colspan="1" style="width: 284px;">详情
                 </th>
                 <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label=""
-                    style="width: 278px;">操作</th>
+                    style="width: 278px;">操作
+                </th>
               </tr>
               </thead>
 
@@ -156,7 +157,7 @@
                 <div class="dataTables_info" id="sample-table-2_info" style="text-align: left">显示23个条目中的1到10个</div>
               </div>
               <div class="col-sm-6">
-                <div class="dataTables_paginate paging_bootstrap" >
+                <div class="dataTables_paginate paging_bootstrap">
                   <ul class="pagination" style="float: right;">
                     <li class="prev disabled"><a href="javascript:"><i class="fa fa-double-angle-left"></i></a></li>
                     <li class="active"><a href="javascript:">1</a></li>
@@ -175,9 +176,12 @@
 </template>
 
 <script>
-    export default {
-        name: "Banner"
+  export default {
+    name: "Banner",
+    mounted: function () {
+      
     }
+  }
 </script>
 
 <style scoped>
