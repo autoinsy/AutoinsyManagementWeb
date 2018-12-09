@@ -42,7 +42,7 @@ Vue.prototype.$axios = $axios;
 Vue.prototype.HOME = '/manager';
 
 $axios.create({
-  baseURL: 'http://localhost:8083/api'
+  baseURL: 'http://47.93.195.248:8083/management/api'
 });
 /* eslint-disable no-new */
 new Vue({

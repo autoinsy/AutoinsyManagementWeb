@@ -70,7 +70,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to='/BannerLB'>
+          <router-link to='/AutoinsyManagement'>
             <i class="fa fa-user"></i>
             <span class="menu-text">汽配城管理</span>
           </router-link>

@@ -17,6 +17,8 @@ import ShopAdministration from '../components/table/ShopAdministration'
 import TableUserJS from '../components/table/TableUserJS'
 import TableUserSJ from '../components/table/TableUserSJ'
 import Banner from '../components/table/Banner'
+import BannerLB from '../components/table/BannerLB'
+import AutoinsyManagement from '../components/table/AutoinsyManagement'
 
 Vue.use(Router);
 
@@ -106,6 +108,16 @@ export default new Router({
           name: 'Banner',
           path: '/Banner',
           component: Banner
+        },
+        {
+          name: 'BannerLB',
+          path: '/BannerLB',
+          component: BannerLB
+        },
+        {
+          name: 'AutoinsyManagement',
+          path: '/AutoinsyManagement',
+          component: AutoinsyManagement
         },
       ]
     }
