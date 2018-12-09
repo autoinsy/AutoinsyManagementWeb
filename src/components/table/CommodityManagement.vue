@@ -60,10 +60,7 @@
                   点击数
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" aria-label="
-
-                                                更新
-                                            : activate to sort column ascending" style="width: 230px;">
+                    colspan="1" aria-label="更新: activate to sort column ascending" style="width: 230px;">
                   <i class="fa fa-time bigger-110 hidden-480"></i>
                   更新
                 </th>
@@ -76,79 +73,19 @@
               </thead>
 
               <tbody role="alert" aria-live="polite" aria-relevant="all">
-              <tr class="odd">
+              <tr class="odd" v-for="(good, index) in goodList">
                 <td class="center  sorting_1">
                   <label>
-                    <input type="checkbox" class="ace">
+                    <input type="checkbox" class="ace" v-bind:value="good.goodsId">
                     <span class="lbl"></span>
                   </label>
                 </td>
                 <td class=" ">
-                  <a href="javascript:">app.com</a>
+                  <a v-bind:href="good.goodUrl">{{good.name}}</a>
                 </td>
-                <td class=" ">$45</td>
-                <td class="hidden-480 ">3,330</td>
-                <td class=" ">Feb 12</td>
-                <td class="hidden-480 ">
-                  <span class="label label-sm label-warning" style="color: #fff;">到期</span>
-                </td>
-                <td class=" ">
-                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                    <a class="blue" href="#">
-                      <i class="fa fa-search-plus bigger-130"></i>
-                    </a>
-                    <a class="green" href="#">
-                      <i class="fa fa-pencil bigger-130"></i>
-                    </a>
-                    <a class="red" href="#">
-                      <i class="fa fa-trash bigger-130"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="even">
-                <td class="center  sorting_1">
-                  <label>
-                    <input type="checkbox" class="ace">
-                    <span class="lbl"></span>
-                  </label>
-                </td>
-                <td class=" ">
-                  <a href="javascript:">base.com</a>
-                </td>
-                <td class=" ">$35</td>
-                <td class="hidden-480 ">2,595</td>
-                <td class=" ">Feb 18</td>
-                <td class="hidden-480 ">
-                  <span class="label label-sm label-success" style="color: #fff;">已注册的</span>
-                </td>
-                <td class=" ">
-                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                    <a class="blue" href="#">
-                      <i class="fa fa-search-plus bigger-130"></i>
-                    </a>
-                    <a class="green" href="#">
-                      <i class="fa fa-pencil bigger-130"></i>
-                    </a>
-                    <a class="red" href="#">
-                      <i class="fa fa-trash bigger-130"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="odd">
-                <td class="center  sorting_1">
-                  <label>
-                    <input type="checkbox" class="ace">
-                    <span class="lbl"></span>
-                  </label>
-                </td>
-                <td class=" ">
-                  <a href="javascript:">max.com</a>
-                </td>
-                <td class=" ">$60</td>
-                <td class="hidden-480 ">4,400</td>
-                <td class=" ">Mar 11</td>
+                <td class=" ">${{good.price}}</td>
+                <td class="hidden-480 ">{{good.lookAtTimes}}</td>
+                <td class=" ">{{good.countTime}}</td>
                 <td class="hidden-480 ">
                   <span class="label label-sm label-warning" style="color: #fff;">到期</span>
                 </td>
@@ -170,15 +107,23 @@
             </table>
             <div class="row">
               <div class="col-sm-6">
-                <div class="dataTables_info" id="sample-table-2_info" style="text-align: left">显示23个条目中的1到10个</div>
+                <div class="dataTables_info" id="sample-table-2_info" style="text-align: left">
+                  显示{{allElement}}个条目中的1到
+                  <span v-if="allElement<=10">{{allElement}}</span>
+                  <span v-else>10</span>
+                  个
+                </div>
               </div>
               <div class="col-sm-6">
-                <div class="dataTables_paginate paging_bootstrap" >
+                <div class="dataTables_paginate paging_bootstrap">
                   <ul class="pagination" style="float: right;">
                     <li class="prev disabled"><a href="javascript:"><i class="fa fa-double-angle-left"></i></a></li>
-                    <li class="active"><a href="javascript:">1</a></li>
-                    <li><a href="javascript:">2</a></li>
-                    <li><a href="javascript:">3</a></li>
+                    <li v-for="(cur, index) in all" v-if="index===0" class="active">
+                      <a href="javascript:">{{cur}}</a>
+                    </li>
+                    <li v-else>
+                      <a href="javascript:">{{cur}}</a>
+                    </li>
                     <li class="next"><a href="javascript:"><i class="fa fa-double-angle-right"></i></a></li>
                   </ul>
                 </div>
@@ -192,25 +137,49 @@
 </template>
 
 <script>
-    export default {
-        name: "CommodityManagement"
-    }
+  export default {
+    name: "CommodityManagement",
+    data() {
+      return {
+        goodList: [],
+        all: '',
+        cur: 1,
+        allElement: '',
+      }
+    },
+    mounted: function () {
+      let _this = this;
+      this.$axios({
+        url: _this.HOME + '/goods/getLookAtTime?page=' + _this.cur,
+        method: 'get'
+      }).then(res => {
+        console.log(res.data.data);
+        _this.goodList = res.data.data.content;
+        _this.all = res.data.data.totalPages;
+        _this.allElement = res.data.data.totalElements;
+      })
+    },
+  }
 </script>
 
 <style scoped>
   table {
     text-align: left;
   }
+
   .pagination > li.disabled > a, .pagination > li.disabled > a:hover, .pager > li.disabled > a, .pager > li.disabled > a:hover {
     background-color: #f9f9f9;
     border-color: #d9d9d9;
   }
+
   .pagination > li {
     display: inline;
   }
+
   .dataTables_paginate .pagination {
     margin: 0 12px;
   }
+
   .pagination {
     display: inline-block;
     padding-left: 0;

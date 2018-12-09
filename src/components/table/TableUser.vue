@@ -74,84 +74,22 @@
               </thead>
 
               <tbody role="alert" aria-live="polite" aria-relevant="all">
-              <tr class="odd">
+              <tr class="odd" v-for="user in userList">
                 <td class="center  sorting_1">
                   <label>
-                    <input type="checkbox" class="ace">
+                    <input type="checkbox" class="ace" v-bind:value="user.personInfoId">
                     <span class="lbl"></span>
                   </label>
                 </td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class="hidden-480 "></td>
-                <td class=" "></td>
+                <td class=" ">{{user.id}}</td>
+                <td class=" ">{{user.detailInfo}}</td>
+                <td class="hidden-480 ">{{user.userName}}</td>
+                <td class=" ">{{user.password}}</td>
                 <td class="hidden-480 ">
-                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
+                  {{user.mobileNumber}}
                 </td>
                 <td class=" ">
-                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
-                </td>
-                <td class=" ">
-                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                    <a class="blue" href="#">
-                      <i class="fa fa-search-plus bigger-130"></i>
-                    </a>
-                    <a class="green" href="#">
-                      <i class="fa fa-pencil bigger-130"></i>
-                    </a>
-                    <a class="red" href="#">
-                      <i class="fa fa-trash bigger-130"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="even">
-                <td class="center  sorting_1">
-                  <label>
-                    <input type="checkbox" class="ace">
-                    <span class="lbl"></span>
-                  </label>
-                </td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class="hidden-480 "></td>
-                <td class=" "></td>
-                <td class="hidden-480 ">
-                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
-                </td>
-                <td class=" ">
-                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
-                </td>
-                <td class=" ">
-                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                    <a class="blue" href="#">
-                      <i class="fa fa-search-plus bigger-130"></i>
-                    </a>
-                    <a class="green" href="#">
-                      <i class="fa fa-pencil bigger-130"></i>
-                    </a>
-                    <a class="red" href="#">
-                      <i class="fa fa-trash bigger-130"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="odd">
-                <td class="center  sorting_1">
-                  <label>
-                    <input type="checkbox" class="ace">
-                    <span class="lbl"></span>
-                  </label>
-                </td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class="hidden-480 "></td>
-                <td class=" "></td>
-                <td class="hidden-480 ">
-                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
-                </td>
-                <td class=" ">
-                  <!--<span class="label label-sm label-warning" style="color: #fff;">到期</span>-->
+                  {{user.permission.permissionName}}
                 </td>
                 <td class=" ">
                   <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
@@ -171,15 +109,25 @@
             </table>
             <div class="row">
               <div class="col-sm-6">
-                <div class="dataTables_info" id="sample-table-2_info" style="text-align: left">显示23个条目中的1到10个</div>
+                <div class="dataTables_info" id="sample-table-2_info" style="text-align: left">
+                  显示{{allElement}}个条目中的1到
+                  <span v-if="allElement<=10">{{allElement}}</span>
+                  <span v-else>10</span>
+                  个
+                </div>
               </div>
               <div class="col-sm-6">
                 <div class="dataTables_paginate paging_bootstrap" >
                   <ul class="pagination" style="float: right;">
-                    <li class="prev disabled"><a href="javascript:"><i class="fa fa-double-angle-left"></i></a></li>
-                    <li class="active"><a href="javascript:">1</a></li>
-                    <li><a href="javascript:">2</a></li>
-                    <li><a href="javascript:">3</a></li>
+                    <li class="prev disabled">
+                      <a href="javascript:">
+                        <i class="fa fa-double-angle-left"></i>
+                      </a>
+                    </li>
+                    <li v-for="(cur, index) in all" v-if="index===0" class="active">
+                      <a href="javascript:">{{cur}}</a>
+                    </li>
+                    <li v-else><a href="javascript:">{{cur}}</a></li>
                     <li class="next"><a href="javascript:"><i class="fa fa-double-angle-right"></i></a></li>
                   </ul>
                 </div>
@@ -195,11 +143,30 @@
 <script>
   export default {
     name: "TableUser",
+    data () {
+      return {
+        userList: [],
+        all: '',
+        cur: 1,
+        allElement:'',
+      }
+    },
     created: function () {
       try {
         ace.settings.check('breadcrumbs', 'fixed')
       } catch (e) {
       }
+    },
+    mounted: function() {
+      let _this = this;
+      this.$axios({
+        url: _this.HOME + '/user/list?page=' +_this.cur + '&type=0',
+        method: 'get'
+      }).then(res => {
+        _this.userList = res.data.data.content;
+        _this.all = res.data.data.totalPages;
+        _this.allElement = res.data.data.totalElements
+      })
     }
   }
 </script>
