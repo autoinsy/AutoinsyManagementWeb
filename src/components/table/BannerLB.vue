@@ -2,123 +2,79 @@
   <div class="">
     <div class="row">
       <div class="col-xs-12">
-        <h3 class="header smaller lighter blue" style="text-align: left">广告管理列表</h3>
-        <div class="table-header" style="text-align: left">
-          “最新注册用户”的结果
-        </div>
-        <div class="table-responsive">
-          <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="dataTables_filter" id="sample-table-2_filter" style="text-align: left;">
-                  <label style="float: left">查询: <input type="text" aria-controls="sample-table-2"></label>
-                  <div class="sidebar-shortcuts-large" style="float: left">
-                    <button class="btn btn-primary ">
-                      <i class="fa fa-search"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div style="text-align: right;">
-                  <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                    <button class="btn btn-success">
-                      新建
-                    </button>
-                    <button class="btn btn-info">
-                      修改
-                    </button>
-                    <button class="btn btn-warning">
-                      删除
-                    </button>
-                    <button class="btn btn-danger">
-                      返回
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable"
-                   aria-describedby="sample-table-2_info">
-              <thead>
-              <tr role="row">
-                <th class="center sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label=""
-                    style="width: 100px;">
-                  <label>
-                    <input type="checkbox" class="ace">
-                    <span class="lbl"></span>
-                  </label>
-                </th>
-                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" style="width:168px;">Id
-                </th>
-                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" style="width: 200px;">广告名称
-                </th>
-                <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1" style="width: 200px;">发布时间
-                </th>
-                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" style="width: 200px;">
-                  <i class="fa fa-time bigger-110 hidden-480"></i>子广告名称
-                </th>
-                <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1" style="width: 284px;">详情
-                </th>
-                <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label=""
-                    style="width: 278px;">操作
-                </th>
-              </tr>
-              </thead>
+        <h3 class="header smaller lighter blue" style="text-align: left">轮播广告管理列表</h3>
+        <div class="row">
+          <div class="col-xs-12">
 
-              <tbody role="alert" aria-live="polite" aria-relevant="all">
-              <tr class="odd" v-for="(banner, index) in bannerList">
-                <td class="center  sorting_1">
-                  <label>
-                    <input type="checkbox" class="ace" v-bind:value="banner.advertisementId">
-                    <span class="lbl"></span>
-                  </label>
-                </td>
-                <td class=" ">{{banner.advertisementId}}</td>
-                <td class=" ">{{banner.advertisementName}}</td>
-                <td class="hidden-480 ">{{banner.publishTime}}</td>
-                <td class=" ">{{banner.advertisementHrefName}}</td>
-                <td class=" ">{{banner.advertisementUrl}}</td>
-                <td class=" ">
-                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                    <a class="blue" href="#">
-                      <i class="fa fa-search-plus bigger-130"></i>
+            <div class="row-fluid">
+              <ul class="ace-thumbnails">
+                <li>
+                  <a href="javascript:" title="Photo Title" data-rel="colorbox" class="cboxElement">
+                    <img alt="150x150" src="../../assets/picture/thumb-1.jpg">
+                    <div class="tags">
+                      <span class="label-holder">
+                        <span class="label label-info">breakfast</span>
+                      </span>
+                      <span class="label-holder">
+                        <span class="label label-danger">fruits</span>
+                      </span>
+                      <span class="label-holder">
+                        <span class="label label-success">toast</span>
+                      </span>
+                      <span class="label-holder">
+                        <span class="label label-warning arrowed-in">diet</span>
+                      </span>
+                    </div>
+                  </a>
+                  <div class="tools">
+                    <a href="#">
+                      <i class="icon-link"></i>
                     </a>
-                    <a class="green" href="#">
-                      <i class="fa fa-pencil bigger-130"></i>
+                    <a href="#">
+                      <i class="icon-paper-clip"></i>
                     </a>
-                    <a class="red" href="#">
-                      <i class="fa fa-trash bigger-130"></i>
+                    <a href="#">
+                      <i class="icon-pencil"></i>
+                    </a>
+                    <a href="#">
+                      <i class="icon-remove red"></i>
                     </a>
                   </div>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="dataTables_info" id="sample-table-2_info" style="text-align: left">
-                  显示{{allElement}}个条目中的1到
-                  <span v-if="allElement<=10">{{allElement}}</span>
-                  <span v-else>10</span>
-                  个
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="dataTables_paginate paging_bootstrap">
-                  <ul class="pagination" style="float: right;">
-                    <li class="prev disabled"><a href="javascript:"><i class="fa fa-double-angle-left"></i></a></li>
-                    <li v-for="(cur, index) in all" v-if="index === 0" class="active"><a href="javascript:">{{cur}}</a></li>
-                    <li v-else><a href="javascript:">{{cur}}</a></li>
-                    <li class="next"><a href="javascript:"><i class="fa fa-double-angle-right"></i></a></li>
-                  </ul>
-                </div>
-              </div>
+                </li>
+                <li>
+                  <a href="javascript:" data-rel="colorbox" class="cboxElement">
+                    <img alt="150x150" src="../../assets/picture/thumb-2.jpg">
+                    <div class="text">
+                      <div class="inner">Sample Caption on Hover</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:" title="Photo Title" data-rel="colorbox" class="cboxElement">
+                    <img alt="150x150" src="../../assets/picture/thumb-1.jpg">
+                    <div class="text">
+                      <div class="inner">Sample Caption on Hover</div>
+                    </div>
+                  </a>
+                  <div class="tools tools-bottom">
+                    <a href="#">
+                      <i class="icon-link"></i>
+                    </a>
+                    <a href="#">
+                      <i class="icon-paper-clip"></i>
+                    </a>
+                    <a href="#">
+                      <i class="icon-pencil"></i>
+                    </a>
+                    <a href="#">
+                      <i class="icon-remove red"></i>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div class="label-holder-file-box"><input type="file" class="label-holder-file"/></div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -129,29 +85,22 @@
 
 <script>
   export default {
-    name: "Banner",
-    data() {
-      return {
-        cur: 1,
-        bannerList: [],
-        all: '',
-        allElement: '',
-      }
-    },
-    mounted: function () {
-      let _this = this;
-      this.$axios({
-        url: _this.HOME + '' + _this.cur,
-        method: 'get'
-      }).then(res => {
-        _this.bannerList = res.data.data.content;
-        _this.all = res.data.data.totalPages;
-        _this.allElement = res.data.data.totalElements;
-      })
-    }
+    name: "Banner"
   }
 </script>
 
-<style scoped>
-
+<style>
+.label-holder span{
+  color: #fff;
+  padding: 5px 10px;
+  text-align: center;
+}
+  .label-holder-file{
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+  }
+  .label-holder-file-box{
+    background: url("../../assets/picture/add.png") no-repeat;
+  }
 </style>

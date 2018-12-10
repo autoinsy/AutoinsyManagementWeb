@@ -25,9 +25,7 @@
                     <button class="btn btn-success">
                       新建
                     </button>
-                    <button class="btn btn-info">
-                      修改
-                    </button>
+                    
                     <button class="btn btn-warning">
                       删除
                     </button>

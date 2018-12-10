@@ -19,6 +19,8 @@ import TableUserSJ from '../components/table/TableUserSJ'
 import Banner from '../components/table/Banner'
 import BannerLB from '../components/table/BannerLB'
 import AutoinsyManagement from '../components/table/AutoinsyManagement'
+import Law from '../components/table/Law'
+import News from '../components/table/News'
 
 Vue.use(Router);
 
@@ -118,6 +120,16 @@ export default new Router({
           name: 'AutoinsyManagement',
           path: '/AutoinsyManagement',
           component: AutoinsyManagement
+        },
+        {
+          name: 'Law',
+          path: '/Law',
+          component: Law
+        },
+        {
+          name: 'News',
+          path: '/News',
+          component: News
         },
       ]
     }

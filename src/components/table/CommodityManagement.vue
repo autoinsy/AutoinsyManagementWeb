@@ -50,45 +50,60 @@
                   </label>
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" aria-label="域名: activate to sort column ascending" style="width: 273px;">域名
+                    colspan="1" style="width:168px;">Id
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" aria-label="价格: activate to sort column ascending" style="width: 168px;">价格
+                    colspan="1"style="width: 200px;">产品名称
                 </th>
-                <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1" aria-label="点击数: activate to sort column ascending" style="width: 213px;">
-                  点击数
+                <th class=" sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 200px;">价格
                 </th>
-                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" aria-label="更新: activate to sort column ascending" style="width: 230px;">
-                  <i class="fa fa-time bigger-110 hidden-480"></i>
-                  更新
+                <th class=" sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 284px;">品牌
                 </th>
-                <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1" aria-label="状况: activate to sort column ascending" style="width: 284px;">状况
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 284px;">商品编号
+                </th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 284px;">产地
+                </th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 284px;">子分类
+                </th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 284px;">描述评分
+                </th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 284px;">发货速度评分
+                </th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 284px;">服务态度评分
+                </th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 284px;">数量
+                </th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 284px;">发布时间
+                </th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                    rowspan="1" colspan="1"style="width: 284px;">主分类
                 </th>
                 <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label=""
-                    style="width: 278px;"></th>
+                    style="width: 278px;">操作</th>
               </tr>
               </thead>
 
               <tbody role="alert" aria-live="polite" aria-relevant="all">
-              <tr class="odd" v-for="(good, index) in goodList">
+              <tr class="odd" v-for="user in cityList">
                 <td class="center  sorting_1">
                   <label>
-                    <input type="checkbox" class="ace" v-bind:value="good.goodsId">
+                    <input type="checkbox" class="ace" v-bind:value="city.personInfoId">
                     <span class="lbl"></span>
                   </label>
                 </td>
-                <td class=" ">
-                  <a v-bind:href="good.goodUrl">{{good.name}}</a>
-                </td>
-                <td class=" ">${{good.price}}</td>
-                <td class="hidden-480 ">{{good.lookAtTimes}}</td>
-                <td class=" ">{{good.countTime}}</td>
-                <td class="hidden-480 ">
-                  <span class="label label-sm label-warning" style="color: #fff;">到期</span>
-                </td>
+                <td class=" ">{{city.id}}</td>
+                <td class=" ">{{city.cityName}}</td>
+                <td class="hidden-480 ">{{city.cityAddress}}</td>
                 <td class=" ">
                   <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                     <a class="blue" href="#">

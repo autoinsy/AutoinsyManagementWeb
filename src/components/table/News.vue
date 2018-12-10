@@ -2,7 +2,7 @@
   <div class="" >
     <div class="row" >
       <div class="col-xs-12">
-        <h3 class="header smaller lighter blue" style="text-align: left">通知管理列表</h3>
+        <h3 class="header smaller lighter blue" style="text-align: left">新闻管理列表</h3>
         <div class="table-header" style="text-align: left">
           “最新注册用户”的结果
         </div>
@@ -51,16 +51,13 @@
                     colspan="1" style="width:168px;">Id
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1"style="width: 200px;">通知内容
+                    colspan="1"style="width: 200px;">标题
                 </th>
                 <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1"style="width: 200px;">通知级别
+                    rowspan="1" colspan="1"style="width: 200px;">新闻编号
                 </th>
                 <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1"style="width: 284px;">通知来源
-                </th>
-                <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1"style="width: 284px;">通知时间
+                    rowspan="1" colspan="1"style="width: 284px;">发布时间
                 </th>
                 <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label=""
                     style="width: 278px;">操作</th>
@@ -129,7 +126,7 @@
 
 <script>
     export default {
-        name: "Notification"
+        name: "News"
     }
 </script>
 

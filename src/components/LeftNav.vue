@@ -59,19 +59,22 @@
         </li>
         <li class="nav nav-item">
           <router-link to='/Banner'>
-            <i class="fa fa-user"></i>
+            <i class="fa fa-diamond"></i>
             <span class="menu-text">广告管理</span>
+            <b class="arrow fa fa-angle-down"></b>
           </router-link>
-        </li>
-        <li>
-          <router-link to='/BannerLB'>
-            <i class="fa fa-user"></i>
-            <span class="menu-text">轮播广告管理</span>
-          </router-link>
+          <ul class="submenu">
+            <li>
+              <router-link to='/BannerLB'>
+                <i class="fa fa-image"></i>
+                轮播广告管理
+              </router-link>
+            </li>
+          </ul>
         </li>
         <li>
           <router-link to='/AutoinsyManagement'>
-            <i class="fa fa-user"></i>
+            <i class="fa fa-automobile"></i>
             <span class="menu-text">汽配城管理</span>
           </router-link>
         </li>
@@ -84,7 +87,7 @@
         </li>
         <li class="nav nav-item">
           <router-link to='/Law'>
-            <i class="fa fa-desktop"></i>
+            <i class="fa fa-file-text-o"></i>
             <span class="menu-text"> 法律条文 </span>
             <!--<b class="arrow fa fa-angle-down"></b>-->
           </router-link>
@@ -105,7 +108,7 @@
         </li>
         <li class="nav nav-item">
           <router-link to='/Notification'>
-            <i class="fa fa-bell"></i>
+            <i class="fa fa-bell-o"></i>
             <span class="menu-text"> 通知 </span>
             <!--<b class="arrow fa fa-angle-down"></b>-->
           </router-link>
