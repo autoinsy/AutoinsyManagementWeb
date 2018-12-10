@@ -25,7 +25,7 @@
                     <button class="btn btn-success">
                       新建
                     </button>
-                    
+
                     <button class="btn btn-warning">
                       删除
                     </button>
@@ -51,93 +51,46 @@
                     colspan="1" style="width:168px;">Id
                 </th>
                 <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1"style="width: 200px;">商家编号
+                    colspan="1" style="width: 200px;">商家编号
                 </th>
                 <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1"style="width: 200px;">营业执照号码
+                    rowspan="1" colspan="1" style="width: 200px;">营业执照号码
                 </th>
                 <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1"style="width: 200px;">身份证号码
+                    rowspan="1" colspan="1" style="width: 200px;">身份证号码
                 </th>
                 <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1"style="width: 200px;">用户名
+                    rowspan="1" colspan="1" style="width: 200px;">用户名
                 </th>
                 <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label=""
-                    style="width: 278px;">操作</th>
+                    style="width: 278px;">操作
+                </th>
               </tr>
               </thead>
 
               <tbody role="alert" aria-live="polite" aria-relevant="all">
-              <tr class="odd">
+              <tr class="odd" v-for="(seller, index) in sellerList">
+
                 <td class="center  sorting_1">
                   <label>
-                    <input type="checkbox" class="ace">
+                    <input type="checkbox" class="ace" v-bind:value="seller.sellerId">
                     <span class="lbl"></span>
                   </label>
                 </td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class="hidden-480 "></td>
-                <td class=" "></td>
-                <td class=" "></td>
+                <td class=" ">{{seller.sellerId}}</td>
+                <td class=" ">{{seller.sellerCode}}</td>
+                <td class="hidden-480 ">{{seller.sellerAuthentication.businessLicenceNumber}}</td>
+                <td class=" ">
+                  <img v-bind:src="seller.sellerAuthentication.identifyCardImageFrontUrl">
+                  <img v-bind:src="seller.sellerAuthentication.identifyCardImageBackUrl">
+                </td>
+                <td class=" ">{{seller.userName}}</td>
                 <td class=" ">
                   <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                     <a class="blue" href="#">
                       <i class="fa fa-search-plus bigger-130"></i>
                     </a>
-                    <a class="green" href="#">
-                      <i class="fa fa-pencil bigger-130"></i>
-                    </a>
-                    <a class="red" href="#">
-                      <i class="fa fa-trash bigger-130"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="even">
-                <td class="center  sorting_1">
-                  <label>
-                    <input type="checkbox" class="ace">
-                    <span class="lbl"></span>
-                  </label>
-                </td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class="hidden-480 "></td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class=" ">
-                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                    <a class="blue" href="#">
-                      <i class="fa fa-search-plus bigger-130"></i>
-                    </a>
-                    <a class="green" href="#">
-                      <i class="fa fa-pencil bigger-130"></i>
-                    </a>
-                    <a class="red" href="#">
-                      <i class="fa fa-trash bigger-130"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="odd">
-                <td class="center  sorting_1">
-                  <label>
-                    <input type="checkbox" class="ace">
-                    <span class="lbl"></span>
-                  </label>
-                </td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class="hidden-480 "></td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class=" ">
-                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                    <a class="blue" href="#">
-                      <i class="fa fa-search-plus bigger-130"></i>
-                    </a>
-                    <a class="green" href="#">
+                    <a class="green" @click="modifySeller">
                       <i class="fa fa-pencil bigger-130"></i>
                     </a>
                     <a class="red" href="#">
@@ -150,15 +103,21 @@
             </table>
             <div class="row">
               <div class="col-sm-6">
-                <div class="dataTables_info" id="sample-table-2_info" style="text-align: left">显示23个条目中的1到10个</div>
+                <div class="dataTables_info" id="sample-table-2_info" style="text-align: left">
+                  显示{{allElement}}个条目中的1到
+                  <span v-if="allElement<=10">{{allElement}}</span>
+                  <span v-else>10</span>
+                  个
+                </div>
               </div>
               <div class="col-sm-6">
-                <div class="dataTables_paginate paging_bootstrap" >
+                <div class="dataTables_paginate paging_bootstrap">
                   <ul class="pagination" style="float: right;">
                     <li class="prev disabled"><a href="javascript:"><i class="fa fa-double-angle-left"></i></a></li>
-                    <li class="active"><a href="javascript:">1</a></li>
-                    <li><a href="javascript:">2</a></li>
-                    <li><a href="javascript:">3</a></li>
+                    <li v-for="(cur, index) in all" v-if="index===0" class="active">
+                      <a href="javascript:">{{cur}}</a>
+                    </li>
+                    <li v-else><a href="javascript:">{{cur}}</a></li>
                     <li class="next"><a href="javascript:"><i class="fa fa-double-angle-right"></i></a></li>
                   </ul>
                 </div>
@@ -172,9 +131,41 @@
 </template>
 
 <script>
-    export default {
-        name: "TableUserSJ"
+  export default {
+    name: "TableUserSJ",
+    data() {
+      return {
+        sellerList: '',
+        all: '',
+        allElement: '',
+        cur: '',
+      }
+    },
+    mounted: function () {
+      let _this = this;
+      this.$axios({
+        url: _this.HOME + '/user/list?page=' + _this.cur + '&type=1',
+        method: 'get'
+      }).then(res => {
+        console.log(res.data.data)
+        _this.sellerList = res.data.data.content;
+        _this.all = res.data.data.totalPages;
+        _this.allElement = res.data.data.totalElements;
+      })
+    },
+    methods: {
+      modifySeller: function (e) {
+        let sellerCode = $(e.target).parent().parent().parent().parent().children().eq(2).text();
+        let _this = this;
+        this.$axios({
+          url: _this.HOME +'/user/modifySeller?sellerCode=' + sellerCode,
+          method: 'post'
+        }).then(res => {
+          alert(res.data.message)
+        })
+      }
     }
+  }
 </script>
 
 <style scoped>

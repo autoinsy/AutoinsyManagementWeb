@@ -101,6 +101,6 @@
     opacity: 0;
   }
   .label-holder-file-box{
-    background: url("../../assets/picture/add.png") no-repeat;
+    /*background: url("../../assets/picture/add.png") no-repeat;*/
   }
 </style>
