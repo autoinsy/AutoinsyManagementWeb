@@ -25,7 +25,7 @@
                     <button class="btn btn-success">
                       新建
                     </button>
-                    
+
                     <button class="btn btn-warning">
                       删除
                     </button>
@@ -61,7 +61,8 @@
                   <i class="fa fa-time bigger-110 hidden-480"></i>子广告名称
                 </th>
                 <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1" style="width: 284px;">详情
+                    rowspan="1" colspan="1" style="width: 284px;">
+                  详情
                 </th>
                 <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label=""
                     style="width: 278px;">操作
@@ -177,7 +178,7 @@
   export default {
     name: "Banner",
     mounted: function () {
-      
+      $('table').DataTable();
     }
   }
 </script>
