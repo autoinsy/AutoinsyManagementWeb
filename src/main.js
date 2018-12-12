@@ -11,6 +11,7 @@ import 'dropzone/dist/dropzone.css'
 import 'font-awesome/css/font-awesome.css'
 import 'fullcalendar/dist/fullcalendar.css'
 import 'bootstrap/dist/js/bootstrap.js'
+import 'datatable'
 import './assets/css/ace.min.css'
 import './assets/css/colorbox.css'
 import './assets/css/colorpicker.css'
@@ -42,7 +43,7 @@ Vue.prototype.$axios = $axios;
 Vue.prototype.HOME = '/manager';
 
 $axios.create({
-  baseURL: 'http://47.93.195.248:8083/management/api'
+  baseURL: 'http://47.93.195.248:8083/api'
 });
 /* eslint-disable no-new */
 new Vue({

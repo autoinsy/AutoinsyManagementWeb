@@ -65,7 +65,7 @@
               </thead>
 
               <tbody role="alert" aria-live="polite" aria-relevant="all">
-              <tr class="odd" v-for="user in cityList">
+              <tr class="odd" v-for="city in cityList">
                 <td class="center  sorting_1">
                   <label>
                     <input type="checkbox" class="ace" v-bind:value="city.personInfoId">
