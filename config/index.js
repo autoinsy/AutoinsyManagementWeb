@@ -12,6 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/manager': 'http://47.93.195.248:8083/api'
+      // '/manager': 'http://192.168.1.229:8083/api'
     },
 
     // Various Dev Server settings

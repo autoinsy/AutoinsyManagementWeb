@@ -1,14 +1,22 @@
 <template>
   <div class="">
-    <div class="row" style="">
+    <div class="row">
       <div class="col-md-12">
-        <h3 class="header smaller lighter blue" style="text-align: left">汽配城管理列表</h3>
-
+        <h3 class="header smaller lighter blue" style="text-align: left">服务管理列表</h3>
         <div class="table-responsive">
           <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
             <table class="table-bordered table-striped">
               <thead>
               <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -28,7 +36,7 @@
 
 <script>
   export default {
-    name: "AutoinsyManagement",
+    name: "Service",
     data() {
       return {
         cityList: [],
@@ -85,7 +93,7 @@
         pageLength: 10,
         ajax: function (data, callback, settings) {
           $.ajax({
-            url: _this.HOME + '/autoinsyCity/list',
+            url: _this.HOME + '/service/allServiceInfo',
             type: 'get',
             data: {
               "page": _this.cur,
@@ -108,7 +116,7 @@
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
         columnDefs: [
           {
-            targets: 5,
+            targets: 14,
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
@@ -127,78 +135,108 @@
             }
           },
           {
+            targets: 12,
+            data: "serviceCode",
+            title: "服务编号",
+          },
+          {
+            targets: 11,
+            data: "publishTime",
+            title: "发布时间",
+          },
+          {
+            targets: 10,
+            data: "qrCode",
+            title: "二维码地址",
+          },
+          {
+            targets: 9,
+            data: "mobilePhoneNo",
+            title: "手机号",
+          },
+          {
+            targets: 8,
+            data: "descript",
+            title: "描述",
+          },
+          {
+            targets: 7,
+            data: "serviceType",
+            title: "服务类型",
+          },
+          {
+            targets: 6,
+            data: "storeName",
+            title: "商家名称",
+          },
+          {
+            targets: 5,
+            data: "address",
+            title: "商家地址",
+          },
+          {
             targets: 4,
-            data: "cityTitle",
-            title: "标题",
+            data: "contacts",
+            title: "联系人",
           },
           {
             targets: 3,
-            data: "cityName",
-            title: "汽配城名称",
+            data: "serviceArea",
+            title: "服务区域",
           },
           {
             targets: 2,
-            data: "cityAddress",
-            title: "汽配城地址",
+            data: "title",
+            title: "服务名称",
+          },
+          {
+            targets: 1,
+            data: "serviceID",
+            title: "服务Id",
           },
           {
             targets: 0,
             data: null,
             title: "<input type='checkbox'>",
             render: function (data, type, row, meta) {
-              return "<label><input type='checkbox' value=" + data.cityId + "><span></span></label>"
+              return "<label><input type='checkbox' value="+ data.serviceID +"><span></span></label>"
             }
           },
-          {
-            targets: 1,
-            data: "cityId",
-            title: "Id",
-          }
         ],
+
       });
     }
   }
 </script>
 
-
 <style scoped>
-  table {
+  table{
     font-size: 14px;
     font-family: 微软雅黑;
     border: 1px solid #ddd;
     padding: 0;
-    width: 100%;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
   }
-
-  table thead {
+  table thead{
     background: #1a89ed;
-    color: #ffffff;
+    color:#ffffff;
     font-size: 18px;
   }
-
-  .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+  .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
     border-bottom-width: 2px !important;
   }
-
   table.table-bordered tbody th, table.table-bordered tbody td {
     border-left-width: 0 !important;
     border-bottom-width: 0 !important;
   }
-
-  .table-striped > tbody > tr:nth-of-type(odd) {
+  .table-striped>tbody>tr:nth-of-type(odd) {
     background-color: #f9f9f9 !important;
   }
-
   .dataTable th[class*=sorting_] {
     color: #ffffff !important;
   }
-
   .dataTable th[class*=sort]:hover {
     color: #ffffff !important;
   }
-
   .table-bordered {
     border: 1px solid #ddd;
   }

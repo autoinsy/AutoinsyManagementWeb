@@ -1,172 +1,24 @@
 <template>
   <div class="">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-md-12">
         <h3 class="header smaller lighter blue" style="text-align: left">广告管理列表</h3>
-        <div class="table-header" style="text-align: left">
-          “最新注册用户”的结果
-        </div>
         <div class="table-responsive">
           <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="dataTables_filter" id="sample-table-2_filter" style="text-align: left;">
-                  <label style="float: left">查询: <input type="text" aria-controls="sample-table-2"></label>
-                  <div class="sidebar-shortcuts-large" style="float: left">
-                    <button class="btn btn-primary ">
-                      <i class="fa fa-search"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div style="text-align: right;">
-                  <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                    <button class="btn btn-success">
-                      新建
-                    </button>
-
-                    <button class="btn btn-warning">
-                      删除
-                    </button>
-                    <button class="btn btn-danger">
-                      返回
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable"
-                   aria-describedby="sample-table-2_info">
+            <table class="table-bordered table-striped">
               <thead>
-              <tr role="row">
-                <th class="center sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label=""
-                    style="width: 100px;">
-                  <label>
-                    <input type="checkbox" class="ace">
-                    <span class="lbl"></span>
-                  </label>
-                </th>
-                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" style="width:168px;">Id
-                </th>
-                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" style="width: 200px;">广告名称
-                </th>
-                <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1" style="width: 200px;">发布时间
-                </th>
-                <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1"
-                    colspan="1" style="width: 200px;">
-                  <i class="fa fa-time bigger-110 hidden-480"></i>子广告名称
-                </th>
-                <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
-                    rowspan="1" colspan="1" style="width: 284px;">
-                  详情
-                </th>
-                <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label=""
-                    style="width: 278px;">操作
-                </th>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <!--<th></th>-->
               </tr>
               </thead>
-
-              <tbody role="alert" aria-live="polite" aria-relevant="all">
-              <tr class="odd">
-                <td class="center  sorting_1">
-                  <label>
-                    <input type="checkbox" class="ace">
-                    <span class="lbl"></span>
-                  </label>
-                </td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class="hidden-480 "></td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class=" ">
-                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                    <a class="blue" href="#">
-                      <i class="fa fa-search-plus bigger-130"></i>
-                    </a>
-                    <a class="green" href="#">
-                      <i class="fa fa-pencil bigger-130"></i>
-                    </a>
-                    <a class="red" href="#">
-                      <i class="fa fa-trash bigger-130"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="even">
-                <td class="center  sorting_1">
-                  <label>
-                    <input type="checkbox" class="ace">
-                    <span class="lbl"></span>
-                  </label>
-                </td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class="hidden-480 "></td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class=" ">
-                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                    <a class="blue" href="#">
-                      <i class="fa fa-search-plus bigger-130"></i>
-                    </a>
-                    <a class="green" href="#">
-                      <i class="fa fa-pencil bigger-130"></i>
-                    </a>
-                    <a class="red" href="#">
-                      <i class="fa fa-trash bigger-130"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="odd">
-                <td class="center  sorting_1">
-                  <label>
-                    <input type="checkbox" class="ace">
-                    <span class="lbl"></span>
-                  </label>
-                </td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class="hidden-480 "></td>
-                <td class=" "></td>
-                <td class=" "></td>
-                <td class=" ">
-                  <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                    <a class="blue" href="#">
-                      <i class="fa fa-search-plus bigger-130"></i>
-                    </a>
-                    <a class="green" href="#">
-                      <i class="fa fa-pencil bigger-130"></i>
-                    </a>
-                    <a class="red" href="#">
-                      <i class="fa fa-trash bigger-130"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-              </tbody>
+              <tbody></tbody>
             </table>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="dataTables_info" id="sample-table-2_info" style="text-align: left">显示23个条目中的1到10个</div>
-              </div>
-              <div class="col-sm-6">
-                <div class="dataTables_paginate paging_bootstrap">
-                  <ul class="pagination" style="float: right;">
-                    <li class="prev disabled"><a href="javascript:"><i class="fa fa-double-angle-left"></i></a></li>
-                    <li class="active"><a href="javascript:">1</a></li>
-                    <li><a href="javascript:">2</a></li>
-                    <li><a href="javascript:">3</a></li>
-                    <li class="next"><a href="javascript:"><i class="fa fa-double-angle-right"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -177,12 +29,172 @@
 <script>
   export default {
     name: "Banner",
+    data() {
+      return {
+        cityList: [],
+        all: '',
+        cur: 1,
+        allElement: '',
+      }
+    },
+    created: function () {
+      try {
+        ace.settings.check('breadcrumbs', 'fixed')
+      } catch (e) {
+      }
+    },
     mounted: function () {
-      $('table').DataTable();
+      let _this = this;
+      let table = $('table').DataTable({
+        language: {
+          "processing": "处理中...",
+          "lengthMenu": "显示 _MENU_ 项结果",
+          "zeroRecords": "没有匹配结果",
+          "info": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+          "infoEmpty": "显示第 0 至 0 项结果，共 0 项",
+          "infoFiltered": "(由 _MAX_ 项结果过滤)",
+          "infoPostFix": "",
+          "search": "搜索:",
+          "searchPlaceholder": "搜索...",
+          "url": "",
+          "emptyTable": "表中数据为空",
+          "loadingRecords": "载入中...",
+          "infoThousands": ",",
+          "paginate": {
+            "first": "首页",
+            "previous": "上页",
+            "next": "下页",
+            "last": "末页"
+          },
+          "aria": {
+            "paginate": {
+              "first": "首页",
+              "previous": "上页",
+              "next": "下页",
+              "last": "末页"
+            },
+            "sortAscending": "以升序排列此列",
+            "sortDescending": "以降序排列此列"
+          },
+          "thousands": "."
+        },
+        serverSide: true,
+        deferRender: true,
+        paging: true,
+        info: false,
+        pageLength: 10,
+        ajax: function (data, callback, settings) {
+          $.ajax({
+            url: _this.HOME + '/advertisement/list',
+            type: 'get',
+            data: {
+              "page": _this.cur,
+              "type": '0',
+              "size": '',
+            },
+            success: function (data) {
+              var returnData = {};
+              returnData.recordsTotal = data.data.totalPages;//返回数据全部记录
+              returnData.recordsFiltered = data.data.totalElements;//后台不实现过滤功能，每次查询均视作全部结果
+              returnData.data = data.data.content;//返回的数据列表
+              //console.log(returnData);
+              //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
+              //此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
+              callback(returnData);
+            },
+
+          })
+        },
+        dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
+        columnDefs: [
+          {
+            targets: 5,
+            data: "",
+            title: "操作",
+            render: function (data, type, row, meta) {
+              let div = "<div class=\"\">\n" +
+                "<a class=\"\" href=\"#\">\n" +
+                "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
+                "</a>\n" +
+                "<a class=\"green\" href=\"#\">\n" +
+                "<i class=\"fa fa-pencil bigger-130\"></i>\n" +
+                "</a>\n" +
+                "<a class=\"red\" href=\"#\">\n" +
+                "<i class=\"fa fa-trash bigger-130\"></i>\n" +
+                "</a>\n" +
+                "</div>";
+              return div;
+            }
+          },
+          // {
+          //   targets: 5,
+          //   data: "",
+          //   title: "详情",
+          // },
+          {
+            targets: 4,
+            data: "advertisementHrefName",
+            title: "子广告名称",
+          },
+          {
+            targets: 3,
+            data: "publishTime",
+            title: "发布时间",
+          },
+          {
+            targets: 2,
+            data: "advertisementName",
+            title: "广告名称",
+          },
+          {
+            targets: 1,
+            data: "advertisementId",
+            title: "Id",
+          },
+          {
+            targets: 0,
+            data: null,
+            title: "<input type='checkbox'>",
+            render: function (data, type, row, meta) {
+              return "<label><input type='checkbox' value="+ data.advertisementId +"><span></span></label>"
+            }
+          },
+        ],
+
+      });
     }
   }
 </script>
 
 <style scoped>
-
+  table{
+    font-size: 14px;
+    font-family: 微软雅黑;
+    border: 1px solid #ddd;
+    padding: 0;
+  }
+  table thead{
+    background: #1a89ed;
+    color:#ffffff;
+    font-size: 18px;
+  }
+  .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border-bottom-width: 2px !important;
+  }
+  table.table-bordered tbody th, table.table-bordered tbody td {
+    border-left-width: 0 !important;
+    border-bottom-width: 0 !important;
+  }
+  .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9 !important;
+  }
+  .dataTable th[class*=sorting_] {
+    color: #ffffff !important;
+  }
+  .dataTable th[class*=sort]:hover {
+    color: #ffffff !important;
+  }
+  .table-bordered {
+    border: 1px solid #ddd;
+  }
 </style>
