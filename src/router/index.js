@@ -9,7 +9,6 @@ import numberBox from '../components/table/NumberBox'
 import middle from '../components/table/middle'
 import lastIndex from '../components/table/lastindex'
 import CommodityManagement from '../components/table/CommodityManagement'
-import InstantMessaging from '../components/table/InstantMessaging'
 import Notification from '../components/table/Notification'
 import Recruit from '../components/table/Recruit'
 import Rent from '../components/table/Rent'
@@ -21,6 +20,8 @@ import BannerLB from '../components/table/BannerLB'
 import AutoinsyManagement from '../components/table/AutoinsyManagement'
 import Law from '../components/table/Law'
 import News from '../components/table/News'
+import Service from '../components/table/Service'
+import Resume from '../components/table/Resume'
 
 Vue.use(Router);
 
@@ -70,11 +71,6 @@ export default new Router({
           name: 'CommodityManagement',
           path: '/CommodityManagement',
           component: CommodityManagement
-        },
-        {
-          name: 'InstantMessaging',
-          path: '/InstantMessaging',
-          component: InstantMessaging
         },
         {
           name: 'Notification',
@@ -130,6 +126,16 @@ export default new Router({
           name: 'News',
           path: '/News',
           component: News
+        },
+        {
+          name: 'Service',
+          path: '/Service',
+          component: Service
+        },
+        {
+          name: 'Resume',
+          path: '/Resume',
+          component: Resume
         },
       ]
     }

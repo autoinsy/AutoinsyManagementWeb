@@ -45,13 +45,13 @@
           <ul class="submenu">
             <li>
               <router-link to='/TableUserJS'>
-                <i class="fa fa-double-angle-right"></i>
+                <i class="fa fa-user-circle-o"></i>
                 角色管理
               </router-link>
             </li>
             <li>
               <router-link to='/TableUserSJ'>
-                <i class="fa fa-double-angle-right"></i>
+                <i class="fa fa-user-circle"></i>
                 商家管理
               </router-link>
             </li>
@@ -115,9 +115,25 @@
         </li>
         <li class="nav nav-item">
           <router-link to='/Recruit'>
+            <i class="fa fa-envelope-open"></i>
+            <span class="menu-text">
+								招聘管理
+						</span>
+          </router-link>
+        </li>
+        <li class="nav nav-item">
+          <router-link to='/Resume'>
             <i class="fa fa-id-card"></i>
             <span class="menu-text">
 								简历管理
+						</span>
+          </router-link>
+        </li>
+        <li class="nav nav-item">
+          <router-link to='/Service'>
+            <i class="fa fa-archive"></i>
+            <span class="menu-text">
+								服务管理
 						</span>
           </router-link>
         </li>
