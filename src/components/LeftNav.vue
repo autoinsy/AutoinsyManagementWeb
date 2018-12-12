@@ -141,7 +141,7 @@
       }
     },
     created: function () {
-      this.ace.settings.check('sidebar', 'fixed')
+      // this.ace.settings.check('sidebar', 'fixed')
     }
   }
 </script>
