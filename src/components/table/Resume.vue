@@ -90,7 +90,7 @@
         pageLength: 10,
         ajax: function (data, callback, settings) {
           $.ajax({
-            url: _this.HOME + '/advertisement/list',
+            url: _this.HOME + '/vitae/list',
             type: 'get',
             data: {
               "page": _this.cur,
