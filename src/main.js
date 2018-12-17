@@ -72,7 +72,9 @@ Date.prototype.Format = function (fmt) { //author: meizz
   return fmt;
 };
 $axios.create({
-  baseURL: 'http://47.93.195.248:8083/api'
+  // baseURL: 'http://47.93.195.248:8083/api'
+  baseURL: 'http://192.168.1.229:8083/api'
+  // baseURL: 'http://localhost:8083/api'
 });
 /* eslint-disable no-new */
 new Vue({

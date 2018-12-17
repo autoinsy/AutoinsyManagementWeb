@@ -120,7 +120,7 @@
                 "<i class=\"fa fa-pencil bigger-130\"></i>\n" +
                 "</a>\n" +
                 "<a class=\"red\" href=\"#\">\n" +
-                "<i class=\"fa fa-trash bigger-130\"></i>\n" +
+                "<i class=\"fa fa-trash bigger-130\"><span style='display: none'>" + row.advertisementId + "</span></i>\n" +
                 "</a>\n" +
                 "</div>";
               return div;
@@ -160,8 +160,40 @@
             }
           },
         ],
-
+        buttons: [
+          'copy', 'excel', 'pdf'
+        ],
+        initComplete: function () {
+          //手动添加按钮到表格上
+          $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
+          $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
+          $("#toolbar").append("<input type='button' value='删除' class='btn-yellow' style='margin: 0 5px;'/>");
+          $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
+          $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
+          let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
+          $(deleteButton).click(_this.deleteData)
+        },
       });
+    },
+    methods: {
+      deleteData: function (e) {
+        let index = $(e.target).children().text();
+        let delete_this = this;
+        if (confirm('确定删除？')) {
+          this.$axios({
+            method: 'post',
+            url: delete_this.HOME + '/advertisement/delete?id=' + index,
+          }).then(function (response) {
+            if (response.status === 200) {
+              delete_this.people.splice(index, 1);
+              delete_this.btnClick(1);
+            }
+          }).catch(function (error) {
+            console.log(error);
+          })
+        }
+      },
+
     }
   }
 </script>

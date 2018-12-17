@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/Home'
 import index from '../components/table/index'
-import Calendar from '../components/table/Calendar'
 import TableUser from '../components/table/TableUser'
 import infor from '../components/table/infor'
 import numberBox from '../components/table/NumberBox'
@@ -12,7 +11,6 @@ import CommodityManagement from '../components/table/CommodityManagement'
 import Notification from '../components/table/Notification'
 import Recruit from '../components/table/Recruit'
 import Rent from '../components/table/Rent'
-import ShopAdministration from '../components/table/ShopAdministration'
 import TableUserJS from '../components/table/TableUserJS'
 import TableUserSJ from '../components/table/TableUserSJ'
 import Banner from '../components/table/Banner'
@@ -36,11 +34,6 @@ export default new Router({
           name: '/',
           path: 'index',
           component: index
-        },
-        {
-          name: 'Calendar',
-          path: '/Calendar',
-          component: Calendar
         },
         {
           name: 'TableUser',
@@ -86,11 +79,6 @@ export default new Router({
           name: 'Rent',
           path: '/Rent',
           component: Rent
-        },
-        {
-          name: 'ShopAdministration',
-          path: '/ShopAdministration',
-          component: ShopAdministration
         },
         {
           name: 'TableUserJS',
