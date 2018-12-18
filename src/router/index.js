@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/Home'
 import index from '../components/table/index'
+import add from '../components/add/Add'
 import TableUser from '../components/table/TableUser'
 import infor from '../components/table/infor'
 import numberBox from '../components/table/NumberBox'
@@ -125,7 +126,12 @@ export default new Router({
           path: '/Resume',
           component: Resume
         },
-      ]
-    }
+      ],
+    },
+    {
+      path: '/add',
+      name: 'add',
+      component: add
+    },
   ]
 })

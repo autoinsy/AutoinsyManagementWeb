@@ -25,6 +25,7 @@
 </template>
 
 <script>
+  import AddLaw from '@/components/add/AddLaw'
     export default {
         name: "Law",
       data() {
@@ -161,6 +162,7 @@
             $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
             let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
             $(deleteButton).click(_this.deleteData)
+            $("#toolbar input[class='btn-purple']").click(_this.deleteData);
           },
         });
       },
