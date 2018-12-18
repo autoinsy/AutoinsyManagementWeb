@@ -36,9 +36,9 @@
 
             <div class="row-fluid">
               <ul class="ace-thumbnails">
-                <li>
+                <li v-for="bannerImg in bannerList">
                   <a href="javascript:" title="Photo Title" data-rel="colorbox" class="cboxElement">
-                    <img alt="150x150" src="../../assets/picture/thumb-1.jpg">
+                    <img alt="150x150" v-bind:src="bannerImg.advertisementUrl">
                     <div class="tags">
                       <span class="label-holder">
                         <span class="label label-info">breakfast</span>
@@ -113,22 +113,37 @@
 
 <script>
   export default {
-    name: "Banner"
+    name: "Banner",
+    data() {
+      return {
+        bannerList: [],
+      }
+    },
+    mounted: function () {
+      let _this = this;
+      this.$axios({
+        url: _this.HOME + '/advertisement/getFiveList'
+      }).then(res => {
+        _this.bannerList = res.data.data.content
+      })
+    }
   }
 </script>
 
 <style>
-.label-holder span{
-  color: #fff;
-  padding: 5px 10px;
-  text-align: center;
-}
-  .label-holder-file{
+  .label-holder span {
+    color: #fff;
+    padding: 5px 10px;
+    text-align: center;
+  }
+
+  .label-holder-file {
     width: 150px;
     height: 150px;
     opacity: 0;
   }
-  .label-holder-file-box{
+
+  .label-holder-file-box {
     background: url("../../assets/picture/add.png") no-repeat;
   }
 </style>

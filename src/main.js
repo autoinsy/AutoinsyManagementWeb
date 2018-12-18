@@ -5,17 +5,17 @@ import App from './App'
 import router from './router'
 import $ from 'jquery/dist/jquery'
 import $axios from 'axios'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import qs from 'qs'
+import 'bootstrap/dist/css/bootstrap.css'
 import 'daterangepicker/daterangepicker.css'
 import 'dropzone/dist/dropzone.css'
 import 'font-awesome/css/font-awesome.css'
 import 'fullcalendar/dist/fullcalendar.css'
 import 'bootstrap/dist/js/bootstrap.js'
+import 'popper.js'
 import 'datatables.net-dt'
 import 'datatables.net-dt/css/jquery.dataTables.css'
 import './assets/js/ace.min'
-// import './assets/js/ace-elements.min'
-// import './assets/js/ace-extra.min'
 import './assets/css/ace.min.css'
 import './assets/css/colorbox.css'
 import './assets/css/colorpicker.css'
@@ -45,6 +45,7 @@ Vue.config.productionTip = false;
 Vue.prototype.$ = $;
 Vue.prototype.$axios = $axios;
 Vue.prototype.HOME = '/manager';
+Vue.prototype.qs = qs;
 Date.prototype.Format = function (fmt) { //author: meizz
   var o = {
     "M+": this.getMonth() + 1,
