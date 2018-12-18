@@ -128,8 +128,15 @@
           },
           {
             targets: 6,
-            data: "isAuthentication",
+            data: "sellerAuthentication.isAuthentication",
             title: "是否授权",
+            render: function (data, row) {
+              if (Math.ceil(data) === 1) {
+                return "是";
+              } else{
+                return "否";
+              }
+            }
           },
           {
             targets: 5,
@@ -138,12 +145,12 @@
           },
           {
             targets: 4,
-            data: "identifyCardImageBackUrl",
+            data: "sellerAuthentication.identifyCardImageFrontUrl",
             title: "身份证号码",
           },
           {
             targets: 3,
-            data: "businessLicenceNumber",
+            data: "sellerAuthentication.businessLicenceNumber",
             title: "营业执照号码",
           },
           {

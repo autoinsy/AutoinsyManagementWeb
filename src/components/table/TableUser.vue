@@ -95,15 +95,11 @@
             },
             success: function (data) {
               var returnData = {};
-              returnData.recordsTotal = data.data.totalPages;//返回数据全部记录
-              returnData.recordsFiltered = data.data.totalElements;//后台不实现过滤功能，每次查询均视作全部结果
-              returnData.data = data.data.content;//返回的数据列表
-              //console.log(returnData);
-              //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
-              //此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
+              returnData.recordsTotal = data.data.totalPages;
+              returnData.recordsFiltered = data.data.totalElements;
+              returnData.data = data.data.content;
               callback(returnData);
             },
-
           })
         },
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",

@@ -1,50 +1,85 @@
 <template>
-  <div class="modal fade" id="revampCity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  <div class="modal fade" id="revampVitae" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
        aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-title" id="myModalLabel">
           <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;
           </button>
-          <h1 class="modal-header">修改汽配城信息<span id="cityId" style="display: none">{{modifyData.cityId}}</span></h1>
+          <h1 class="modal-header">修改简历信息<span id="cityId" style="display: none">{{modifyData.id}}</span></h1>
         </div>
         <div class="modal-body">
           <form class="form-horizontal">
+            <!--求职职位类别-->
             <div class="form-group">
-              <label for="title" class="col-2 control-label">
-                <i>标题</i>
+              <label for="wantedPosition" class="col-2 control-label">
+                <i>求职职位类别</i>
               </label>
-              <input id="title" type="text" class="form-control col-10" name="parts_city_title"
-                     v-bind:value="modifyData.cityTitle">
+              <input id="wantedPosition" type="text" class="form-control col-10" name="parts_city_title"
+                     v-bind:value="modifyData.wantedPosition">
             </div>
+            <!--期望薪资-->
+            <div class="form-group">
+              <label for="salary">
+                <i>期望薪资</i>
+              </label>
+              <input id="salary" type="text" class="form-control" name="parts_city_name"
+                     v-bind:value="modifyData.salary">
+            </div>
+            <!--求职者姓名-->
             <div class="form-group">
               <label for="name">
-                <i>汽配城名称</i>
+                <i>求职者姓名</i>
               </label>
-              <input id="name" type="text" class="form-control" name="parts_city_name"
-                     v-bind:value="modifyData.cityName">
+              <input id="name" type="text" class="form-control" name="parts_city_address"
+                     v-bind:value="modifyData.name">
             </div>
+            <!--性别-->
             <div class="form-group">
-              <label for="address">
-                <i>汽配城地址</i>
+              <label for="sex">
+                <i>性别</i>
               </label>
-              <input id="address" type="text" class="form-control" name="parts_city_address"
-                     v-bind:value="modifyData.cityAddress">
+              <input id="sex" class="form-control" name="parts_city_content" v-bind:value="modifyData.sex">
             </div>
+            <!--出生年月-->
             <div class="form-group">
-              <label for="content">
-                <i>汽配城简介</i>
+              <label for="birthday">
+                <i>出生年月</i>
               </label>
-              <textarea id="content" rows="3" class="form-control" name="parts_city_content">
-                {{modifyData.cityContent}}
-              </textarea>
+              <input id="birthday" type="text" class="form-control" name="parts_city_img_url"
+                     v-bind:value="modifyData.birthday">
             </div>
+            <!--工作年限-->
             <div class="form-group">
-              <label for="imgUrl">
-                <i>汽配城图片</i>
+              <label for="workingLife">
+                <i>工作年限</i>
               </label>
-              <input id="imgUrl" type="file" class="form-control" name="parts_city_img_url"/>
-              <!--v-bind:value="modifyData.cityImgUrl">-->
+              <input id="workingLife" type="text" class="form-control" name="parts_city_img_url"
+                     v-bind:value="modifyData.workingLife">
+            </div>
+            <!--学历-->
+            <div class="form-group">
+              <label for="education">
+                <i>学历</i>
+              </label>
+              <input id="education" type="text" class="form-control" name="parts_city_img_url"
+                     v-bind:value="modifyData.education">
+            </div>
+            <!--手机号-->
+            <div class="form-group">
+              <label for="mobilePhoneNum">
+                <i>手机号</i>
+              </label>
+              <input id="mobilePhoneNum" type="text" class="form-control" name="parts_city_img_url"
+                     v-bind:value="modifyData.mobilePhoneNum">
+            </div>
+            <!--简历编号-->
+            <div class="form-group">
+              <label for="cvCode">
+                <i>简历编号</i>
+              </label>
+              <input id="cvCode" type="text" class="form-control" name="parts_city_img_url"
+                     v-bind:value="modifyData.cvCode">
             </div>
           </form>
         </div>
@@ -65,16 +100,20 @@
       revampData: function () {
         let _this = this;
         this.$axios({
-          url: _this.HOME + '/autoinsyCity/modify',
+          url: _this.HOME + '/modify/modify',
           method: 'POST',
-          headers: { 'content-type': 'application/x-www-form-urlencoded' },
+          headers: {'content-type': 'application/x-www-form-urlencoded'},
           data: _this.qs.stringify({
-            "parts_city_id": $('#cityId').text(),
-            "parts_city_name": $('#name').val(),
-            "parts_city_address": $('#address').val(),
-            "parts_city_img_url": $('#imgUrl').val(),
-            "parts_city_title": $('#title').val(),
-            "parts_city_content": $('#content').val()
+            "id": id,
+            "wantedPosition": $('#wantedPosition').val(),
+            "salary": $('#salary').val(),
+            "name": $('#name').val(),
+            "sex": $('#sex').val(),
+            "birthday": $('#birthday').val(),
+            "workingLife": $('#workingLife').val(),
+            "education": $('#education').val(),
+            "mobilePhoneNum": $('#mobilePhoneNum').val(),
+            "cvCode": $('#cvCode').val(),
           })
         }).then(res => {
           alert(res.data.message);

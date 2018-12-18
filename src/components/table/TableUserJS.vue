@@ -126,8 +126,16 @@
             },
             {
               targets: 3,
-              data: "roles",
+              data: null,
               title: "权限描述",
+              render: function (data, type, row, meta) {
+                let roles = [];
+                let datas = row.roles
+                for (let i = 0; i < datas.length; i++) {
+                  roles[i] = datas[i].roleRemark + "\t";
+                }
+                return roles;
+              }
             },
             {
               targets: 2,

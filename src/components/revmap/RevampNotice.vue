@@ -6,45 +6,38 @@
         <div class="modal-title" id="myModalLabel">
           <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;
           </button>
-          <h1 class="modal-header">修改汽配城信息<span id="cityId" style="display: none">{{modifyData.cityId}}</span></h1>
+          <h1 class="modal-header">修改通知信息<span id="noticeId" style="display: none">{{modifyData.noticeId}}</span></h1>
         </div>
         <div class="modal-body">
           <form class="form-horizontal">
             <div class="form-group">
-              <label for="title" class="col-2 control-label">
-                <i>标题</i>
+              <label for="noticeTime" class="col-2 control-label">
+                <i>通知时间</i>
               </label>
-              <input id="title" type="text" class="form-control col-10" name="parts_city_title"
-                     v-bind:value="modifyData.cityTitle">
+              <input id="noticeTime" type="text" class="form-control col-10" name="parts_city_title"
+                     v-bind:value="modifyData.noticeTime">
             </div>
             <div class="form-group">
-              <label for="name">
-                <i>汽配城名称</i>
+              <label for="noticeLevel">
+                <i>通知等级</i>
               </label>
-              <input id="name" type="text" class="form-control" name="parts_city_name"
-                     v-bind:value="modifyData.cityName">
+              <input id="noticeLevel" type="text" class="form-control" name="parts_city_name"
+                     v-bind:value="modifyData.noticeLevel">
             </div>
             <div class="form-group">
-              <label for="address">
-                <i>汽配城地址</i>
+              <label for="noticeSource">
+                <i>通知来源</i>
               </label>
-              <input id="address" type="text" class="form-control" name="parts_city_address"
-                     v-bind:value="modifyData.cityAddress">
+              <input id="noticeSource" type="text" class="form-control" name="parts_city_address"
+                     v-bind:value="modifyData.noticeSource">
             </div>
             <div class="form-group">
-              <label for="content">
-                <i>汽配城简介</i>
+              <label for="noticeContent">
+                <i>通知内容</i>
               </label>
-              <textarea id="content" rows="3" class="form-control" name="parts_city_content">
-                {{modifyData.cityContent}}
+              <textarea id="noticeContent" rows="3" class="form-control" name="parts_city_content">
+                {{modifyData.noticeContent}}
               </textarea>
-            </div>
-            <div class="form-group">
-              <label for="imgUrl">
-                <i>汽配城图片</i>
-              </label>
-              <input id="imgUrl" type="file" class="form-control" name="parts_city_img_url"/>
-              <!--v-bind:value="modifyData.cityImgUrl">-->
             </div>
           </form>
         </div>
@@ -59,22 +52,21 @@
 
 <script>
   export default {
-    name: "RevampCity",
+    name: "RevampNotice",
     props: ['modifyData'],
     methods: {
       revampData: function () {
         let _this = this;
         this.$axios({
-          url: _this.HOME + '/autoinsyCity/modify',
+          url: _this.HOME + '/notice/updateNotice',
           method: 'POST',
-          headers: { 'content-type': 'application/x-www-form-urlencoded' },
+          headers: {'content-type': 'application/x-www-form-urlencoded'},
           data: _this.qs.stringify({
-            "parts_city_id": $('#cityId').text(),
-            "parts_city_name": $('#name').val(),
-            "parts_city_address": $('#address').val(),
-            "parts_city_img_url": $('#imgUrl').val(),
-            "parts_city_title": $('#title').val(),
-            "parts_city_content": $('#content').val()
+            "noticeId": $('#noticeId').text(),
+            "noticeTime": $('#noticeTime').val(),
+            "noticeLevel": $('#noticeLevel').val(),
+            "noticeContent": $('#noticeContent').val(),
+            "noticeSource": $('#noticeSource').val(),
           })
         }).then(res => {
           alert(res.data.message);

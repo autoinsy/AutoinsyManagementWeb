@@ -1,5 +1,5 @@
 <template>
-  <div class="modal fade" id="revampCity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  <div class="modal fade" id="revampUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
        aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -65,7 +65,7 @@
       revampData: function () {
         let _this = this;
         this.$axios({
-          url: _this.HOME + '/autoinsyCity/modify',
+          url: _this.HOME + '/user/modify',
           method: 'POST',
           headers: { 'content-type': 'application/x-www-form-urlencoded' },
           data: _this.qs.stringify({

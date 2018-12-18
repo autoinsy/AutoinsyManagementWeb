@@ -1,12 +1,12 @@
 <template>
-  <div class="modal fade" id="revampCity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  <div class="modal fade" id="revampNews" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
        aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-title" id="myModalLabel">
           <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;
           </button>
-          <h1 class="modal-header">修改汽配城信息<span id="cityId" style="display: none">{{modifyData.cityId}}</span></h1>
+          <h1 class="modal-header">修改新闻信息<span id="cityId" style="display: none">{{modifyData.newsID}}</span></h1>
         </div>
         <div class="modal-body">
           <form class="form-horizontal">
@@ -15,21 +15,14 @@
                 <i>标题</i>
               </label>
               <input id="title" type="text" class="form-control col-10" name="parts_city_title"
-                     v-bind:value="modifyData.cityTitle">
+                     v-bind:value="modifyData.newsTitle">
             </div>
             <div class="form-group">
-              <label for="name">
+              <label for="publishTime">
                 <i>汽配城名称</i>
               </label>
-              <input id="name" type="text" class="form-control" name="parts_city_name"
-                     v-bind:value="modifyData.cityName">
-            </div>
-            <div class="form-group">
-              <label for="address">
-                <i>汽配城地址</i>
-              </label>
-              <input id="address" type="text" class="form-control" name="parts_city_address"
-                     v-bind:value="modifyData.cityAddress">
+              <input id="publishTime" type="text" class="form-control" name="parts_city_name"
+                     v-bind:value="modifyData.publishTime">
             </div>
             <div class="form-group">
               <label for="content">
@@ -65,16 +58,15 @@
       revampData: function () {
         let _this = this;
         this.$axios({
-          url: _this.HOME + '/autoinsyCity/modify',
+          url: _this.HOME + '/news/modify',
           method: 'POST',
           headers: { 'content-type': 'application/x-www-form-urlencoded' },
           data: _this.qs.stringify({
-            "parts_city_id": $('#cityId').text(),
-            "parts_city_name": $('#name').val(),
-            "parts_city_address": $('#address').val(),
-            "parts_city_img_url": $('#imgUrl').val(),
-            "parts_city_title": $('#title').val(),
-            "parts_city_content": $('#content').val()
+            "news_id": $('#newsId').text(),
+            "news_title": $('#title').val(),
+            "publish_time": $('#publishTime').val(),
+            "news_content": $('#content').val(),
+            "news_img_url": $('#imgUrl').val(),
           })
         }).then(res => {
           alert(res.data.message);

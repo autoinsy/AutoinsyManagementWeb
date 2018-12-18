@@ -200,7 +200,6 @@
   }
 </script>
 
-
 <style scoped>
   #toolbar input {
     margin-right: 5px !important;
