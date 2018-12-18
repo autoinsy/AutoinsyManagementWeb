@@ -3,7 +3,6 @@
     <div class="row" style="">
       <div class="col-md-12">
         <h3 class="header smaller lighter blue" style="text-align: left">汽配城管理列表</h3>
-
         <div class="table-responsive">
           <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
             <table class="table-bordered table-striped">
@@ -23,18 +22,23 @@
         </div>
       </div>
     </div>
+    <revamp-city :modifyData="modifyData"></revamp-city>
   </div>
 </template>
 
 <script>
+  import revampCity from '../revmap/RevampCity'
+
   export default {
     name: "AutoinsyManagement",
+    components: {revampCity: revampCity},
     data() {
       return {
         cityList: [],
         all: '',
         cur: 1,
         allElement: '',
+        modifyData: '',
       }
     },
     created: function () {
@@ -94,12 +98,10 @@
             },
             success: function (data) {
               var returnData = {};
-              returnData.recordsTotal = data.data.totalPages;//返回数据全部记录
-              returnData.recordsFiltered = data.data.totalElements;//后台不实现过滤功能，每次查询均视作全部结果
-              returnData.data = data.data.content;//返回的数据列表
-              //console.log(returnData);
-              //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
-              //此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
+              _this.cityList = data.data.content;
+              returnData.recordsTotal = data.data.totalPages;
+              returnData.recordsFiltered = data.data.totalElements;
+              returnData.data = data.data.content;
               callback(returnData);
             },
 
@@ -116,7 +118,7 @@
                 "<a class=\"\" href=\"#\">\n" +
                 "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
                 "</a>\n" +
-                "<a class=\"green\" href=\"#\">\n" +
+                "<a class=\"green\" href=\"#\" data-toggle=\"modal\" data-target=\"#revampCity\">\n" +
                 "<i class=\"fa fa-pencil bigger-130\"></i>\n" +
                 "</a>\n" +
                 "<a class=\"red\" href=\"#\">\n" +
@@ -167,7 +169,9 @@
           $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
-          $(deleteButton).click(_this.deleteData)
+          $(deleteButton).click(_this.deleteData);
+          $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
+
         },
       });
     },
@@ -189,16 +193,19 @@
           })
         }
       },
-
+      toModify: function (e) {
+        this.modifyData = this.cityList[$(e.target).parent().parent().parent().parent().index()];
+      },
     }
   }
 </script>
 
 
 <style scoped>
-  #toolbar input{
+  #toolbar input {
     margin-right: 5px !important;
   }
+
   table {
     font-size: 14px;
     font-family: 微软雅黑;
