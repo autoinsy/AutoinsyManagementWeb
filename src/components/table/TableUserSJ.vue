@@ -2,13 +2,12 @@
   <div class="">
     <div class="row">
       <div class="col-md-12">
-        <h3 class="header smaller lighter blue" style="text-align: left">角色管理列表</h3>
+        <h3 class="header smaller lighter blue" style="text-align: left">商户管理列表</h3>
         <div class="table-responsive">
           <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
             <table class="table-bordered table-striped">
               <thead>
               <tr>
-                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -153,6 +152,11 @@
             title: "商家编号",
           },
           {
+            targets: 1,
+            data: "sellerId",
+            title: "Id",
+          },
+          {
             targets: 0,
             data: null,
             title: "<input type='checkbox'>",
@@ -160,11 +164,6 @@
               return "<label><input type='checkbox' value=" + data.sellerId + "><span></span></label>"
             }
           },
-          {
-            targets: 1,
-            data: "sellerId",
-            title: "Id",
-          }
         ],
         buttons: [
           'copy', 'excel', 'pdf'
@@ -173,7 +172,7 @@
           //手动添加按钮到表格上
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
           $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
-          $("#toolbar").append("<input type='button' value='删除' class='btn-yellow' style='margin: 0 5px;'/>");
+          $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px;color: #fff;'/>");
           $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
