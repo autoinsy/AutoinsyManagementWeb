@@ -115,7 +115,7 @@
                   "<a class=\"\" href=\"#\">\n" +
                   "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
                   "</a>\n" +
-                  "<a class=\"green\" href=\"#\">\n" +
+                  "<a class=\"green\" href=\"#\" data-toggle=\"modal\" data-target=\"#revampLaw\">\n" +
                   "<i class=\"fa fa-pencil bigger-130\"></i>\n" +
                   "</a>\n" +
                   "<a class=\"red\" href=\"#\">\n" +
@@ -163,6 +163,7 @@
             let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
             $(deleteButton).click(_this.deleteData)
             $("#toolbar input[class='btn-purple']").click(_this.deleteData);
+            $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
           },
         });
       },
@@ -183,6 +184,9 @@
               console.log(error);
             })
           }
+        },
+        toModify: function (e) {
+          this.modifyData = this.cityList[$(e.target).parent().parent().parent().parent().index()];
         },
 
       }
