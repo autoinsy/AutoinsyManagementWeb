@@ -38,8 +38,8 @@
           <!--表单over-->
         </div>
         <div class="modal-footer" style="margin: 0 auto; width:240px;border:none;">
-          <input type="button" value="返回" class="subBtns" data-dismiss="modal"/>
-          <input type="button" value="确认" class="subBtns" @click="AddLaw"/>
+          <input type="button" value="返回" class="subBtns btn-return" data-dismiss="modal"/>
+          <input type="button" value="确认" class="subBtns btn-return" @click="AddLaw"/>
         </div>
         <!--弹出 over-->
       </div>
@@ -106,6 +106,12 @@
 </script>
 
 <style>
+  .btn-return{
+    background-color: #ff6e00;
+  }
+  .modal-content p{
+    text-align: left;
+  }
   .textareastyles {
     height: 150px
   }
@@ -171,7 +177,7 @@
     padding: 14px 15px 15px;
     margin-bottom: 0;
     text-align: right;
-    background-color: #f5f5f5;
+    background-color: #fff !important;
     border-top: 1px solid #ddd;
     -webkit-border-radius: 0 0 6px 6px;
     -moz-border-radius: 0 0 6px 6px;
