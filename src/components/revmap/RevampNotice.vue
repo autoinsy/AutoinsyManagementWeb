@@ -35,9 +35,7 @@
               <label for="noticeContent">
                 <i>通知内容</i>
               </label>
-              <textarea id="noticeContent" rows="3" class="form-control" name="parts_city_content">
-                {{modifyData.noticeContent}}
-              </textarea>
+              <textarea id="noticeContent" rows="3" class="form-control" name="parts_city_content">{{modifyData.noticeContent}}</textarea>
             </div>
           </form>
         </div>
@@ -70,6 +68,8 @@
           })
         }).then(res => {
           alert(res.data.message);
+          $('#close').click();
+          _this.$emit('dataInteractTrue');
         }).catch(e => {
           console.log(e);
         })

@@ -6,7 +6,7 @@
         <div class="modal-title" id="myModalLabel">
           <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;
           </button>
-          <h1 class="modal-header">修改汽配城信息<span id="cityId" style="display: none">{{modifyData.cityId}}</span></h1>
+          <h1 class="modal-header">修改汽配城信息<span id="goodsId" style="display: none">{{modifyData.goodsId}}</span></h1>
         </div>
         <div class="modal-body">
           <form class="form-horizontal">
@@ -17,6 +17,31 @@
               <input id="title" type="text" class="form-control col-10" name="parts_city_title"
                      v-bind:value="modifyData.cityTitle">
             </div>
+            <!--
+            brand: "MATEGO"
+            deliverySpeedScore: "5"
+            describe: "车载手机支架"
+            describeScore: "5"
+            goodsCode: "01104"
+            goodsId: 7
+            goodsImagesList:
+            goodsPic: "https://img.alicdn.com/imgextra/i4/630917116/TB24.nzrYxmpuFjSZJiXXXauVXa_!!630917116.jpg_430x430q90.jpg"
+            isInStock: "1"
+            mainType: "汽车装饰"
+            mainTypeCode: "4"
+            name: "车载手机支架"
+            price: "20"
+            productPlace: "德国"
+            publishTime: "2018-09-23"
+            qrCode: "fewfwef"
+            quantity: "100"
+            sellerCode: null
+            sellerName: null
+            serviceMannerScore: "5"
+            subType: "车载支架"
+            subTypeCode: "45"
+            videoUrl: null
+            -->
             <div class="form-group">
               <label for="name">
                 <i>汽配城名称</i>
@@ -78,6 +103,8 @@
           })
         }).then(res => {
           alert(res.data.message);
+          $('#close').click();
+          _this.$emit('dataInteractTrue');
         }).catch(e => {
           console.log(e);
         })

@@ -1,6 +1,6 @@
 <template>
-  <div class="" >
-    <div class="row" >
+  <div class="">
+    <div class="row">
       <div class="col-md-12">
         <h3 class="header smaller lighter blue" style="text-align: left">用户管理列表</h3>
         <div class="table-responsive">
@@ -24,18 +24,23 @@
         </div>
       </div>
     </div>
+    <revamp-user :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></revamp-user>
   </div>
 </template>
 
 <script>
+  import revampUser from '../revmap/RevampUser'
+
   export default {
     name: "TableUser",
+    components: {revampUser: revampUser},
     data() {
       return {
         cityList: [],
         all: '',
         cur: 1,
         allElement: '',
+        table: '',
       }
     },
     created: function () {
@@ -46,7 +51,7 @@
     },
     mounted: function () {
       let _this = this;
-      let table = $('table').DataTable({
+      _this.table = $('table').DataTable({
         language: {
           "processing": "处理中...",
           "lengthMenu": "显示 _MENU_ 项结果",
@@ -95,6 +100,7 @@
             },
             success: function (data) {
               var returnData = {};
+              _this.cityList = data.data.content;
               returnData.recordsTotal = data.data.totalPages;
               returnData.recordsFiltered = data.data.totalElements;
               returnData.data = data.data.content;
@@ -177,6 +183,7 @@
           $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
         },
       });
+      table.draw(false);
     },
     methods: {
       deleteData: function (e) {
@@ -199,6 +206,9 @@
       toModify: function (e) {
         this.modifyData = this.cityList[$(e.target).parent().parent().parent().parent().index()];
       },
+      dataInteractTrue: function (e) {
+        this.table.draw(false);
+      }
 
     }
   }
@@ -208,22 +218,27 @@
   table {
     text-align: left;
   }
+
   .pagination > li.disabled > a, .pagination > li.disabled > a:hover, .pager > li.disabled > a, .pager > li.disabled > a:hover {
     background-color: #f9f9f9;
     border-color: #d9d9d9;
   }
+
   .pagination > li {
     display: inline;
   }
+
   .dataTables_paginate .pagination {
     margin: 0 12px;
   }
+
   .pagination {
     display: inline-block;
     padding-left: 0;
     margin: 20px 0;
     border-radius: 4px;
   }
+
   table {
     font-size: 14px;
     font-family: 微软雅黑;

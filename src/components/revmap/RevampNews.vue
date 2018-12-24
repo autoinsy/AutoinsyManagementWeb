@@ -6,7 +6,7 @@
         <div class="modal-title" id="myModalLabel">
           <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;
           </button>
-          <h1 class="modal-header">修改新闻信息<span id="cityId" style="display: none">{{modifyData.newsID}}</span></h1>
+          <h1 class="modal-header">修改新闻信息<span id="newsId" style="display: none">{{modifyData.newsID}}</span></h1>
         </div>
         <div class="modal-body">
           <form class="form-horizontal">
@@ -28,9 +28,7 @@
               <label for="content">
                 <i>汽配城简介</i>
               </label>
-              <textarea id="content" rows="3" class="form-control" name="parts_city_content">
-                {{modifyData.cityContent}}
-              </textarea>
+              <textarea id="content" rows="3" class="form-control" name="parts_city_content">{{modifyData.cityContent}}</textarea>
             </div>
             <div class="form-group">
               <label for="imgUrl">
@@ -70,6 +68,8 @@
           })
         }).then(res => {
           alert(res.data.message);
+          $('#close').click();
+          _this.$emit('dataInteractTrue');
         }).catch(e => {
           console.log(e);
         })

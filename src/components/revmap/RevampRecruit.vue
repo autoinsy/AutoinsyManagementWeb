@@ -24,11 +24,11 @@
               <label for="address">
                 <i>汽配城地址</i>
               </label>
-              <div>
-                <input id="address" type="text" class="form-control" name="parts_city_address"
+              <div class="row">
+                <input id="address" type="text" class="form-control col col-4" name="parts_city_address"
                        v-bind:value="modifyData.startSalary"/>
                 ——
-                <input id="endSalary" type="text" class="form-control" name="parts_city_address"
+                <input id="endSalary" type="text" class="form-control col col-4" name="parts_city_address"
                        v-bind:value="modifyData.endSalary"/>
               </div>
             </div>
@@ -153,6 +153,8 @@
           })
         }).then(res => {
           alert(res.data.message);
+          $('#close').click();
+          _this.$emit('dataInteractTrue');
         }).catch(e => {
           console.log(e);
         })

@@ -22,21 +22,25 @@
       </div>
     </div>
     <add-law></add-law>
+    <revamp :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></revamp>
   </div>
 </template>
 
 <script>
   import AddLaw from "../add/AddLaw";
+  import revamp from '../revmap/RevampLaw'
 
   export default {
     name: "Law",
-    components: {AddLaw},
+    components: {AddLaw, revamp},
     data() {
       return {
         cityList: [],
         all: '',
         cur: 1,
         allElement: '',
+        modifyData: '',
+        table: '',
       }
     },
     created: function () {
@@ -47,7 +51,7 @@
     },
     mounted: function () {
       let _this = this;
-      let table = $('table').DataTable({
+      _this.table = $('table').DataTable({
         language: {
           "processing": "处理中...",
           "lengthMenu": "显示 _MENU_ 项结果",
@@ -96,101 +100,103 @@
             },
             success: function (data) {
               var returnData = {};
-              returnData.recordsTotal = data.data.totalPages;//返回数据全部记录
-              returnData.recordsFiltered = data.data.totalElements;//后台不实现过滤功能，每次查询均视作全部结果
-              returnData.data = data.data.content;//返回的数据列表
-              //console.log(returnData);
-              //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
-              //此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
+              _this.cityList = data.data.content;
+              returnData.recordsTotal = data.data.totalPages;
+              returnData.recordsFiltered = data.data.totalElements;
+              returnData.data = data.data.content;
               callback(returnData);
             },
 
-            })
+          })
+        },
+        dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
+        columnDefs: [
+          {
+            targets: 4,
+            data: "",
+            title: "操作",
+            render: function (data, type, row, meta) {
+              let div = "<div class=\"\">\n" +
+                "<a class=\"\" href=\"#\">\n" +
+                "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
+                "</a>\n" +
+                "<a class=\"green\" href=\"#\" data-toggle=\"modal\" data-target=\"#revampLaw\"/>\n" +
+                "<i class=\"fa fa-pencil bigger-130\"></i>\n" +
+                "</a>\n" +
+                "<a class=\"red\" href=\"#\">\n" +
+                "<i class=\"fa fa-trash bigger-130\"><span style='display: none'>" + row.statementId + "</span></i>\n" +
+                "</a>\n" +
+                "</div>";
+              return div;
+            }
           },
-          dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
-          columnDefs: [
-            {
-              targets: 4,
-              data: "",
-              title: "操作",
-              render: function (data, type, row, meta) {
-                let div = "<div class=\"\">\n" +
-                  "<a class=\"\" href=\"#\">\n" +
-                  "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
-                  "</a>\n" +
-                  "<a class=\"green\" href=\"#\">\n" +
-                  "<i class=\"fa fa-pencil bigger-130\"></i>\n" +
-                  "</a>\n" +
-                  "<a class=\"red\" href=\"#\">\n" +
-                  "<i class=\"fa fa-trash bigger-130\"><span style='display: none'>" + row.statementId + "</span></i>\n" +
-                  "</a>\n" +
-                  "</div>";
-                return div;
-              }
-            },
-            {
-              targets: 3,
-              data: "statementDate",
-              title: "发布日期",
-            },
-            {
-              targets: 2,
-              data: "statementName",
-              title: "标题",
-            },
-            {
-              targets: 1,
-              data: "statementId",
-              title: "Id",
-            },
-            {
-              targets: 0,
-              data: null,
-              title: "<input type='checkbox'>",
-              render: function (data, type, row, meta) {
-                return "<label><input type='checkbox' value="+ data.statementId +"><span></span></label>"
-              }
-            },
-          ],
-          buttons: [
-            'copy', 'excel', 'pdf'
-          ],
-          initComplete: function () {
-            //手动添加按钮到表格上
-            $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
-            $("#toolbar").append("<input type='button' value='新建' class='btn-purple' data-toggle=\"modal\" data-target=\"#AddLaw\" style='color: #fff; margin-right: 5px;'/>");
-            $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
-            $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px;color: #fff;'/>");
-            $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
-            $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
-            let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
-            $(deleteButton).click(_this.deleteData)
-            $("#toolbar input[class='btn-purple']").click(_this.deleteData);
-            $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
+          {
+            targets: 3,
+            data: "statementDate",
+            title: "发布日期",
           },
-        });
+          {
+            targets: 2,
+            data: "statementName",
+            title: "标题",
+          },
+          {
+            targets: 1,
+            data: "statementId",
+            title: "Id",
+          },
+          {
+            targets: 0,
+            data: null,
+            title: "<input type='checkbox'>",
+            render: function (data, type, row, meta) {
+              return "<label><input type='checkbox' value=" + data.statementId + "><span></span></label>"
+            }
+          },
+        ],
+        buttons: [
+          'copy', 'excel', 'pdf'
+        ],
+        initComplete: function () {
+          //手动添加按钮到表格上
+          $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
+          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' data-toggle=\"modal\" data-target=\"#AddLaw\" style='color: #fff; margin-right: 5px;'/>");
+          $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
+          $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px;color: #fff;'/>");
+          $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
+          $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
+          let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
+          $(deleteButton).click(_this.deleteData)
+          $("#toolbar input[class='btn-purple']").click(_this.deleteData);
+          $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
+        },
+      });
+    },
+    methods: {
+      deleteData: function (e) {
+        let index = $(e.target).children().text();
+        let delete_this = this;
+        if (confirm('确定删除？')) {
+          this.$axios({
+            method: 'post',
+            url: delete_this.HOME + '/lawstatement/delete?id=' + index,
+          }).then(function (response) {
+            if (response.status === 200) {
+              delete_this.people.splice(index, 1);
+              delete_this.btnClick(1);
+              this.table.draw(false);
+            }
+          }).catch(function (error) {
+            console.log(error);
+          })
+        }
       },
-      methods: {
-        deleteData: function (e) {
-          let index = $(e.target).children().text();
-          let delete_this = this;
-          if (confirm('确定删除？')) {
-            this.$axios({
-              method: 'post',
-              url: delete_this.HOME + '/lawstatement/delete?id=' + index,
-            }).then(function (response) {
-              if (response.status === 200) {
-                delete_this.people.splice(index, 1);
-                delete_this.btnClick(1);
-              }
-            }).catch(function (error) {
-              console.log(error);
-            })
-          }
-        },
-        toModify: function (e) {
-          this.modifyData = this.cityList[$(e.target).parent().parent().parent().parent().index()];
-        },
+      toModify: function (e) {
+        this.modifyData = this.cityList[$(e.target).parent().parent().parent().parent().index()];
+      },
+      dataInteractTrue: function (e) {
+        this.table.draw(false);
+      }
 
     }
   }

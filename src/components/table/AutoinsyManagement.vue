@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <revamp-city :modifyData="modifyData"></revamp-city>
+    <revamp-city :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></revamp-city>
   </div>
 </template>
 
@@ -39,6 +39,7 @@
         cur: 1,
         allElement: '',
         modifyData: '',
+        table: '',
       }
     },
     created: function () {
@@ -49,7 +50,7 @@
     },
     mounted: function () {
       let _this = this;
-      let table = $('table').DataTable({
+      _this.table = $('table').DataTable({
         language: {
           "processing": "处理中...",
           "lengthMenu": "显示 _MENU_ 项结果",
@@ -104,7 +105,6 @@
               returnData.data = data.data.content;
               callback(returnData);
             },
-
           })
         },
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
@@ -187,6 +187,7 @@
             if (response.status === 200) {
               delete_this.people.splice(index, 1);
               delete_this.btnClick(1);
+              this.table.draw(false);
             }
           }).catch(function (error) {
             console.log(error);
@@ -196,6 +197,9 @@
       toModify: function (e) {
         this.modifyData = this.cityList[$(e.target).parent().parent().parent().parent().index()];
       },
+      dataInteractTrue: function (e) {
+        console.log(this.table.draw(false));
+      }
     }
   }
 </script>
