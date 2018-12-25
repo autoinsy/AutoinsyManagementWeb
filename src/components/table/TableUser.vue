@@ -40,6 +40,7 @@
         all: '',
         cur: 1,
         allElement: '',
+        modifyData: '',
         table: '',
       }
     },
@@ -131,8 +132,15 @@
           },
           {
             targets: 6,
-            data: "businessLicenceNum",
+            data: "",
             title: "用户种类",
+            render: function(data, type, row, meta) {
+              if(Math.ceil(row.businessLicenceNum) === 1) {
+                return '商家';
+              } else if(Math.ceil(row.businessLicenceNum) === 0) {
+                return '用户';
+              }
+            }
           },
           {
             targets: 5,
@@ -172,7 +180,6 @@
           'copy', 'excel', 'pdf'
         ],
         initComplete: function () {
-          //手动添加按钮到表格上
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
           $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
           $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px;color: #fff;'/>");
@@ -183,7 +190,6 @@
           $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
         },
       });
-      table.draw(false);
     },
     methods: {
       deleteData: function (e) {

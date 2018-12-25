@@ -17,6 +17,7 @@ import 'datatables.net-dt'
 import 'datatables.net-dt/css/jquery.dataTables.css'
 import 'bootstrap-fileinput/js/fileinput'
 import 'bootstrap-fileinput/css/fileinput.css'
+import clipboard from 'clipboard'
 import './assets/js/ace.min'
 import './assets/css/ace.min.css'
 import './assets/css/colorbox.css'
@@ -48,6 +49,7 @@ Vue.prototype.$ = $;
 Vue.prototype.$axios = $axios;
 Vue.prototype.HOME = '/manager';
 Vue.prototype.qs = qs;
+Vue.prototype.clipboard = clipboard;
 $.fn.fileinputLocales['zh'] = {
   fileSingle: '文件',
   filePlural: '个文件',

@@ -6,110 +6,110 @@
         <div class="modal-title" id="myModalLabel">
           <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;
           </button>
-          <h1 class="modal-header">修改招聘信息<span id="recruitId" style="display: none">{{modifyData.recruitId}}</span></h1>
+          <h1 class="modal-header">修改招聘信息<span id="recruitId" style="display: none">{{modifyData.recruitID}}</span></h1>
         </div>
         <div class="modal-body">
           <form class="form-horizontal">
             <!--招聘标题-->
-            <div class="form-group">
-              <label for="title" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="title" class="col-3 control-label">
                 <i>招聘标题</i>
               </label>
-              <input id="title" type="text" class="form-control col-10" name="parts_city_title"
+              <input id="title" type="text" class="form-control col-7" name="parts_city_title"
                      v-bind:value="modifyData.title">
             </div>
             <!--最低薪资-->
             <!--最高薪资-->
-            <div class="form-group">
-              <label for="address">
+            <div class="form-group row">
+              <label for="address" class="col-3 control-label">
                 <i>汽配城地址</i>
               </label>
-              <div class="row">
-                <input id="address" type="text" class="form-control col col-4" name="parts_city_address"
+              <div class="row col-7">
+                <input id="startSalary" type="text" class="form-control col col-5" name="parts_city_address"
                        v-bind:value="modifyData.startSalary"/>
                 ——
-                <input id="endSalary" type="text" class="form-control col col-4" name="parts_city_address"
+                <input id="endSalary" type="text" class="form-control col col-5" name="parts_city_address"
                        v-bind:value="modifyData.endSalary"/>
               </div>
             </div>
             <!--公司名称-->
-            <div class="form-group">
-              <label for="companyName">
+            <div class="form-group row">
+              <label for="companyName" class="col-3 control-label">
                 <i>公司名称</i>
               </label>
-              <input id="companyName" type="text" class="form-control" name="parts_city_name"
+              <input id="companyName" type="text" class="form-control col-7" name="parts_city_name"
                      v-bind:value="modifyData.companyName">
             </div>
             <!--商家地址-->
-            <div class="form-group">
-              <label for="sellerAddress">
+            <div class="form-group row">
+              <label for="sellerAddress" class="col-3 control-label">
                 <i>商家地址</i>
               </label>
-              <input id="sellerAddress" type="text" class="form-control" name="parts_city_name"
+              <input id="sellerAddress" type="text" class="form-control col-7" name="parts_city_name"
                      v-bind:value="modifyData.sellerAddress">
             </div>
             <!--招聘人数-->
-            <div class="form-group">
-              <label for="recruitPersonNumber">
+            <div class="form-group row">
+              <label for="recruitPersonNumber" class="col-3 control-label">
                 <i>招聘人数</i>
               </label>
-              <input id="recruitPersonNumber" type="text" class="form-control" name="parts_city_name"
+              <input id="recruitPersonNumber" type="text" class="form-control col-7" name="parts_city_name"
                      v-bind:value="modifyData.recruitPersonNumber">
             </div>
             <!--学历要求-->
-            <div class="form-group">
-              <label for="educationRequirement">
+            <div class="form-group row">
+              <label for="educationRequirement" class="col-3 control-label">
                 <i>学历要求</i>
               </label>
-              <input id="educationRequirement" type="text" class="form-control" name="parts_city_name"
+              <input id="educationRequirement" type="text" class="form-control col-7" name="parts_city_name"
                      v-bind:value="modifyData.educationRequirement">
             </div>
             <!--工作经验-->
-            <div class="form-group">
-              <label for="experience">
+            <div class="form-group row">
+              <label for="experience" class="col-3 control-label">
                 <i>工作经验</i>
               </label>
-              <input id="experience" type="text" class="form-control" name="parts_city_name"
+              <input id="experience" type="text" class="form-control col-7" name="parts_city_name"
                      v-bind:value="modifyData.experience">
             </div>
             <!--职位要求-->
-            <div class="form-group">
-              <label for="positionRequirement">
+            <div class="form-group row">
+              <label for="positionRequirement" class="col-3 control-label">
                 <i>职位要求</i>
               </label>
-              <input id="positionRequirement" type="text" class="form-control" name="parts_city_name"
+              <input id="positionRequirement" type="text" class="form-control col-7" name="parts_city_name"
                      v-bind:value="modifyData.positionRequirement">
             </div>
             <!--任职要求-->
-            <div class="form-group">
-              <label for="takeOfficeRequirement">
+            <div class="form-group row">
+              <label for="takeOfficeRequirement" class="col-3 control-label">
                 <i>任职要求</i>
               </label>
-              <input id="takeOfficeRequirement" type="text" class="form-control" name="parts_city_name"
+              <input id="takeOfficeRequirement" type="text" class="form-control col-7" name="parts_city_name"
                      v-bind:value="modifyData.takeOfficeRequirement">
             </div>
             <!--联系电话-->
-            <div class="form-group">
-              <label for="contactPhoneNum">
+            <div class="form-group row">
+              <label for="contactPhoneNum" class="col-3 control-label">
                 <i>联系电话</i>
               </label>
-              <input id="contactPhoneNum" type="text" class="form-control" name="parts_city_name"
+              <input id="contactPhoneNum" type="text" class="form-control col-7" name="parts_city_name"
                      v-bind:value="modifyData.contactPhoneNum">
             </div>
             <!--发布时间-->
-            <div class="form-group">
-              <label for="publishTime">
+            <div class="form-group row">
+              <label for="publishTime" class="col-3 control-label">
                 <i>发布时间</i>
               </label>
-              <input id="publishTime" type="text" class="form-control" name="parts_city_name"
+              <input id="publishTime" type="text" class="form-control col-7" name="parts_city_name"
                      v-bind:value="modifyData.publishTime">
             </div>
             <!--手机号码-->
-            <div class="form-group">
-              <label for="mobilePhoneNum" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="mobilePhoneNum" class="col-3 control-label">
                 <i>手机号码</i>
               </label>
-              <input id="mobilePhoneNum" type="text" class="form-control col-10" name="parts_city_title"
+              <input id="mobilePhoneNum" type="text" class="form-control col-7" name="parts_city_title"
                      v-bind:value="modifyData.mobilePhoneNum">
             </div>
           </form>
@@ -153,8 +153,10 @@
           })
         }).then(res => {
           alert(res.data.message);
-          $('#close').click();
-          _this.$emit('dataInteractTrue');
+          if (Math.ceil(res.data.code) === 200) {
+            $('#close').click();
+            _this.$emit('dataInteractTrue');
+          }
         }).catch(e => {
           console.log(e);
         })

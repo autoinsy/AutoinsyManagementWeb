@@ -19,7 +19,6 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               </thead>
               <tbody></tbody>
@@ -44,7 +43,9 @@
         all: '',
         cur: 1,
         allElement: '',
+        modifyData: '',
         table: '',
+        educationOption: ['高中', '大专', '本科', '硕士', '博士', '博士后'],
       }
     },
     created: function () {
@@ -110,13 +111,12 @@
               returnData.data = data.data.content;//返回的数据列表
               callback(returnData);
             },
-
           })
         },
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
         columnDefs: [
           {
-            targets: 11,
+            targets: 10,
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
@@ -135,50 +135,63 @@
             }
           },
           {
-            targets: 10,
+            targets: 9,
             data: "mobilePhoneNum",
             title: "手机号",
           },
           {
-            targets: 9,
+            targets: 8,
             data: "education",
             title: "学历",
-          },
-          {
-            targets: 8,
-            data: "workingLife",
-            title: "工作年限",
+            render: function (data, type, row, meta) {
+              return _this.educationOption[row.education-1];
+            }
           },
           {
             targets: 7,
+            data: "",
+            title: "工作年限",
+            render: function (data, type, row, meta) {
+              return row.workingLife + '年';
+            }
+          },
+          {
+            targets: 6,
             data: "birthday",
             title: "生日",
           },
           {
-            targets: 6,
-            data: "sex",
+            targets: 5,
+            data: "",
             title: "性别",
+            render: function (data, type, row, meta) {
+              if (Math.ceil(row.sex) === 1) {
+                return '男';
+              } else if (Math.ceil(row.sex) === 2) {
+                return '女';
+              }
+            }
           },
           {
-            targets: 5,
+            targets: 4,
             data: "name",
             title: "姓名",
           },
           {
-            targets: 4,
+            targets: 3,
             data: "salary",
             title: "期望薪资",
           },
           {
-            targets: 3,
+            targets: 2,
             data: "wantedPosition",
             title: "职位类别",
           },
-          {
-            targets: 2,
-            data: "cvCode",
-            title: "简历编号",
-          },
+          // {
+          //   targets: 2,
+          //   data: "cvCode",
+          //   title: "简历编号",
+          // },
           {
             targets: 1,
             data: "id",

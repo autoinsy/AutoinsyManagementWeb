@@ -46,6 +46,7 @@
         all: '',
         cur: 1,
         allElement: '',
+        modifyData: '',
         table: '',
       }
     },
@@ -148,8 +149,11 @@
           },
           {
             targets: 10,
-            data: "qrCode",
+            data: "",
             title: "二维码地址",
+            render: function (data, type, row, meta) {
+              return '<img src="' + row.qrCode + '"/>'
+            }
           },
           {
             targets: 9,

@@ -11,89 +11,67 @@
         </div>
         <div class="modal-body">
           <form class="form-horizontal">
-            <div class="form-group">
-              <label for="title" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="title" class="col-3 control-label">
                 <i>服务名称</i>
               </label>
-              <input id="title" type="text" class="form-control col-10" name="parts_city_title"
+              <input id="title" type="text" class="form-control col-7" name="parts_city_title"
                      v-bind:value="modifyData.title">
             </div>
-            <div class="form-group">
-              <label for="publishTime" class="col-2 control-label">
-                <i>发布时间</i>
-              </label>
-              <input id="publishTime" type="text" class="form-control col-10" name="parts_city_title"
-                     v-bind:value="modifyData.publishTime">
-            </div>
-            <div class="form-group">
-              <label for="serviceArea" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="serviceArea" class="col-3 control-label">
                 <i>服务区域</i>
               </label>
-              <input id="serviceArea" type="text" class="form-control col-10" name="parts_city_title"
+              <input id="serviceArea" type="text" class="form-control col-7" name="parts_city_title"
                      v-bind:value="modifyData.serviceArea">
             </div>
-            <div class="form-group">
-              <label for="contacts" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="contacts" class="col-3 control-label">
                 <i>联系人</i>
               </label>
-              <input id="contacts" type="text" class="form-control col-10" name="parts_city_title"
+              <input id="contacts" type="text" class="form-control col-7" name="parts_city_title"
                      v-bind:value="modifyData.contacts">
             </div>
-            <div class="form-group">
-              <label for="address" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="address" class="col-3 control-label">
                 <i>商家地址</i>
               </label>
-              <input id="address" type="text" class="form-control col-10" name="parts_city_title"
+              <input id="address" type="text" class="form-control col-7" name="parts_city_title"
                      v-bind:value="modifyData.address">
             </div>
-            <div class="form-group">
-              <label for="storeName" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="storeName" class="col-3 control-label">
                 <i>商家名称</i>
               </label>
-              <input id="storeName" type="text" class="form-control col-10" name="parts_city_title"
+              <input id="storeName" type="text" class="form-control col-7" name="parts_city_title"
                      v-bind:value="modifyData.storeName">
             </div>
-            <div class="form-group">
-              <label for="serviceType" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="serviceType" class="col-3 control-label">
                 <i>服务类型</i>
               </label>
-              <input id="serviceType" type="text" class="form-control col-10" name="parts_city_title"
+              <input id="serviceType" type="text" class="form-control col-7" name="parts_city_title"
                      v-bind:value="modifyData.serviceType">
             </div>
-            <div class="form-group">
-              <label for="descript" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="descript" class="col-3 control-label">
                 <i>描述</i>
               </label>
-              <input id="descript" type="text" class="form-control col-10" name="parts_city_title"
+              <input id="descript" type="text" class="form-control col-7" name="parts_city_title"
                      v-bind:value="modifyData.descript">
             </div>
-            <div class="form-group">
-              <label for="mobilePhoneNo" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="mobilePhoneNo" class="col-3 control-label">
                 <i>手机号</i>
               </label>
-              <input id="mobilePhoneNo" type="text" class="form-control col-10" name="parts_city_title"
+              <input id="mobilePhoneNo" type="text" class="form-control col-7" name="parts_city_title"
                      v-bind:value="modifyData.mobilePhoneNo">
             </div>
-            <div class="form-group">
-              <label for="qrCode" class="col-2 control-label">
-                <i>二维码地址</i>
-              </label>
-              <input id="qrCode" type="text" class="form-control col-10" name="parts_city_title"
-                     v-bind:value="modifyData.qrCode">
-            </div>
-            <div class="form-group">
-              <label for="serviceCode" class="col-2 control-label">
-                <i>服务编号</i>
-              </label>
-              <input id="serviceCode" type="text" class="form-control col-10"
-                     name="parts_city_title"
-                     v-bind:value="modifyData.serviceCode">
-            </div>
-            <div class="form-group">
-              <label for="serviceImagesSet" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="serviceImagesSet" class="col-3 control-label">
                 <i>图片</i>
               </label>
-              <input id="serviceImagesSet" type="text" class="form-control col-10"
+              <input id="serviceImagesSet" type="text" class="form-control col-7"
                      name="parts_city_title"
                      v-bind:value="modifyData.serviceImagesSet">
             </div>
@@ -116,13 +94,12 @@
       revampData: function () {
         let _this = this;
         this.$axios({
-          url: _this.HOME + '/autoinsyCity/modify',
+          url: _this.HOME + '/service/modify',
           method: 'POST',
           headers: {'content-type': 'application/x-www-form-urlencoded'},
           data: _this.qs.stringify({
             "serviceID": $('#serviceID').text(),
             "title": $('#title').val(),
-            "publishTime": $('#publishTime').val(),
             "serviceArea": $('#serviceArea').val(),
             "contacts": $('#contacts').val(),
             "address": $('#address').val(),
@@ -130,14 +107,14 @@
             "serviceType": $('#serviceType').val(),
             "descript": $('#descript').val(),
             "mobilePhoneNo": $('#mobilePhoneNo').val(),
-            "qrCode": $('#qrCode').val(),
-            "serviceCode": $('#serviceCode').val(),
             "serviceImagesSet": $('#serviceImagesSet').val(),
           })
         }).then(res => {
           alert(res.data.message);
-          $('#close').click();
-          _this.$emit('dataInteractTrue');
+          if (Math.ceil(res.data.code) === 200) {
+            $('#close').click();
+            _this.$emit('dataInteractTrue');
+          }
         }).catch(e => {
           console.log(e);
         })

@@ -15,6 +15,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
               </tr>
               </thead>
               <tbody></tbody>
@@ -23,11 +24,14 @@
         </div>
       </div>
     </div>
+    <revamp :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></revamp>
+    <info :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></info>
   </div>
 </template>
 
 <script>
   import revamp from '../revmap/RevampSeller'
+  import info from '../info/SellerInfo'
 
   export default {
     name: "TableUserSJ",
@@ -37,10 +41,12 @@
         all: '',
         cur: 1,
         allElement: '',
+        modifyData: '',
         table: '',
       }
     },
-    components: {revamp: revamp},
+    components:
+      {revamp: revamp, info: info},
     created: function () {
       try {
         ace.settings.check('breadcrumbs', 'fixed')
@@ -115,7 +121,7 @@
             title: "操作",
             render: function (data, type, row, meta) {
               let div = "<div class=\"\">\n" +
-                "<a class=\"\" href=\"#\">\n" +
+                "<a class=\"\" href=\"#\" data-toggle=\"modal\" data-target=\"#showSellerInfo\">\n" +
                 "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
                 "</a>\n" +
                 "<a class=\"green\" href=\"#\" data-toggle=\"modal\" data-target=\"#revampSeller\">\n" +
@@ -132,10 +138,10 @@
             targets: 6,
             data: "sellerAuthentication.isAuthentication",
             title: "是否授权",
-            render: function (data, row) {
-              if (Math.ceil(data) === 1) {
+            render: function (data, type, row, meta) {
+              if (Math.ceil(row.sellerAuthentication.isAuthentication) === 1) {
                 return "是";
-              } else{
+              } else {
                 return "否";
               }
             }
@@ -147,13 +153,19 @@
           },
           {
             targets: 4,
-            data: "sellerAuthentication.identifyCardImageFrontUrl",
+            data: "",
             title: "身份证号码",
+            render: function (data, type, row, meta) {
+              return row.sellerAuthentication.identifyCardNum
+            }
           },
           {
             targets: 3,
-            data: "sellerAuthentication.businessLicenceNumber",
+            data: "",
             title: "营业执照号码",
+            render: function (data, type, row, meta) {
+              return row.sellerAuthentication.businessLicenceNumber
+            }
           },
           {
             targets: 2,
@@ -187,6 +199,7 @@
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
           $(deleteButton).click(_this.deleteData);
           $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
+          $("tr").children('td').children("div").children('a[class=""]').click(_this.toModify);
         },
       });
     },

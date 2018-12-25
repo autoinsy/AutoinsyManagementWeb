@@ -10,40 +10,40 @@
         </div>
         <div class="modal-body">
           <form class="form-horizontal">
-            <div class="form-group">
-              <label for="title" class="col-2 control-label">
+            <div class="form-group row">
+              <label for="title" class="col-3 control-label">
                 <i>标题</i>
               </label>
-              <input id="title" type="text" class="form-control col-10" name="parts_city_title"
+              <input id="title" type="text" class="form-control col-7" name="parts_city_title"
                      v-bind:value="modifyData.cityTitle">
             </div>
-            <div class="form-group">
-              <label for="name">
+            <div class="form-group row">
+              <label for="name" class="col-3 control-label">
                 <i>汽配城名称</i>
               </label>
-              <input id="name" type="text" class="form-control" name="parts_city_name"
+              <input id="name" type="text" class="form-control col-7" name="parts_city_name"
                      v-bind:value="modifyData.cityName">
             </div>
-            <div class="form-group">
-              <label for="address">
+            <div class="form-group row">
+              <label for="address" class="col-3 control-label">
                 <i>汽配城地址</i>
               </label>
-              <input id="address" type="text" class="form-control" name="parts_city_address"
+              <input id="address" type="text" class="form-control col-7" name="parts_city_address"
                      v-bind:value="modifyData.cityAddress">
             </div>
-            <div class="form-group">
-              <label for="content">
+            <div class="form-group row">
+              <label for="content" class="col-3 control-label">
                 <i>汽配城简介</i>
               </label>
-              <textarea id="content" rows="3" class="form-control" name="parts_city_content">
+              <textarea id="content" rows="3" class="form-control col-7" name="parts_city_content">
                 {{modifyData.cityContent}}
               </textarea>
             </div>
-            <div class="form-group">
-              <label for="imgUrl">
+            <div class="form-group row">
+              <label for="imgUrl" class="col-3 control-label">
                 <i>汽配城图片</i>
               </label>
-              <input id="imgUrl" type="file" class="form-control" name="parts_city_img_url"/>
+              <input id="imgUrl" type="file" class="form-control col-7" name="parts_city_img_url"/>
               <!--v-bind:value="modifyData.cityImgUrl">-->
             </div>
           </form>
