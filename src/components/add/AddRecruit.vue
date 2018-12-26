@@ -50,17 +50,9 @@
 
 <script>
   export default {
-
+    name: "AddRecruit",
     mounted: function () {
       this.$('[data-toggle="popover"]').popover();
-    },
-    name: 'AddData',
-    data() {
-      return {
-        statement_name:'',
-        statement_date:'',
-        statement:'',
-      }
     },
     methods: {
       AddData: function () {
@@ -101,112 +93,9 @@
       }
 
     }
-
   }
 </script>
 
-<style>
-  .textareastyles {
-    height: 150px
-  }
-  .myshow{
-    font-size: 24px;
-    color:#000;
-    line-height: 45px;
-    padding-left: 10px;
-    background-color: #ededed;
-    border-radius: .3rem;
-  }
-  .myclose{
-    line-height: 45px;
-    margin-right: 10px;
-  }
-  .nav-stacked li{
-    width:100%;
-    display: block;
-  }
-  .from-p {
-    clear: both
-  }
+<style scoped>
 
-  .from-left {
-    float: left;
-    font-size: 18px;
-    color: #535353;
-    margin-right: 25px;
-    text-align: right;
-    width: 100px;
-    height: 18px
-  }
-
-  .from-right {
-    float: right;
-    margin-bottom: 28px
-  }
-
-  .from-input {
-    width: 340px;
-    margin-bottom: 28px !important;
-    padding-left: 10px
-  }
-
-  .ejcet-from textarea {
-    width: 700px;
-    height: 375px;
-    margin-bottom: 28px
-  }
-
-  .subBtns {
-    color: #fff;
-    border: none;
-    width: 60px !important;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    margin: 10px 30px;
-    float: left;
-    border-radius: 5px
-  }
-  .modal-footer {
-    padding: 14px 15px 15px;
-    margin-bottom: 0;
-    text-align: right;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    -webkit-border-radius: 0 0 6px 6px;
-    -moz-border-radius: 0 0 6px 6px;
-    border-radius: 0 0 6px 6px;
-    *zoom: 1;
-    -webkit-box-shadow: inset 0 1px 0 #ffffff;
-    -moz-box-shadow: inset 0 1px 0 #ffffff;
-    box-shadow: inset 0 1px 0 #ffffff;
-  }
-
-  .modal-footer:before,
-  .modal-footer:after {
-    display: table;
-    line-height: 0;
-    content: "";
-  }
-
-  .modal-footer:after {
-    clear: both;
-  }
-
-  .modal-footer .btn + .btn {
-    margin-bottom: 0;
-    margin-left: 5px;
-  }
-
-  .modal-footer .btn-group .btn + .btn {
-    margin-left: -1px;
-  }
-
-  .modal-footer .btn-block + .btn-block {
-    margin-left: 0;
-  }
-  em{
-    color:#ff6e00;
-    margin: 10px 5px 0 0;
-  }
 </style>
