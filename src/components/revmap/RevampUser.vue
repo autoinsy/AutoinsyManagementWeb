@@ -6,23 +6,26 @@
         <div class="modal-title" id="myModalLabel">
           <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;
           </button>
-          <h1 class="modal-header">修改汽配城信息<span id="cityId" style="display: none">{{modifyData.cityId}}</span></h1>
+          <h1 class="modal-header">修改&nbsp;&nbsp;{{modifyData.userName}}&nbsp;&nbsp;信息
+            <span id="userId" style="display: none">{{modifyData.userId}}</span>
+          </h1>
         </div>
         <div class="modal-body">
           <form class="form-horizontal">
             <div class="form-group row">
-              <label for="title" class="col-3 control-label">
-                <i>标题</i>
+              <label for="permission" class="col-3 control-label">
+                <i>用户角色</i>
               </label>
-              <input id="title" type="text" class="form-control col-7" name="parts_city_title"
-                     v-bind:value="modifyData.cityTitle">
+              <input id="permission" type="text" class="form-control col-7" name="parts_city_title"
+                     v-bind:value="modifyData.permission.permissionName" v-if="modifyData.permission">
             </div>
             <div class="form-group row">
               <label for="name" class="col-3 control-label">
                 <i>汽配城名称</i>
               </label>
-              <input id="name" type="text" class="form-control col-7" name="parts_city_name"
-                     v-bind:value="modifyData.cityName">
+              <div id="name" class="form-control col-7" >
+                <input v-if="modifyData.permission" v-for="(role, index) in modifyData.permission.roles" :title="role.roleName" type="checkbox" v-bind:value="role.roleId"/>{{role.roleName}}
+              </div>
             </div>
             <div class="form-group row">
               <label for="address" class="col-3 control-label">
@@ -61,6 +64,19 @@
   export default {
     name: "RevampCity",
     props: ['modifyData'],
+    data() {
+      return {
+        roleList: []
+      }
+    },
+    mounted: function() {
+      let _this = this;
+      this.$axios({
+        url: _this.HOME + '/user/listRoles'
+      }).then(res => {
+        _this.roleList = res.data.data;
+      })
+    },
     methods: {
       revampData: function () {
         let _this = this;
@@ -78,8 +94,10 @@
           })
         }).then(res => {
           alert(res.data.message);
-          $('#close').click();
-          _this.$emit('dataInteractTrue');
+          if (Math.ceil(res.data.code) === 200) {
+            $('#close').click();
+            _this.$emit('dataInteractTrue');
+          }
         }).catch(e => {
           console.log(e);
         })

@@ -120,7 +120,7 @@
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
-              let div = "<div class=\"\">\n" +
+              return "<div class=\"\">\n" +
                 "<a class=\"\" href=\"#\" data-toggle=\"modal\" data-target=\"#showSellerInfo\">\n" +
                 "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
                 "</a>\n" +
@@ -131,7 +131,6 @@
                 "<i class=\"fa fa-trash bigger-130\"><span style='display: none'>" + row.sellerId + "</span></i>\n" +
                 "</a>\n" +
                 "</div>";
-              return div;
             }
           },
           {
