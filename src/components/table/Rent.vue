@@ -27,15 +27,17 @@
       </div>
     </div>
     <revamp :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></revamp>
+    <add  v-on:dataInteractTrue="dataInteractTrue"></add>
   </div>
 </template>
 
 <script>
   import revamp from '../revmap/RevampLease'
+  import add from '../add/AddLease'
 
   export default {
     name: "Rent",
-    components: {revamp: revamp},
+    components: {revamp: revamp, add: add},
     data() {
       return {
         cityList: [],
@@ -193,7 +195,7 @@
         initComplete: function () {
           //手动添加按钮到表格上
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
-          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;'/>");
+          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;' data-toggle=\"modal\" data-target=\"#AddLease\"/>");
           $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
           $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px;color: #fff;'/>");
           $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");

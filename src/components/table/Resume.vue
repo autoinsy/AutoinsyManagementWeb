@@ -28,15 +28,17 @@
       </div>
     </div>
     <revamp :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></revamp>
+    <add v-on:dataInteractTrue="dataInteractTrue"></add>
   </div>
 </template>
 
 <script>
   import revamp from '../revmap/RevampResume'
+  import add from '../add/AddResume'
 
   export default {
     name: "Resume",
-    components: {revamp: revamp},
+    components: {revamp: revamp, add:add},
     data() {
       return {
         cityList: [],
@@ -120,7 +122,7 @@
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
-              let div = "<div class=\"\">\n" +
+              return "<div class=\"\">\n" +
                 "<a class=\"\" href=\"#\">\n" +
                 "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
                 "</a>\n" +
@@ -131,7 +133,6 @@
                 "<i class=\"fa fa-trash bigger-130\"><span style='display: none'>" + row.id + "</span></i>\n" +
                 "</a>\n" +
                 "</div>";
-              return div;
             }
           },
           {
@@ -144,7 +145,7 @@
             data: "education",
             title: "学历",
             render: function (data, type, row, meta) {
-              return _this.educationOption[row.education-1];
+              return _this.educationOption[row.education - 1];
             }
           },
           {
@@ -187,11 +188,6 @@
             data: "wantedPosition",
             title: "职位类别",
           },
-          // {
-          //   targets: 2,
-          //   data: "cvCode",
-          //   title: "简历编号",
-          // },
           {
             targets: 1,
             data: "id",
@@ -212,7 +208,7 @@
         initComplete: function () {
           //手动添加按钮到表格上
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
-          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;'/>");
+          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;' data-toggle=\"modal\" data-target=\"#addVitae\"/>");
           $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
           $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px;color: #fff;'/>");
           $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");

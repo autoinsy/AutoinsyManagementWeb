@@ -1,45 +1,119 @@
 <template>
-  <div class="modal fade" id="AddLaw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="addRecruit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <!--背景over-->
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-title" id="myModalLabel">
-          <button type="button" id="close" class="close myclose" data-dismiss="modal" aria-hidden="true">&times;
+          <button type="button" id="addClose" class="close myclose" data-dismiss="modal" aria-hidden="true">&times;
           </button>
-          <p class="myshow">添加法律信息</p>
+          <p class="myshow">添加简历信息</p>
         </div>
         <!--弹出标头over-->
         <div class="modal-body">
-          <form class="">
-            <fieldset style="border:none;">
-              <legend style="display:none"></legend>
-              <p class="from-p">
-                <label for="statement_name" class="from-left"><em>*</em>标题</label>
-                <input type="text" id="statement_name" v-model="statement_name" class="from-right from-input"
-                       placeholder="请输入标题"/>
-              </p>
-              <div class="clear"></div>
-              <!--part one-->
-              <p class="from-p">
-                <label for="statement" class="from-left"><em>*</em>法律声明</label>
-                <textarea id="statement" v-model="statement" class="from-right from-input textareastyles"
-                          placeholder="请输入法律声明"></textarea>
-              </p>
-              <div class="clear"></div>
-              <!--part one-->
-              <p class="from-p">
-                <label for="statement_date" class="from-left"><em>*</em>发布日期</label>
-                <input type="date" id="statement_date" v-model="statement_date" class="from-right from-input"/>
-              </p>
-              <div class="clear"></div>
-              <!--part one-->
-            </fieldset>
+          <form class="form-horizontal">
+
+            <div class="form-group row">
+              <label for="addTitle" class="col-3 control-label">
+                <span>招聘标题</span>
+              </label>
+              <input id="addTitle" type="text" class="col-7 form-control"/>
+            </div>
+
+            <div class="form-group row">
+              <label for="addCompanyName" class="col-3 control-label">
+                <span>公司名称</span>
+              </label>
+              <input id="addCompanyName" type="text" class="col-7 form-control"/>
+            </div>
+
+            <div class="form-group row">
+              <label for="salary" class="col-3 control-label">
+                <span>薪资范围</span>
+              </label>
+              <div id="salary" class="col-7 row">
+                <input id="addStartSalary" type="text" class="form-control col-5" title="最低薪资"/>
+                ———
+                <input id="addEndSalary" type="text" class="form-control col-5" title="最高薪资"/>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="addSellerAddress" class="col-3 control-label">
+                <span>商家地址</span>
+              </label>
+              <input id="addSellerAddress" type="text" class="col-7 form-control"/>
+            </div>
+
+            <div class="form-group row">
+              <label for="addRecruitPersonNumber" class="col-3 control-label">
+                <span>招聘人数</span>
+              </label>
+              <input id="addRecruitPersonNumber" type="text" class="col-7 form-control"/>
+            </div>
+
+            <div class="form-group row">
+              <label for="addEducationRequirement" class="col-3 control-label">
+                <span>学历要求</span>
+              </label>
+              <select id="addEducationRequirement" class="col-7 form-control">
+                <option value="1">高中</option>
+                <option value="2">大专</option>
+                <option value="3">本科</option>
+                <option value="4">硕士</option>
+                <option value="5">博士</option>
+                <option value="6">博士后</option>
+              </select>
+            </div>
+
+            <div class="form-group row">
+              <label for="addExperience" class="col-3 control-label">
+                <span>工作经验</span>
+              </label>
+              <input id="addExperience" type="text" class="col-7 form-control"/>
+            </div>
+
+            <div class="form-group row">
+              <label for="addPositionRequirement" class="col-3 control-label">
+                <span>职位要求</span>
+              </label>
+              <input id="addPositionRequirement" type="text" class="col-7 form-control"/>
+            </div>
+
+            <div class="form-group row">
+              <label for="addTakeOfficeRequirement" class="col-3 control-label">
+                <span>任职要求</span>
+              </label>
+              <input id="addTakeOfficeRequirement" type="text" class="col-7 form-control"/>
+            </div>
+
+            <div class="form-group row">
+              <label for="addContactPhoneNum" class="col-3 control-label">
+                <span>联系电话</span>
+              </label>
+              <input id="addContactPhoneNum" type="text" class="col-7 form-control"/>
+            </div>
+
+            <div class="form-group row">
+              <label for="addPublishTime" class="col-3 control-label">
+                <span>发布时间</span>
+              </label>
+              <input id="addPublishTime" type="text" class="col-7 form-control"/>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="addMobilePhoneNum" class="col-3 control-label">
+                <span>手机号码</span>
+              </label>
+              <input id="addMobilePhoneNum" type="text" class="col-7 form-control"/>
+            </div>
+
           </form>
           <!--表单over-->
         </div>
         <div class="modal-footer" style="margin: 0 auto; width:240px;border:none;">
-          <input type="button" value="返回" class="subBtns" data-dismiss="modal"/>
-          <input type="button" value="确认" class="subBtns" @click="AddLaw"/>
+          <input type="button" value="返回" class="btn btn-white" data-dismiss="modal"/>
+          <input type="button" value="确认" class="btn btn-primary" @click="AddData"/>
         </div>
         <!--弹出 over-->
       </div>
@@ -57,21 +131,29 @@
     methods: {
       AddData: function () {
         let edit_this = this;
-        let param = new URLSearchParams();
-        let checkInput = this.checkInput();
-        param.append('statement_name', this.$('#statement_name').val());
-        param.append('statement_date', this.$('#statement_date').val());
-        param.append('statement', this.$('#statement').val());
         this.$axios({
           method: 'post',
-          url: this.HOME + '/lawstatement/add',
-          data: param
+          url: this.HOME + '/recuit/add',
+          data: edit_this.qs.stringify({
+            "title": $('#addTitle').val(),
+            "company_name": $('#addCompanyName').val(),
+            "start_salary": $('#addStartSalary').val(),
+            "seller_address": $('#addSellerAddress').val(),
+            "recruit_person_number": $('#addRecruitPersonNumber').val(),
+            "education_requirement": $('#addEducationRequirement').val(),
+            "experience": $('#addExperience').val(),
+            "position_requirement": $('#addPositionRequirement').val(),
+            "take_office_requirement": $('#addTakeOfficeRequirement').val(),
+            "contact_phone_num": $('#addContactPhoneNum').val(),
+            "publish_time": $('#addPublishTime').val(),
+            "end_salary": $('#addEndSalary').val(),
+            "mobile_phone_num": $('#addMobilePhoneNum').val()
+          })
         }).then(function (response) {
-          if (response.data.code == 200) {
-            alert("添加成功！");
-            edit_this.result = 1;
-            $('#addAttendance button').click();
-            edit_this.$emit('modifyTrue');
+          alert(response.data.message);
+          if (Math.ceil(response.data.code) === 200) {
+            $('#addClose').click();
+            edit_this.$emit('dataInteractTrue');
           }
         }).catch(function (error) {
           console.log(error);

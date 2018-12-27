@@ -12,40 +12,34 @@
         <div class="modal-body">
           <form class="form-horizontal">
             <div class="form-group row">
-              <label for="addTitle" class="col-3 control-label">
-                <span>新闻标题</span>
-              </label>
-              <input id="addTitle" type="text" class="col-7 form-control"/>
-            </div>
-            <div class="form-group row">
-              <label for="noticeTime" class="col-3 control-label">
+              <label for="addNoticeTime" class="col-3 control-label">
                 <span>通知时间</span>
               </label>
-              <input id="noticeTime" type="datetime-local" class="col-7 form-control"/>
+              <input id="addNoticeTime" type="datetime-local" class="col-7 form-control"/>
             </div>
             <div class="form-group row">
-              <label for="noticeLevel" class="col-3 control-label">
+              <label for="addNoticeLevel" class="col-3 control-label">
                 <span>通知等级</span>
               </label>
-              <input id="noticeLevel" type="text" class="col-7 form-control"/>
+              <input id="addNoticeLevel" type="text" class="col-7 form-control"/>
             </div>
             <div class="form-group row">
-              <label for="noticeContent" class="col-3 control-label">
+              <label for="addNoticeContent" class="col-3 control-label">
                 <span>通知内容</span>
               </label>
-              <textarea id="noticeContent" class="col-7 form-control"></textarea>
+              <textarea id="addNoticeContent" class="col-7 form-control"></textarea>
             </div>
             <div class="form-group row">
-              <label for="noticeSource" class="col-3 control-label">
+              <label for="addNoticeSource" class="col-3 control-label">
                 <span>通知来源</span>
               </label>
-              <input id="noticeSource" type="text" class="col-7 form-control"/>
+              <input id="addNoticeSource" type="text" class="col-7 form-control"/>
             </div>
             <div class="form-group row">
-              <label for="noticePhoto" class="col-3 control-label">
+              <label for="addNoticePhoto" class="col-3 control-label">
                 <span>通知图片</span>
               </label>
-              <input id="noticePhoto" type="text" class="col-7 form-control"/>
+              <input id="addNoticePhoto" type="text" class="col-7 form-control"/>
             </div>
           </form>
         </div>
@@ -71,17 +65,17 @@
           method: 'post',
           url: this.HOME + '/notice/addNotice',
           data: edit_this.qs.stringify({
-            "noticeTime": $("#noticeTime").val(),
-            "noticeLevel": $("#noticeLevel").val(),
-            "noticeContent": $("#noticeContent").val(),
-            "noticeSource": $("#noticeSource").val(),
-            "noticePhoto": $("#noticePhoto").val(),
+            "noticeTime": $("#addNoticeTime").val(),
+            "noticeLevel": $("#addNoticeLevel").val(),
+            "noticeContent": $("#addNoticeContent").val(),
+            "noticeSource": $("#addNoticeSource").val(),
+            "noticePhoto": $("#addNoticePhoto").val(),
           })
         }).then(function (response) {
           alert(response.data.message);
           if (Math.ceil(response.data.code) === 200) {
             $('#addClose').click();
-            edit_this.$emit('modifyTrue');
+            edit_this.$emit('dataInteractTrue');
           }
         }).catch(function (error) {
           console.log(error);
