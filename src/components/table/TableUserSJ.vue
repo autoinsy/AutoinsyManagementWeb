@@ -15,6 +15,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
               </tr>
               </thead>
               <tbody></tbody>
@@ -23,10 +24,15 @@
         </div>
       </div>
     </div>
+    <revamp :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></revamp>
+    <info :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></info>
   </div>
 </template>
 
 <script>
+  import revamp from '../revmap/RevampSeller'
+  import info from '../info/SellerInfo'
+
   export default {
     name: "TableUserSJ",
     data() {
@@ -35,8 +41,12 @@
         all: '',
         cur: 1,
         allElement: '',
+        modifyData: '',
+        table: '',
       }
     },
+    components:
+      {revamp: revamp, info: info},
     created: function () {
       try {
         ace.settings.check('breadcrumbs', 'fixed')
@@ -45,7 +55,7 @@
     },
     mounted: function () {
       let _this = this;
-      let table = $('table').DataTable({
+      _this.table = $('table').DataTable({
         language: {
           "processing": "处理中...",
           "lengthMenu": "显示 _MENU_ 项结果",
@@ -94,12 +104,10 @@
             },
             success: function (data) {
               var returnData = {};
-              returnData.recordsTotal = data.data.totalPages;//返回数据全部记录
-              returnData.recordsFiltered = data.data.totalElements;//后台不实现过滤功能，每次查询均视作全部结果
-              returnData.data = data.data.content;//返回的数据列表
-              //console.log(returnData);
-              //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
-              //此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
+              _this.cityList = data.data.content;
+              returnData.recordsTotal = data.data.totalPages;
+              returnData.recordsFiltered = data.data.totalElements;
+              returnData.data = data.data.content;
               callback(returnData);
             },
 
@@ -112,28 +120,27 @@
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
-              let div = "<div class=\"\">\n" +
-                "<a class=\"\" href=\"#\">\n" +
+              return "<div class=\"\">\n" +
+                "<a class=\"\" href=\"#\" data-toggle=\"modal\" data-target=\"#showSellerInfo\">\n" +
                 "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
                 "</a>\n" +
-                "<a class=\"green\" href=\"#\">\n" +
+                "<a class=\"green\" href=\"#\" data-toggle=\"modal\" data-target=\"#revampSeller\">\n" +
                 "<i class=\"fa fa-pencil bigger-130\"></i>\n" +
                 "</a>\n" +
                 "<a class=\"red\" href=\"#\">\n" +
                 "<i class=\"fa fa-trash bigger-130\"><span style='display: none'>" + row.sellerId + "</span></i>\n" +
                 "</a>\n" +
                 "</div>";
-              return div;
             }
           },
           {
             targets: 6,
             data: "sellerAuthentication.isAuthentication",
             title: "是否授权",
-            render: function (data, row) {
-              if (Math.ceil(data) === 1) {
+            render: function (data, type, row, meta) {
+              if (Math.ceil(row.sellerAuthentication.isAuthentication) === 1) {
                 return "是";
-              } else{
+              } else {
                 return "否";
               }
             }
@@ -145,13 +152,19 @@
           },
           {
             targets: 4,
-            data: "sellerAuthentication.identifyCardImageFrontUrl",
+            data: "",
             title: "身份证号码",
+            render: function (data, type, row, meta) {
+              return row.sellerAuthentication.identifyCardNum
+            }
           },
           {
             targets: 3,
-            data: "sellerAuthentication.businessLicenceNumber",
+            data: "",
             title: "营业执照号码",
+            render: function (data, type, row, meta) {
+              return row.sellerAuthentication.businessLicenceNumber
+            }
           },
           {
             targets: 2,
@@ -183,7 +196,9 @@
           $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
-          $(deleteButton).click(_this.deleteData)
+          $(deleteButton).click(_this.deleteData);
+          $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
+          $("tr").children('td').children("div").children('a[class=""]').click(_this.toModify);
         },
       });
     },
@@ -199,12 +214,19 @@
             if (response.status === 200) {
               delete_this.people.splice(index, 1);
               delete_this.btnClick(1);
+              this.table.draw(false);
             }
           }).catch(function (error) {
             console.log(error);
           })
         }
       },
+      toModify: function (e) {
+        this.modifyData = this.cityList[$(e.target).parent().parent().parent().parent().index()];
+      },
+      dataInteractTrue: function (e) {
+        this.table.draw(false);
+      }
 
     }
   }

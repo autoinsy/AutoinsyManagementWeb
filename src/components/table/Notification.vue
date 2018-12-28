@@ -1,6 +1,6 @@
 <template>
-  <div class="" >
-    <div class="row" >
+  <div class="">
+    <div class="row">
       <div class="col-md-12">
         <h3 class="header smaller lighter blue" style="text-align: left">通知管理列表</h3>
         <div class="table-responsive">
@@ -23,18 +23,26 @@
         </div>
       </div>
     </div>
+    <revamp :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></revamp>
+    <add v-on:dataInteractTrue="dataInteractTrue"></add>
   </div>
 </template>
 
 <script>
+  import revamp from '../revmap/RevampNotice'
+  import add from '../add/AddNotification'
+
   export default {
     name: "Notification",
+    components: {revamp: revamp, add: add},
     data() {
       return {
         cityList: [],
         all: '',
         cur: 1,
         allElement: '',
+        modifyData: '',
+        table: '',
       }
     },
     created: function () {
@@ -45,7 +53,7 @@
     },
     mounted: function () {
       let _this = this;
-      let table = $('table').DataTable({
+      _this.table = $('table').DataTable({
         language: {
           "processing": "处理中...",
           "lengthMenu": "显示 _MENU_ 项结果",
@@ -94,6 +102,7 @@
             },
             success: function (data) {
               var returnData = {};
+              _this.cityList = data.data.content;
               returnData.recordsTotal = data.data.totalPages;//返回数据全部记录
               returnData.recordsFiltered = data.data.totalElements;//后台不实现过滤功能，每次查询均视作全部结果
               returnData.data = data.data.content;//返回的数据列表
@@ -108,7 +117,7 @@
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
         columnDefs: [
           {
-            targets:6,
+            targets: 6,
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
@@ -116,7 +125,7 @@
                 "<a class=\"\" href=\"#\">\n" +
                 "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
                 "</a>\n" +
-                "<a class=\"green\" href=\"#\">\n" +
+                "<a class=\"green\" href=\"#\" data-toggle=\"modal\" data-target=\"#revampNotice\">\n" +
                 "<i class=\"fa fa-pencil bigger-130\"></i>\n" +
                 "</a>\n" +
                 "<a class=\"red\" href=\"#\">\n" +
@@ -156,7 +165,7 @@
             data: null,
             title: "<input type='checkbox'>",
             render: function (data, type, row, meta) {
-              return "<label><input type='checkbox' value="+ data.noticeId +"><span></span></label>"
+              return "<label><input type='checkbox' value=" + data.noticeId + "><span></span></label>"
             }
           },
         ],
@@ -166,13 +175,14 @@
         initComplete: function () {
           //手动添加按钮到表格上
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
-          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;'/>");
+          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;' data-toggle=\"modal\" data-target=\"#AddNotice\"/>");
           $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
           $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px;color: #fff;'/>");
           $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
           $(deleteButton).click(_this.deleteData)
+          $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
         },
       });
     },
@@ -188,45 +198,59 @@
             if (response.status === 200) {
               delete_this.people.splice(index, 1);
               delete_this.btnClick(1);
+              this.table.draw(false);
             }
           }).catch(function (error) {
             console.log(error);
           })
         }
       },
+      toModify: function (e) {
+        this.modifyData = this.cityList[$(e.target).parent().parent().parent().parent().index()];
+      },
+      dataInteractTrue: function (e) {
+        this.table.draw(false);
+      }
 
     }
   }
 </script>
 
 <style scoped>
-  table{
+  table {
     font-size: 14px;
     font-family: 微软雅黑;
     border: 1px solid #ddd;
     padding: 0;
   }
-  table thead{
+
+  table thead {
     background: #1a89ed;
-    color:#ffffff;
+    color: #ffffff;
     font-size: 18px;
   }
-  .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+
+  .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
     border-bottom-width: 2px !important;
   }
+
   table.table-bordered tbody th, table.table-bordered tbody td {
     border-left-width: 0 !important;
     border-bottom-width: 0 !important;
   }
-  .table-striped>tbody>tr:nth-of-type(odd) {
+
+  .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: #f9f9f9 !important;
   }
+
   .dataTable th[class*=sorting_] {
     color: #ffffff !important;
   }
+
   .dataTable th[class*=sort]:hover {
     color: #ffffff !important;
   }
+
   .table-bordered {
     border: 1px solid #ddd;
   }

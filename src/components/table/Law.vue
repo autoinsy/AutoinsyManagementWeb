@@ -22,21 +22,25 @@
       </div>
     </div>
     <add-law></add-law>
+    <revamp :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></revamp>
   </div>
 </template>
 
 <script>
   import AddLaw from "../add/AddLaw";
+  import revamp from '../revmap/RevampLaw'
 
   export default {
     name: "Law",
-    components: {AddLaw},
+    components: {AddLaw, revamp},
     data() {
       return {
         cityList: [],
         all: '',
         cur: 1,
         allElement: '',
+        modifyData: '',
+        table: '',
       }
     },
     created: function () {
@@ -47,7 +51,7 @@
     },
     mounted: function () {
       let _this = this;
-      let table = $('table').DataTable({
+      _this.table = $('table').DataTable({
         language: {
           "processing": "处理中...",
           "lengthMenu": "显示 _MENU_ 项结果",
@@ -96,12 +100,10 @@
             },
             success: function (data) {
               var returnData = {};
-              returnData.recordsTotal = data.data.totalPages;//返回数据全部记录
-              returnData.recordsFiltered = data.data.totalElements;//后台不实现过滤功能，每次查询均视作全部结果
-              returnData.data = data.data.content;//返回的数据列表
-              //console.log(returnData);
-              //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
-              //此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
+              _this.cityList = data.data.content;
+              returnData.recordsTotal = data.data.totalPages;
+              returnData.recordsFiltered = data.data.totalElements;
+              returnData.data = data.data.content;
               callback(returnData);
             },
 
@@ -118,7 +120,7 @@
                 "<a class=\"\" href=\"#\">\n" +
                 "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
                 "</a>\n" +
-                "<a class=\"green\" href=\"#\">\n" +
+                "<a class=\"green\" href=\"#\" data-toggle=\"modal\" data-target=\"#revampLaw\"/>\n" +
                 "<i class=\"fa fa-pencil bigger-130\"></i>\n" +
                 "</a>\n" +
                 "<a class=\"red\" href=\"#\">\n" +
@@ -158,13 +160,15 @@
         initComplete: function () {
           //手动添加按钮到表格上
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
-          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' data-toggle=\"modal\" data-target=\"#AddLaw\" style='color: #fff; margin-right: 5px;'/>");
+          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' data-toggle=\"modal\" data-target=\"#AddData\" style='color: #fff; margin-right: 5px;'/>");
           $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
           $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px;color: #fff;'/>");
           $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
           $(deleteButton).click(_this.deleteData)
+          $("#toolbar input[class='btn-purple']").click(_this.deleteData);
+          $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
         },
       });
     },
@@ -180,12 +184,19 @@
             if (response.status === 200) {
               delete_this.people.splice(index, 1);
               delete_this.btnClick(1);
+              this.table.draw(false);
             }
           }).catch(function (error) {
             console.log(error);
           })
         }
       },
+      toModify: function (e) {
+        this.modifyData = this.cityList[$(e.target).parent().parent().parent().parent().index()];
+      },
+      dataInteractTrue: function (e) {
+        this.table.draw(false);
+      }
 
     }
   }

@@ -78,6 +78,8 @@
           })
         }).then(res => {
           alert(res.data.message);
+          $('#close').click();
+          _this.$emit('dataInteractTrue');
         }).catch(e => {
           console.log(e);
         })

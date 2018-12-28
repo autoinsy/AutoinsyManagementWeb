@@ -4,33 +4,31 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-title" id="myModalLabel">
-          <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;
+          <button type="button" id="revampClose" class="close" data-dismiss="modal" aria-hidden="true">&times;
           </button>
-          <h1 class="modal-header">修改法律声明信息<span id="statementId" style="display: none">{{modifyData.statementId}}</span></h1>
+          <h1 class="modal-header">修改法律声明信息<span id="revampStatementId" style="display: none">{{modifyData.statementId}}</span></h1>
         </div>
         <div class="modal-body">
           <form class="form-horizontal">
             <div class="form-group">
-              <label for="statementName" class="col-2 control-label">
+              <label for="revampStatementName" class="col-2 control-label">
                 <i>法律声明标题</i>
               </label>
-              <input id="statementName" type="text" class="form-control col-10" name="statement_name"
+              <input id="revampStatementName" type="text" class="form-control col-10" name="statement_name"
                      v-bind:value="modifyData.statementName">
             </div>
             <div class="form-group">
-              <label for="statementDate">
+              <label for="revampStatementDate">
                 <i>发布日期</i>
               </label>
-              <input id="statementDate" type="text" class="form-control" name="statement_date"
+              <input id="revampStatementDate" type="text" class="form-control" name="statement_date"
                      v-bind:value="modifyData.statementDate">
             </div>
             <div class="form-group">
-              <label for="statement">
+              <label for="revampStatement">
                 <i>法律声明</i>
               </label>
-              <textarea id="statement" rows="3" class="form-control" name="statement">
-                {{modifyData.statement}}
-              </textarea>
+              <textarea id="revampStatement" rows="3" class="form-control" name="statement">{{modifyData.statement}}</textarea>
             </div>
           </form>
         </div>
@@ -55,13 +53,15 @@
           method: 'POST',
           headers: {'content-type': 'application/x-www-form-urlencoded'},
           data: _this.qs.stringify({
-            "law_statement_id": $('#statementId').text(),
-            "statement": $('#statement').val(),
-            "statement_date": $('#statementDate').val(),
-            "statement_name": $('#statementName').val(),
+            "law_statement_id": $('#revampStatementId').text(),
+            "statement": $('#revampStatement').val(),
+            "statement_date": $('#revampStatementDate').val(),
+            "statement_name": $('#revampStatementName').val(),
           })
         }).then(res => {
           alert(res.data.message);
+          $('#revampClose').click();
+          _this.$emit('dataInteractTrue');
         }).catch(e => {
           console.log(e);
         })

@@ -1,6 +1,6 @@
 <template>
-  <div class="" >
-    <div class="row" >
+  <div class="">
+    <div class="row">
       <div class="col-md-12">
         <h3 class="header smaller lighter blue" style="text-align: left">简历管理列表</h3>
         <div class="table-responsive">
@@ -8,7 +8,6 @@
             <table class="table-bordered table-striped">
               <thead>
               <tr>
-                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -28,18 +27,27 @@
         </div>
       </div>
     </div>
+    <revamp :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></revamp>
+    <add v-on:dataInteractTrue="dataInteractTrue"></add>
   </div>
 </template>
 
 <script>
+  import revamp from '../revmap/RevampResume'
+  import add from '../add/AddResume'
+
   export default {
     name: "Resume",
+    components: {revamp: revamp, add:add},
     data() {
       return {
         cityList: [],
         all: '',
         cur: 1,
         allElement: '',
+        modifyData: '',
+        table: '',
+        educationOption: ['高中', '大专', '本科', '硕士', '博士', '博士后'],
       }
     },
     created: function () {
@@ -50,7 +58,7 @@
     },
     mounted: function () {
       let _this = this;
-      let table = $('table').DataTable({
+      _this.table = $('table').DataTable({
         language: {
           "processing": "处理中...",
           "lengthMenu": "显示 _MENU_ 项结果",
@@ -99,82 +107,86 @@
             },
             success: function (data) {
               var returnData = {};
+              _this.cityList = data.data.content;
               returnData.recordsTotal = data.data.totalPages;//返回数据全部记录
               returnData.recordsFiltered = data.data.totalElements;//后台不实现过滤功能，每次查询均视作全部结果
               returnData.data = data.data.content;//返回的数据列表
-              //console.log(returnData);
-              //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
-              //此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
               callback(returnData);
             },
-
           })
         },
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
         columnDefs: [
           {
-            targets: 11,
+            targets: 10,
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
-              let div = "<div class=\"\">\n" +
+              return "<div class=\"\">\n" +
                 "<a class=\"\" href=\"#\">\n" +
                 "<i class=\"fa fa-search-plus bigger-130\"></i>\n" +
                 "</a>\n" +
-                "<a class=\"green\" href=\"#\">\n" +
+                "<a class=\"green\" href=\"#\" data-toggle=\"modal\" data-target=\"#revampVitae\">\n" +
                 "<i class=\"fa fa-pencil bigger-130\"></i>\n" +
                 "</a>\n" +
                 "<a class=\"red\" href=\"#\">\n" +
                 "<i class=\"fa fa-trash bigger-130\"><span style='display: none'>" + row.id + "</span></i>\n" +
                 "</a>\n" +
                 "</div>";
-              return div;
             }
           },
           {
-            targets: 10,
+            targets: 9,
             data: "mobilePhoneNum",
             title: "手机号",
           },
           {
-            targets: 9,
+            targets: 8,
             data: "education",
             title: "学历",
-          },
-          {
-            targets: 8,
-            data: "workingLife",
-            title: "工作年限",
+            render: function (data, type, row, meta) {
+              return _this.educationOption[row.education - 1];
+            }
           },
           {
             targets: 7,
+            data: "",
+            title: "工作年限",
+            render: function (data, type, row, meta) {
+              return row.workingLife + '年';
+            }
+          },
+          {
+            targets: 6,
             data: "birthday",
             title: "生日",
           },
           {
-            targets: 6,
-            data: "sex",
+            targets: 5,
+            data: "",
             title: "性别",
+            render: function (data, type, row, meta) {
+              if (Math.ceil(row.sex) === 1) {
+                return '男';
+              } else if (Math.ceil(row.sex) === 2) {
+                return '女';
+              }
+            }
           },
           {
-            targets: 5,
+            targets: 4,
             data: "name",
             title: "姓名",
           },
           {
-            targets: 4,
+            targets: 3,
             data: "salary",
             title: "期望薪资",
           },
           {
-            targets: 3,
+            targets: 2,
             data: "wantedPosition",
             title: "职位类别",
-          },
-          {
-            targets: 2,
-            data: "cvCode",
-            title: "简历编号",
           },
           {
             targets: 1,
@@ -186,7 +198,7 @@
             data: null,
             title: "<input type='checkbox'>",
             render: function (data, type, row, meta) {
-              return "<label><input type='checkbox' value="+ data.id +"><span></span></label>"
+              return "<label><input type='checkbox' value=" + data.id + "><span></span></label>"
             }
           },
         ],
@@ -196,13 +208,14 @@
         initComplete: function () {
           //手动添加按钮到表格上
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
-          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;'/>");
+          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;' data-toggle=\"modal\" data-target=\"#addVitae\"/>");
           $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
           $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px;color: #fff;'/>");
           $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
           $(deleteButton).click(_this.deleteData)
+          $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
         },
       });
     },
@@ -218,45 +231,59 @@
             if (response.status === 200) {
               delete_this.people.splice(index, 1);
               delete_this.btnClick(1);
+              this.table.draw(false);
             }
           }).catch(function (error) {
             console.log(error);
           })
         }
       },
+      toModify: function (e) {
+        this.modifyData = this.cityList[$(e.target).parent().parent().parent().parent().index()];
+      },
+      dataInteractTrue: function (e) {
+        this.table.draw(false);
+      }
 
     }
   }
 </script>
 
 <style scoped>
-  table{
+  table {
     font-size: 14px;
     font-family: 微软雅黑;
     border: 1px solid #ddd;
     padding: 0;
   }
-  table thead{
+
+  table thead {
     background: #1a89ed;
-    color:#ffffff;
+    color: #ffffff;
     font-size: 18px;
   }
-  .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+
+  .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
     border-bottom-width: 2px !important;
   }
+
   table.table-bordered tbody th, table.table-bordered tbody td {
     border-left-width: 0 !important;
     border-bottom-width: 0 !important;
   }
-  .table-striped>tbody>tr:nth-of-type(odd) {
+
+  .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: #f9f9f9 !important;
   }
+
   .dataTable th[class*=sorting_] {
     color: #ffffff !important;
   }
+
   .dataTable th[class*=sort]:hover {
     color: #ffffff !important;
   }
+
   .table-bordered {
     border: 1px solid #ddd;
   }

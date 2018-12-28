@@ -22,16 +22,18 @@
         </div>
       </div>
     </div>
-    <revamp-city :modifyData="modifyData"></revamp-city>
+    <revamp-city :modifyData="modifyData" v-on:dataInteractTrue="dataInteractTrue"></revamp-city>
+    <add v-on:dataInteractTrue="dataInteractTrue"></add>
   </div>
 </template>
 
 <script>
   import revampCity from '../revmap/RevampCity'
+  import add from '../add/AddCity'
 
   export default {
     name: "AutoinsyManagement",
-    components: {revampCity: revampCity},
+    components: {revampCity: revampCity, add: add},
     data() {
       return {
         cityList: [],
@@ -39,6 +41,7 @@
         cur: 1,
         allElement: '',
         modifyData: '',
+        table: '',
       }
     },
     created: function () {
@@ -49,7 +52,7 @@
     },
     mounted: function () {
       let _this = this;
-      let table = $('table').DataTable({
+      _this.table = $('table').DataTable({
         language: {
           "processing": "处理中...",
           "lengthMenu": "显示 _MENU_ 项结果",
@@ -104,7 +107,6 @@
               returnData.data = data.data.content;
               callback(returnData);
             },
-
           })
         },
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
@@ -163,7 +165,7 @@
         initComplete: function () {
           //手动添加按钮到表格上
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
-          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;'/>");
+          $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;' data-toggle=\"modal\" data-target=\"#addCity\"/>");
           $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
           $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px;color: #fff;'/>");
           $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
@@ -187,6 +189,7 @@
             if (response.status === 200) {
               delete_this.people.splice(index, 1);
               delete_this.btnClick(1);
+              this.table.draw(false);
             }
           }).catch(function (error) {
             console.log(error);
@@ -196,6 +199,9 @@
       toModify: function (e) {
         this.modifyData = this.cityList[$(e.target).parent().parent().parent().parent().index()];
       },
+      dataInteractTrue: function (e) {
+        console.log(this.table.draw(false));
+      }
     }
   }
 </script>

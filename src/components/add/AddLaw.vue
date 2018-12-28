@@ -54,7 +54,7 @@
     mounted: function () {
       this.$('[data-toggle="popover"]').popover();
     },
-    name: 'AddLaw',
+    name: 'AddData',
     data() {
       return {
         statement_name:'',
@@ -63,7 +63,7 @@
       }
     },
     methods: {
-      AddLaw: function () {
+      AddData: function () {
         let edit_this = this;
         let param = new URLSearchParams();
         let checkInput = this.checkInput();

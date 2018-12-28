@@ -6,28 +6,34 @@
         <div class="modal-title" id="myModalLabel">
           <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;
           </button>
-          <h1 class="modal-header">修改汽配城信息<span id="advertisementId" style="display: none">{{modifyData.advertisement_id}}</span>
+          <h1 class="modal-header">修改汽配城信息
+            <span id="advertisementId" style="display: none">
+              {{modifyData.advertisementId}}
+            </span>
+            <span>
+              {{modifyData.publishTime}}
+            </span>
           </h1>
         </div>
         <div class="modal-body">
           <form class="form-horizontal">
             <div class="form-group">
               <label for="name" class="col-2 control-label">
-                <i>广告名称</i>
+                <span>广告名称</span>
               </label>
               <input id="name" type="text" class="form-control col-10" name="advertisement_name"
                      v-bind:value="modifyData.advertisementName">
             </div>
             <div class="form-group">
               <label for="hreUrl">
-                <i>子广告url</i>
+                <span>子广告url</span>
               </label>
               <input id="hreUrl" type="text" class="form-control" name="advertisement_hreUrl"
                      v-bind:value="modifyData.advertisementHrefName">
             </div>
             <div class="form-group">
               <label for="url">
-                <i>顶部广告url</i>
+                <span>顶部广告url</span>
               </label>
               <input id="url" type="text" class="form-control" name="advertisement_url" v-bind:value="modifyData.advertisementUrl"/>
             </div>
@@ -61,6 +67,8 @@
           })
         }).then(res => {
           alert(res.data.message);
+          $('#close').click();
+          _this.$emit('dataInteractTrue');
         }).catch(e => {
           console.log(e);
         })
