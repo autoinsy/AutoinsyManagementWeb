@@ -1,10 +1,10 @@
 <template>
-  <div class="modal fade" id="AddLaw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="AddData" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <!--背景over-->
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-title" id="myModalLabel">
-          <button type="button" id="close" class="close myclose" data-dismiss="modal" aria-hidden="true">&times;
+          <button type="button" id="addClose" class="close myclose" data-dismiss="modal" aria-hidden="true">&times;
           </button>
           <p class="myshow">添加法律信息</p>
         </div>
@@ -39,7 +39,7 @@
         </div>
         <div class="modal-footer" style="margin: 0 auto; width:240px;border:none;">
           <input type="button" value="返回" class="subBtns btn-return" data-dismiss="modal"/>
-          <input type="button" value="确认" class="subBtns btn-return" @click="AddLaw"/>
+          <input type="button" value="确认" class="subBtns btn-return" @click="AddData"/>
         </div>
         <!--弹出 over-->
       </div>
@@ -64,22 +64,20 @@
     },
     methods: {
       AddData: function () {
-        let edit_this = this;
-        let param = new URLSearchParams();
-        let checkInput = this.checkInput();
-        param.append('statement_name', this.$('#statement_name').val());
-        param.append('statement_date', this.$('#statement_date').val());
-        param.append('statement', this.$('#statement').val());
+        let _this = this;
         this.$axios({
           method: 'post',
           url: this.HOME + '/lawstatement/add',
-          data: param
+          data: _this.qs.stringify({
+           'statement_name': _this.$('#statement_name').val(),
+           'statement_date': _this.$('#statement_date').val(),
+           'statement': _this.$('#statement').val()
+          })
         }).then(function (response) {
-          if (response.data.code == 200) {
-            alert("添加成功！");
-            edit_this.result = 1;
-            $('#addAttendance button').click();
-            edit_this.$emit('modifyTrue');
+          alert(response.data.message);
+          if (Math.ceil(response.data.code) === 200) {
+            $('#addClose').click();
+            _this.$emit('dataInteractTrue');
           }
         }).catch(function (error) {
           console.log(error);
