@@ -97,12 +97,11 @@
             },
             success: function (data) {
               var returnData = {};
+              _this.cityList = data.data.content;
+              _this.all = data.data.totalPages;
               returnData.recordsTotal = data.data.totalPages;//返回数据全部记录
               returnData.recordsFiltered = data.data.totalElements;//后台不实现过滤功能，每次查询均视作全部结果
               returnData.data = data.data.content;//返回的数据列表
-              //console.log(returnData);
-              //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
-              //此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
               callback(returnData);
             },
 
@@ -174,6 +173,9 @@
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
           $(deleteButton).click(_this.deleteData)
+          if (_this.all >= 2) {
+            $('.dataTables_paginate>a').on('click', _this.pageClick);
+          }
         },
       });
     },
@@ -198,6 +200,10 @@
       },
       dataInteractTrue: function (e) {
         this.table.draw(false);
+      },
+      pageClick: function (e) {
+        this.cur = $(e.target).attr('data-dt-idx');
+        this.table.page('next').draw(false);
       }
     }
   }

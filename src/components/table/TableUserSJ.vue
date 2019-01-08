@@ -105,6 +105,7 @@
             success: function (data) {
               var returnData = {};
               _this.cityList = data.data.content;
+              _this.all = data.data.totalPages;
               returnData.recordsTotal = data.data.totalPages;
               returnData.recordsFiltered = data.data.totalElements;
               returnData.data = data.data.content;
@@ -199,6 +200,9 @@
           $(deleteButton).click(_this.deleteData);
           $("tr").children('td').children("div").children('a[class="green"]').click(_this.toModify);
           $("tr").children('td').children("div").children('a[class=""]').click(_this.toModify);
+          if (_this.all >= 2) {
+            $('.dataTables_paginate>a').on('click', _this.pageClick);
+          }
         },
       });
     },
@@ -226,6 +230,10 @@
       },
       dataInteractTrue: function (e) {
         this.table.draw(false);
+      },
+      pageClick: function (e) {
+        this.cur = $(e.target).attr('data-dt-idx');
+        this.table.page('next').draw(false);
       }
 
     }
