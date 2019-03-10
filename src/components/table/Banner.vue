@@ -155,14 +155,14 @@
             data: "advertisementId",
             title: "Id",
           },
-          {
-            targets: 0,
-            data: null,
-            title: "<input type='checkbox'>",
-            render: function (data, type, row, meta) {
-              return "<label><input type='checkbox' value=" + data.advertisementId + "><span></span></label>"
-            }
-          },
+          // {
+          //   targets: 0,
+          //   data: null,
+          //   title: "<input type='checkbox'>",
+          //   render: function (data, type, row, meta) {
+          //     return "<label><input type='checkbox' value=" + data.advertisementId + "><span></span></label>"
+          //   }
+          // },
         ],
         buttons: [
           'copy', 'excel', 'pdf'
@@ -173,7 +173,7 @@
           $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;'/>");
           // $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
           $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px 0 0;color: #fff;'/>");
-          $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
+          // $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
           $(deleteButton).click(_this.deleteData);
@@ -199,8 +199,8 @@
             url: delete_this.HOME + '/advertisement/delete?id=' + index,
           }).then(function (response) {
             if (response.status === 200) {
-              delete_this.people.splice(index, 1);
-              delete_this.btnClick(1);
+              // delete_this.people.splice(index, 1);
+              // delete_this.btnClick(1);
               this.table.draw(false);
             }
           }).catch(function (error) {
