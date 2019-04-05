@@ -17,7 +17,6 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               </thead>
               <tbody></tbody>
@@ -92,6 +91,7 @@
         serverSide: true,
         deferRender: true,
         paging: true,
+        searching: false,
         info: false,
         pageLength: 10,
         ajax: function (data, callback, settings) {
@@ -118,7 +118,7 @@
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
         columnDefs: [
           {
-            targets: 9,
+            targets: 8,
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
@@ -137,58 +137,51 @@
             }
           },
           {
-            targets: 8,
+            targets: 7,
             data: "leaseInfoSourceCode",
             title: "信息来源",
             render: function (data, type, row, meta) {
               let leaseInfoSourceCode = row.leaseInfoSourceCode;
               if (Math.ceil(leaseInfoSourceCode) === 1) return "个人";
               else if (Math.ceil(leaseInfoSourceCode) === 2) return "公司";
+              else if (Math.ceil(leaseInfoSourceCode) === 0) return "未知";
             }
           },
           {
-            targets: 7,
+            targets: 6,
             data: "publishDate",
             title: "发布日期",
           },
           {
-            targets: 6,
+            targets: 5,
             data: "leaseCode",
             title: "租赁编号",
           },
           {
-            targets: 5,
+            targets: 4,
             data: "title",
             title: "标题",
           },
           {
-            targets: 4,
+            targets: 3,
             data: "price",
             title: "价格",
           },
           {
-            targets: 3,
+            targets: 2,
             data: "acreage",
             title: "面积",
           },
           {
-            targets: 2,
+            targets: 1,
             data: "leaseType",
             title: "租赁类型",
           },
           {
-            targets: 1,
+            targets: 0,
             data: "leaseId",
             title: "Id",
           },
-          // {
-          //   targets: 0,
-          //   data: null,
-          //   title: "<input type='checkbox'>",
-          //   render: function (data, type, row, meta) {
-          //     return "<label><input type='checkbox' value=" + data.leaseId + "><span></span></label>"
-          //   }
-          // },
         ],
         buttons: [
           'copy', 'excel', 'pdf'
@@ -198,7 +191,7 @@
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
           $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;' data-toggle=\"modal\" data-target=\"#AddLease\"/>");
           // $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
-          $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px 0 0;color: #fff;'/>");
+          // $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px 0 0;color: #fff;'/>");
           // $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
@@ -219,10 +212,8 @@
             method: 'post',
             url: delete_this.HOME + '/lease/delete?id=' + index,
           }).then(function (response) {
-            if (response.status === 200) {
-              // delete_this.people.splice(index, 1);
-              // delete_this.btnClick(1);
-              this.table.draw(false);
+            if (Math.ceil(response.data.code) === 200) {
+              delete_this.table.draw(false);
             }
           }).catch(function (error) {
             console.log(error);

@@ -21,7 +21,6 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               </thead>
               <tbody></tbody>
@@ -94,6 +93,7 @@
         serverSide: true,
         deferRender: true,
         paging: true,
+        searching: false,
         info: false,
         pageLength: 10,
         ajax: function (data, callback, settings) {
@@ -120,7 +120,7 @@
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
         columnDefs: [
           {
-            targets: 13,
+            targets: 12,
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
@@ -139,17 +139,17 @@
             }
           },
           {
-            targets: 12,
+            targets: 11,
             data: "serviceCode",
             title: "服务编号",
           },
           {
-            targets: 11,
+            targets: 10,
             data: "publishTime",
             title: "发布时间",
           },
           {
-            targets: 10,
+            targets: 9,
             data: "",
             title: "二维码地址",
             render: function (data, type, row, meta) {
@@ -157,58 +157,50 @@
             }
           },
           {
-            targets: 9,
+            targets: 8,
             data: "mobilePhoneNo",
             title: "手机号",
           },
           {
-            targets: 8,
+            targets: 7,
             data: "descript",
             title: "描述",
           },
           {
-            targets: 7,
+            targets: 6,
             data: "serviceType",
             title: "服务类型",
           },
           {
-            targets: 6,
+            targets: 5,
             data: "storeName",
             title: "商家名称",
           },
           {
-            targets: 5,
+            targets: 4,
             data: "address",
             title: "商家地址",
           },
           {
-            targets: 4,
+            targets: 3,
             data: "contacts",
             title: "联系人",
           },
           {
-            targets: 3,
+            targets: 2,
             data: "serviceArea",
             title: "服务区域",
           },
           {
-            targets: 2,
+            targets: 1,
             data: "title",
             title: "服务名称",
           },
           {
-            targets: 1,
+            targets: 0,
             data: "serviceID",
             title: "服务Id",
           },
-          // {
-          //   targets: 0,
-          //   data: null,
-          //   title: "<input type='checkbox'>",
-          //   render: function (data, type, row, meta) {
-          //     return "<label><input type='checkbox' value=" + data.serviceID + "><span></span></label>"
-          //   }
-          // },
         ],
         buttons: [
           'copy', 'excel', 'pdf'
@@ -217,7 +209,7 @@
           //手动添加按钮到表格上
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
           // $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
-          $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px 0 0;color: #fff;'/>");
+          // $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px 0 0;color: #fff;'/>");
           // $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
@@ -238,10 +230,8 @@
             method: 'post',
             url: delete_this.HOME + '/service/delete?id=' + index,
           }).then(function (response) {
-            if (response.status === 200) {
-              // delete_this.people.splice(index, 1);
-              // delete_this.btnClick(1);
-              this.table.draw(false);
+            if (Math.ceil(response.data.code) === 200) {
+              delete_this.table.draw(false);
             }
           }).catch(function (error) {
             console.log(error);

@@ -13,7 +13,6 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               </thead>
               <tbody></tbody>
@@ -87,6 +86,7 @@
         },
         serverSide: true,
         deferRender: true,
+        searching: false,
         paging: true,
         info: false,
         pageLength: 10,
@@ -113,7 +113,7 @@
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
         columnDefs: [
           {
-            targets: 5,
+            targets: 4,
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
@@ -132,30 +132,22 @@
             }
           },
           {
-            targets: 4,
+            targets: 3,
             data: "cityTitle",
             title: "标题",
           },
           {
-            targets: 3,
+            targets: 2,
             data: "cityName",
             title: "汽配城名称",
           },
           {
-            targets: 2,
+            targets: 1,
             data: "cityAddress",
             title: "汽配城地址",
           },
-          // {
-          //   targets: 0,
-          //   data: null,
-          //   title: "<input type='checkbox'>",
-          //   render: function (data, type, row, meta) {
-          //     return "<label><input type='checkbox' value=" + data.cityId + "><span></span></label>"
-          //   }
-          // },
           {
-            targets: 1,
+            targets: 0,
             data: "cityId",
             title: "Id",
           }
@@ -168,7 +160,7 @@
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
           $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;' data-toggle=\"modal\" data-target=\"#addCity\"/>");
           // $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
-          $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px 0 0;color: #fff;'/>");
+          // $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px 0 0;color: #fff;'/>");
           // $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
@@ -189,8 +181,8 @@
             method: 'post',
             url: delete_this.HOME + '/autoinsyCity/delete?id=' + index,
           }).then(function (response) {
-            if (response.status === 200) {
-              this.table.draw(false);
+            if (Math.ceil(response.data.code) === 200) {
+              delete_this.table.draw(false);
             }
           }).catch(function (error) {
             console.log(error);

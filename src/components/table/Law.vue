@@ -12,7 +12,6 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               </thead>
               <tbody></tbody>
@@ -113,7 +112,7 @@
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
         columnDefs: [
           {
-            targets: 4,
+            targets: 3,
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
@@ -132,28 +131,20 @@
             }
           },
           {
-            targets: 3,
+            targets: 2,
             data: "statementDate",
             title: "发布日期",
           },
           {
-            targets: 2,
+            targets: 1,
             data: "statementName",
             title: "标题",
           },
           {
-            targets: 1,
+            targets: 0,
             data: "statementId",
             title: "Id",
           },
-          // {
-          //   targets: 0,
-          //   data: null,
-          //   title: "<input type='checkbox'>",
-          //   render: function (data, type, row, meta) {
-          //     return "<label><input type='checkbox' value=" + data.statementId + "><span></span></label>"
-          //   }
-          // },
         ],
         buttons: [
           'copy', 'excel', 'pdf'
@@ -185,10 +176,8 @@
             method: 'post',
             url: delete_this.HOME + '/lawstatement/delete?id=' + index,
           }).then(function (response) {
-            if (response.status === 200) {
-              // delete_this.people.splice(index, 1);
-              // delete_this.btnClick(1);
-              this.table.draw(false);
+            if (Math.ceil(response.data.code) === 200) {
+              delete_this.table.draw(false);
             }
           }).catch(function (error) {
             console.log(error);

@@ -25,7 +25,6 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               </thead>
               <tbody></tbody>
@@ -101,6 +100,7 @@
         deferRender: true,
         paging: true,
         info: false,
+        searching: false,
         pageLength: 10,
         ajax: function (data, callback, settings) {
           $.ajax({
@@ -126,7 +126,7 @@
         dom: "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>t<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>",
         columnDefs: [
           {
-            targets: 17,
+            targets: 16,
             data: "",
             title: "操作",
             render: function (data, type, row, meta) {
@@ -145,17 +145,17 @@
             }
           },
           {
-            targets: 16,
+            targets: 15,
             data: "recruitCode",
             title: "招聘编号",
           },
           {
-            targets: 15,
+            targets: 14,
             data: "companyPropleNum",
             title: "企业人数范围",
           },
           {
-            targets: 14,
+            targets: 13,
             data: "isAuthentication",
             title: "是否认证",
             render: function (data, type, row, meta) {
@@ -167,52 +167,52 @@
             }
           },
           {
-            targets: 13,
+            targets: 12,
             data: "mobilePhoneNum",
             title: "手机号码",
           },
           {
-            targets: 12,
+            targets: 11,
             data: "publishTime",
             title: "发布时间",
           },
           {
-            targets: 11,
+            targets: 10,
             data: "contactPhoneNum",
             title: "联系电话",
           },
           {
-            targets: 10,
+            targets: 9,
             data: "takeOfficeRequirement",
             title: "任职要求",
           },
           {
-            targets: 9,
+            targets: 8,
             data: "positionRequirement",
             title: "职位要求",
           },
           {
-            targets: 8,
+            targets: 7,
             data: "experience",
             title: "工作经验",
           },
           {
-            targets: 7,
+            targets: 6,
             data: "educationRequirement",
             title: "学历要求",
           },
           {
-            targets: 6,
+            targets: 5,
             data: "recruitPersonNumber",
             title: "招聘人数",
           },
           {
-            targets: 5,
+            targets: 4,
             data: "sellerAddress",
             title: "商家地址",
           },
           {
-            targets: 4,
+            targets: 3,
             data: "",
             title: "期望薪资",
             render: function (data, type, row, meta) {
@@ -220,28 +220,20 @@
             }
           },
           {
-            targets: 3,
+            targets: 2,
             data: "companyName",
             title: "公司名称",
           },
           {
-            targets: 2,
+            targets: 1,
             data: "title",
             title: "招聘标题",
           },
           {
-            targets: 1,
+            targets: 0,
             data: "recruitID",
             title: "招聘ID",
           },
-          // {
-          //   targets: 0,
-          //   data: null,
-          //   title: "<input type='checkbox'>",
-          //   render: function (data, type, row, meta) {
-          //     return "<label><input type='checkbox' value=" + data.recruitID + "><span></span></label>"
-          //   }
-          // },
         ],
         buttons: [
           'copy', 'excel', 'pdf'
@@ -251,7 +243,7 @@
           $("#toolbar").css("float", "left").css("display", "inline").css("margin-left", "10px");
           $("#toolbar").append("<input type='button' value='新建' class='btn-purple' style='color: #fff; margin-right: 5px;' data-toggle=\"modal\" data-target=\"#addRecruit\"/>");
           // $("#toolbar").append("<input type='button' value='修改' class='btn-success'/>");
-          $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px 0 0;color: #fff;'/>");
+          // $("#toolbar").append("<input type='button' value='删除' class='btn-pink' style='margin: 0 5px 0 0;color: #fff;'/>");
           // $("#toolbar").append("<input type='button' value='全部删除' class='btn-info'/>");
           $("#toolbar input[class='btn-yellow']").click(_this.deleteData);
           let deleteButton = $("tr").children('td').children("div").children('a[class="red"]');
@@ -272,10 +264,8 @@
             method: 'post',
             url: delete_this.HOME + '/recuit/delete?id=' + index,
           }).then(function (response) {
-            if (response.status === 200) {
-              // delete_this.people.splice(index, 1);
-              // delete_this.btnClick(1);
-              this.table.draw(false);
+            if (Math.ceil(response.data.code) === 200) {
+              delete_this.table.draw(false);
             }
           }).catch(function (error) {
             console.log(error);
